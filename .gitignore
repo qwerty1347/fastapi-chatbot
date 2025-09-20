@@ -1,0 +1,10 @@
+__pycache__/
+.env
+.env.backup
+.venv
+/.docker/mysql/data
+/.docker/mongo/data
+/.docker/qdrant/data
+/.vscode
+/storage/logs
+/storage/uploads
