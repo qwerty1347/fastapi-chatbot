@@ -3,7 +3,6 @@ from fastapi import FastAPI
 from app.api.router_collector import get_api_routers
 from common.exceptions.handlers import register_exception_handlers
 
-
 app = FastAPI()
 
 register_exception_handlers(app)
