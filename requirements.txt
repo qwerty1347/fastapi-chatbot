@@ -66,6 +66,22 @@ langchain-openai==0.2.8       # OpenAI/Groq-compatible LangChain integration
 langchain-qdrant==0.1.4       # Qdrant integration for LangChain vector stores
 
 # -----------------------------
+# Google Custom Search API Wrapper
+# -----------------------------
+google-api-python-client==2.97.0 # Google API client for Custom Search integration
+
+# -----------------------------
+# SerpAPI Wrapper for web search
+# -----------------------------
+google-search-results==2.4.2  # Official SerpAPI Python package
+
+# -----------------------------
+# Dataset handling
+# -----------------------------
+datasets==2.14.6              # Hugging Face datasets library for loading, preprocessing, and sharing datasets
+pyarrow==10.0.1               # Apache Arrow for fast columnar data processing (used internally by datasets)
+
+# -----------------------------
 # HTTP Client
 # -----------------------------
 httpx==0.25.1                 # Async/sync HTTP client (API calls, testing)
