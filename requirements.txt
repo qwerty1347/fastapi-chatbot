@@ -13,8 +13,7 @@ pytz==2025.2                  # Timezone support for datetime
 # -----------------------------
 # Data validation
 # -----------------------------
-pydantic==2.11.5              # Data modeling/validation library (v2)
-pydantic_settings==2.10.1     # BaseSettings config management
+pydantic==1.10.12             # Data modeling/validation library
 
 # -----------------------------
 # File upload
@@ -32,7 +31,7 @@ alembic==1.13.1               # DB migrations
 # MongoDB (async ODM) related
 # -----------------------------
 motor==3.7.1                  # Async MongoDB driver
-beanie==1.29.0                # ODM based on Pydantic + Motor
+beanie==1.27.0                # ODM based on Pydantic + Motor
 
 # -----------------------------
 # Numerical & Scientific Computing
@@ -59,11 +58,12 @@ qdrant-client==1.11.1         # Qdrant vector DB client
 # -----------------------------
 # LangChain & Ecosystem
 # -----------------------------
-langchain==0.3.7              # Core LangChain framework (chains, agents, LLM integrations)
-langchain-core==0.3.17        # Core abstractions/utilities for LangChain
-langchain-community==0.3.7    # Community-contributed LangChain integrations
-langchain-openai==0.2.8       # OpenAI/Groq-compatible LangChain integration
-langchain-qdrant==0.1.4       # Qdrant integration for LangChain vector stores
+langchain==0.2.17             # Core LangChain framework (chains, agents, LLM integrations)
+langchain-core==0.2.43        # Core abstractions and utilities for LangChain
+langchain-community==0.2.19   # Community-contributed integrations for LangChain
+langchain-openai==0.1.25      # LangChain integration for OpenAI and Groq LLMs
+langchain-qdrant==0.1.1       # LangChain integration for Qdrant vector database
+langchain-groq==0.1.10        # LangChain integration for Groq LLM models
 
 # -----------------------------
 # Google Custom Search API Wrapper
