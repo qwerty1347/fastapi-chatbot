@@ -1,0 +1,720 @@
+{
+    "search_metadata": {
+        "id": "68db39a5919dfa******",
+        "status": "Success",
+        "json_endpoint": "https://serpapi.com/searches/66fece8*******/68db39a5919*******.json",
+        "pixel_position_endpoint": "https://serpapi.com/searches/66fece8*******/68db39a5919*******.json_with_pixel_position",
+        "created_at": "2025-09-30 02:00:05 UTC",
+        "processed_at": "2025-09-30 02:00:05 UTC",
+        "google_url": "https://www.google.com/search?q=2025%EB%85%84+%EC%B6%94%EC%84%9D&oq=2025%EB%85%84+%EC%B6%94%EC%84%9D&hl=ko&gl=kr&sourceid=chrome&ie=UTF-8",
+        "raw_html_file": "https://serpapi.com/searches/66fece8*******/68db39a5919*******.html",
+        "total_time_taken": 1.88
+    },
+    "search_parameters": {
+        "engine": "google",
+        "q": "2025년 추석",
+        "google_domain": "google.com",
+        "hl": "ko",
+        "gl": "kr",
+        "device": "desktop"
+    },
+    "search_information": {
+        "query_displayed": "2025년 추석",
+        "total_results": 38900000,
+        "time_taken_displayed": 0.49,
+        "organic_results_state": "Results for exact spelling"
+    },
+    "knowledge_graph": {
+        "title": "추석",
+        "type": "명절",
+        "entity_type": "holidays",
+        "kgmid": "/m/03rb1r",
+        "knowledge_graph_search_link": "https://www.google.com/search?kgmid=/m/03rb1r&hl=ko-KR&q=%EC%B6%94%EC%84%9D",
+        "serpapi_knowledge_graph_search_link": "https://serpapi.com/search.json?device=desktop&engine=google&gl=kr&google_domain=google.com&hl=ko-KR&kgmid=%2Fm%2F03rb1r&q=%EC%B6%94%EC%84%9D",
+        "description": "추석은 설날과 더불어 대표적인 한국의 명절로, 음력 8월 15일이다. 한가위라고도 불린다. 가을 저녁에 보름달 보며 소원을 비는 민족의 대명절이다. 한가위는 농경사회인 한국의 명절로 가배일, 추수 전 덜 익은 쌀로 빚은 송편과 햇과일을 진설하고 조상들께 감사의 마음으로 차례를 지냈다.",
+        "source": {
+            "name": "위키백과",
+            "link": "https://ko.wikipedia.org/wiki/%EC%B6%94%EC%84%9D"
+        },
+        "날짜": "2025년 10월 6일 월요일",
+        "관련_검색어": [
+            {
+                "name": "한국의 설날",
+                "link": "https://www.google.com/search?sca_esv=426a8004247428d8&gl=kr&hl=ko&q=%EC%84%A4%EB%AA%85%EC%A0%88&stick=H4sIAAAAAAAAAONgFuLUz9U3MC5KMixS4gIxjQqSTdMrtfic83Nz8_OCM1NSyxMrixexcr5pWfJ6VeubBR0A11jOFDUAAAA&sa=X&ved=2ahUKEwjoybrjsf-PAxWuEjQIHQlKGrgQxA16BAgvEAU",
+                "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=google&gl=kr&google_domain=google.com&hl=ko&q=%EC%84%A4%EB%AA%85%EC%A0%88&stick=H4sIAAAAAAAAAONgFuLUz9U3MC5KMixS4gIxjQqSTdMrtfic83Nz8_OCM1NSyxMrixexcr5pWfJ6VeubBR0A11jOFDUAAAA",
+                "image": "https://serpapi.com/searches/68db39a5919dfa266a3db7c4/images/d04497d588e89ff4b7f8deeaa7fb41578cc7b9559d42eb63357aebc5cb494abb1c09ee787417c2f887cde743891bd600.jpeg"
+            },
+            {
+                "name": "한글날",
+                "link": "https://www.google.com/search?sca_esv=426a8004247428d8&gl=kr&hl=ko&q=%ED%95%9C%EA%B8%80%EB%82%A0&stick=H4sIAAAAAAAAAONgFuLUz9U3MC5KMixSAjMNC8sqDbX4nPNzc_PzgjNTUssTK4sXsXK-nTrn1Y6G100LANNutBc0AAAA&sa=X&ved=2ahUKEwjoybrjsf-PAxWuEjQIHQlKGrgQxA16BAgvEAg",
+                "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=google&gl=kr&google_domain=google.com&hl=ko&q=%ED%95%9C%EA%B8%80%EB%82%A0&stick=H4sIAAAAAAAAAONgFuLUz9U3MC5KMixSAjMNC8sqDbX4nPNzc_PzgjNTUssTK4sXsXK-nTrn1Y6G100LANNutBc0AAAA",
+                "image": "https://serpapi.com/searches/68db39a5919dfa266a3db7c4/images/d04497d588e89ff4b7f8deeaa7fb41578cc7b9559d42eb63357aebc5cb494abb0b1884eab06b0e89934b73a203b6d741.jpeg"
+            },
+            {
+                "name": "광복절",
+                "link": "https://www.google.com/search?sca_esv=426a8004247428d8&gl=kr&hl=ko&q=%EA%B4%91%EB%B3%B5%EC%A0%88&stick=H4sIAAAAAAAAAONgFuLUz9U3MC5KMixSAjPN0w2S07X4nPNzc_PzgjNTUssTK4sXsXK-2jLx9eatbxZ0AADqxN1RNAAAAA&sa=X&ved=2ahUKEwjoybrjsf-PAxWuEjQIHQlKGrgQxA16BAgvEAs",
+                "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=google&gl=kr&google_domain=google.com&hl=ko&q=%EA%B4%91%EB%B3%B5%EC%A0%88&stick=H4sIAAAAAAAAAONgFuLUz9U3MC5KMixSAjPN0w2S07X4nPNzc_PzgjNTUssTK4sXsXK-2jLx9eatbxZ0AADqxN1RNAAAAA",
+                "image": "https://serpapi.com/searches/68db39a5919dfa266a3db7c4/images/d04497d588e89ff4b7f8deeaa7fb41578cc7b9559d42eb63357aebc5cb494abbb210af9e64fbf7250bb09dce3c7124a0.jpeg"
+            },
+            {
+                "name": "개천절",
+                "link": "https://www.google.com/search?sca_esv=426a8004247428d8&gl=kr&hl=ko&q=%EA%B0%9C%EC%B2%9C%EC%A0%88&stick=H4sIAAAAAAAAAONgFuLUz9U3MC5KMixSAjMtTHIN87T4nPNzc_PzgjNTUssTK4sXsXK-2jDnzaY5bxZ0AACMVBJ6NAAAAA&sa=X&ved=2ahUKEwjoybrjsf-PAxWuEjQIHQlKGrgQxA16BAgvEA4",
+                "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=google&gl=kr&google_domain=google.com&hl=ko&q=%EA%B0%9C%EC%B2%9C%EC%A0%88&stick=H4sIAAAAAAAAAONgFuLUz9U3MC5KMixSAjMtTHIN87T4nPNzc_PzgjNTUssTK4sXsXK-2jDnzaY5bxZ0AACMVBJ6NAAAAA",
+                "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSox9QNbPSkjL1lB9ptbna11AE-VuqupESpmSaTZAztx8aslCcX8zvbbg&s=0"
+            },
+            {
+                "name": "크리스마스",
+                "link": "https://www.google.com/search?sca_esv=426a8004247428d8&gl=kr&hl=ko&q=%ED%81%AC%EB%A6%AC%EC%8A%A4%EB%A7%88%EC%8A%A4&stick=H4sIAAAAAAAAAONgFuLUz9U3MC5KMixS4gAxDcsKjbX4nPNzc_PzgjNTUssTK4sXsfK_bVzzetmaN11LXi_vAJIATXCqzTkAAAA&sa=X&ved=2ahUKEwjoybrjsf-PAxWuEjQIHQlKGrgQxA16BAgvEBE",
+                "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=google&gl=kr&google_domain=google.com&hl=ko&q=%ED%81%AC%EB%A6%AC%EC%8A%A4%EB%A7%88%EC%8A%A4&stick=H4sIAAAAAAAAAONgFuLUz9U3MC5KMixS4gAxDcsKjbX4nPNzc_PzgjNTUssTK4sXsfK_bVzzetmaN11LXi_vAJIATXCqzTkAAAA",
+                "image": "https://encrypted-tbn0.gstatic.com/licensed-image?q=tbn:ANd9GcRBSrDurJXlzxP2QM1QIiY6St2LJN6zA7oO0epjC4UMWbNiujYLM6WCKnexUUxPIy5C8OqvAmwhMi-ApghlkE9Tew&s=19"
+            },
+            {
+                "name": "중추절",
+                "link": "https://www.google.com/search?sca_esv=426a8004247428d8&gl=kr&hl=ko&q=%EC%A4%91%EC%B6%94%EC%A0%88&stick=H4sIAAAAAAAAAONgFuLUz9U3MC5KMixSAjMNSywt0rT4nPNzc_PzgjNTUssTK4sXsXK-WTLxzbYpbxZ0AACLeVv_NAAAAA&sa=X&ved=2ahUKEwjoybrjsf-PAxWuEjQIHQlKGrgQxA16BAgvEBQ",
+                "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=google&gl=kr&google_domain=google.com&hl=ko&q=%EC%A4%91%EC%B6%94%EC%A0%88&stick=H4sIAAAAAAAAAONgFuLUz9U3MC5KMixSAjMNSywt0rT4nPNzc_PzgjNTUssTK4sXsXK-WTLxzbYpbxZ0AACLeVv_NAAAAA",
+                "image": "https://encrypted-tbn0.gstatic.com/licensed-image?q=tbn:ANd9GcS7DNGzT9EplU3KICkDNaQ1hvjpYw6zGIawJsm1uKkWWXg9aohrMIOkzyYFqpFuPwdYZZvY_Ao9eBTHKTWF96c8GA&s=19"
+            },
+            {
+                "name": "현충일",
+                "link": "https://www.google.com/search?sca_esv=426a8004247428d8&gl=kr&hl=ko&q=%ED%98%84%EC%B6%A9%EC%9D%BC&stick=H4sIAAAAAAAAAONgFuLUz9U3MC5KMixS4gIxzUxyKqpMtPic83Nz8_OCM1NSyxMrixexcr6d0fJm28o3c_cAADGsHxk1AAAA&sa=X&ved=2ahUKEwjoybrjsf-PAxWuEjQIHQlKGrgQxA16BAgvEBc",
+                "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=google&gl=kr&google_domain=google.com&hl=ko&q=%ED%98%84%EC%B6%A9%EC%9D%BC&stick=H4sIAAAAAAAAAONgFuLUz9U3MC5KMixS4gIxzUxyKqpMtPic83Nz8_OCM1NSyxMrixexcr6d0fJm28o3c_cAADGsHxk1AAAA",
+                "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQY7PIAQ0CJH3PPMAOuegO7jTxn-gX3AIbSJY5W8MgBe01_CoTL9_r17w&s=0"
+            }
+        ],
+        "관련_검색어_link": "https://www.google.com/search?sca_esv=426a8004247428d8&gl=kr&hl=ko&q=%EC%B6%94%EC%84%9D&stick=H4sIAAAAAAAAAONgFuLUz9U3MC5KMixSQjAfMZpwC7z8cU9YSnvSmpPXGFW5uIIz8std80oySyqFxLnYoCxeKW4uhC6eRaxsb7ZNedMyFwDuwbrqWAAAAA&sa=X&ved=2ahUKEwjoybrjsf-PAxWuEjQIHQlKGrgQ_coHKAF6BAguEAM",
+        "관련_검색어_stick": "H4sIAAAAAAAAAONgFuLUz9U3MC5KMixSQjAfMZpwC7z8cU9YSnvSmpPXGFW5uIIz8std80oySyqFxLnYoCxeKW4uhC6eRaxsb7ZNedMyFwDuwbrqWAAAAA"
+    },
+    "inline_images": [
+        {
+            "thumbnail": "https://serpapi.com/searches/68db39a5919dfa266a3db7c4/images/b926d46bc63ca24ce21e553f0e1fc17f15116122dba9073414453addf6475a12.jpeg"
+        },
+        {
+            "source": "https://www.hani.co.kr/arti/society/society_general/1145633.html",
+            "thumbnail": "https://serpapi.com/searches/68db39a5919dfa266a3db7c4/images/b926d46bc63ca24c21e683ad5145ac3279a995181c1ae3e79ec05e47d7889f84.jpeg"
+        },
+        {
+            "source": "https://sendbee.co.kr/archive/2025%EB%85%84-%EC%B6%94%EC%84%9D%EC%9D%B8%EC%82%AC%EB%A7%90-%EB%AC%B8%EA%B5%AC-%EB%B0%8F-%EC%9D%B8%EA%B8%B0-%EC%84%A0%EB%AC%BC-%EC%B6%94%EC%B2%9C/",
+            "thumbnail": "https://serpapi.com/searches/68db39a5919dfa266a3db7c4/images/b926d46bc63ca24c1bf2ebfff532bea12c2e45271ff6956ac8f8ca7496984032.jpeg"
+        },
+        {
+            "source": "https://sendbee.co.kr/archive/2025%EB%85%84-%EC%B6%94%EC%84%9D%EC%84%A0%EB%AC%BC-%EC%A4%80%EB%B9%84%EB%B6%80%ED%84%B0-%EC%98%88%EC%82%B0%EC%84%A4%EC%A0%95-%EA%B0%80%EC%9D%B4%EB%93%9C/",
+            "thumbnail": "https://serpapi.com/searches/68db39a5919dfa266a3db7c4/images/b926d46bc63ca24c3175e9e3c100f4e7065be0f41319f688c9c546819dcfdc3b.jpeg"
+        }
+    ],
+    "inline_videos": [
+        {
+            "position": 1,
+            "title": "2025 추석 종합대책｜#서울시 이렇게 준비하고 있습니다 ...",
+            "link": "https://www.youtube.com/shorts/DsrwzP7S9cw",
+            "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-jml8Ru-tmVb2Bke_rwSdPVzM5J0QHUzhViF4RcABxTvS&s",
+            "channel": "서울시 Seoul",
+            "duration": "1:31",
+            "platform": "YouTube"
+        },
+        {
+            "position": 2,
+            "title": "[다시보기] 추석 연휴 앞두고 20세기로 돌아간 국가전산망 ...",
+            "link": "https://www.youtube.com/watch?v=mgcNfipgXA0",
+            "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0GOJ5RZ83-56MURzn6gN9vrFUKeZv1p043tSDnALnxzo1&s",
+            "channel": "채널A 뉴스TOP10",
+            "duration": "1:44:10",
+            "platform": "YouTube"
+        },
+        {
+            "position": 3,
+            "title": "내년 '빨간 날'은 언제?…\"추석 대박\" 2025년 월력요항 발표 ...",
+            "link": "https://www.youtube.com/watch?v=GPCqYrvP0o8",
+            "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcReCa9giIsCubLA5v8ubYju4bBrJkNrBxKqT5TpLi2FMpYH&s",
+            "channel": "SBS 뉴스",
+            "duration": "1:23",
+            "platform": "YouTube"
+        }
+    ],
+    "related_questions": [
+        {
+            "question": "2025년 명절 달력은 어떻게 되나요?",
+            "type": "featured_snippet",
+            "snippet": "그럼 2025년 공휴일 일정을 달력과 함께 알려드릴게요❗ ✅ 1/1 신정 ✅ 1/28 ~ 1/30 설날 ✅ 3/1 삼일절, 3/3 대체공휴일 ✅ 5/5 어린이날&부처님 오신 날, 5/6 대체공휴일 ✅ 6/6 현충일 ✅ 8/15 광복절 ✅ 10/3 개천절 ✅ 10/5 ~ 10/7 추석, ...",
+            "title": "2025년엔 언제 쉬지 2025년 을사년 공휴일&대체공휴일 정리해드림 ...",
+            "date": "2024. 12. 23.",
+            "link": "https://www.facebook.com/ddm4you/posts/2025%EB%85%84%EC%97%94-%EC%96%B8%EC%A0%9C-%EC%89%AC%EC%A7%80-2025%EB%85%84-%EC%9D%84%EC%82%AC%EB%85%84-%EA%B3%B5%ED%9C%B4%EC%9D%BC%EB%8C%80%EC%B2%B4%EA%B3%B5%ED%9C%B4%EC%9D%BC-%EC%A0%95%EB%A6%AC%ED%95%B4%EB%93%9C%EB%A6%BC%EB%8B%A4%EA%B0%80%EC%98%A4%EB%8A%94-2025%EB%85%84%EC%9D%80-%ED%91%B8%EB%A5%B8-%EB%B1%80%EC%9D%98-%ED%95%B4-%EC%9C%A1%EC%8B%AD%EA%B0%84%EC%A7%80%EC%9D%98-42%EB%B2%88%EC%A7%B8%EB%A1%9C-%EC%B2%AD%EC%83%89%EC%9D%98-%EC%9D%84%E4%B9%99%EA%B3%BC-%EB%B1%80%EC%9D%84-/1008815241288875/",
+            "displayed_link": "https://www.facebook.com › posts › 2025년엔-언제-쉬...",
+            "source_logo": "https://serpapi.com/searches/68db39a5919dfa266a3db7c4/images/41d19ce79526a478a995d5f7930b43c88ffc7b208b43af7bc545c64b3a38e775.png",
+            "next_page_token": "eyJvbnMiOiIxMDA0MSIsImZjIjoiRXFFQkNtSkJUR3QwWDNaSU9VeGlhbVl4T0d0UWFHZHBkamhQUVZkc1QxSlhhMjF2VkRFemQzcDRkekoyWW5kbVZXOU1NV3hZU2xWbFpsbzJZVmgxWnpGclIybHNhVWxMVURJemIyODJaVlJVV0RKTWRIcHVPVEozVDNWemNYbFZZbEpQYW1Oalp4SVhjR3B1WW1GUGFtVktZVFpzTUZCRlVHbGFWSEIzUVhNYUlrRkdUVUZIUjNFME9VazRSRmxvVjJVM2JGUnVjSGRQWTFRNGRteHpka1k0YW1jIiwiZmN2IjoiMyIsImVpIjoicGpuYmFPamVKYTZsMFBFUGlaVHB3QXMiLCJxYyI6IkNnOHlNREkxSU91RmhDRHN0cFRzaEowUUNYM1dhZ29fb2dFQ2EyOCIsInF1ZXN0aW9uIjoiMjAyNeuFhCDrqoXsoIgg64us66Cl7J2AIOyWtOuWu+qyjCDrkJjrgpjsmpQ/IiwibGsiOiJHaFl5TURJMUlPdUZoQ0RycW9Yc29JZ2c2NHVzNjZDbCIsImJzIjoiYy1QeTRkSTFNakF5ZmQzYW92QjZWZXViQlIwS3I3dlh2RjZ3OU0zY0JvVTMwN2E4bnJiNzFhWWVoZGNUWnJ4dW12Rm0xaFI3aWJPNVJoSlNZaUE5Q2hpYXVBSzU5R0dtdmRrMjVVM0xYSVczTTFlLTJ0SHhadnFHdDNPMnZPNmFBalJ6eDVzRmM5N00zZkZxUXdQWXZKOVpSdEpTa21EelVMUW9RUFJ3T1hPcHc0eTBmRE43eXB2cEU4REdnQ1dCWmlpOG1kY0JjOXBGYlNOUktXR293eXdWZ0twaGh2aHc2Y0VNTVVNeUJPU19KZGpOLXVkaUpDNGxDdmVtR1pKcEFvd0EiLCJpZCI6ImZjX3BqbmJhT2plSmE2bDBQRVBpWlRwd0FzXzEifQ==",
+            "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=google_related_questions&google_domain=google.com&next_page_token=eyJvbnMiOiIxMDA0MSIsImZjIjoiRXFFQkNtSkJUR3QwWDNaSU9VeGlhbVl4T0d0UWFHZHBkamhQUVZkc1QxSlhhMjF2VkRFemQzcDRkekoyWW5kbVZXOU1NV3hZU2xWbFpsbzJZVmgxWnpGclIybHNhVWxMVURJemIyODJaVlJVV0RKTWRIcHVPVEozVDNWemNYbFZZbEpQYW1Oalp4SVhjR3B1WW1GUGFtVktZVFpzTUZCRlVHbGFWSEIzUVhNYUlrRkdUVUZIUjNFME9VazRSRmxvVjJVM2JGUnVjSGRQWTFRNGRteHpka1k0YW1jIiwiZmN2IjoiMyIsImVpIjoicGpuYmFPamVKYTZsMFBFUGlaVHB3QXMiLCJxYyI6IkNnOHlNREkxSU91RmhDRHN0cFRzaEowUUNYM1dhZ29fb2dFQ2EyOCIsInF1ZXN0aW9uIjoiMjAyNeuFhCDrqoXsoIgg64us66Cl7J2AIOyWtOuWu%2BqyjCDrkJjrgpjsmpQ%2FIiwibGsiOiJHaFl5TURJMUlPdUZoQ0RycW9Yc29JZ2c2NHVzNjZDbCIsImJzIjoiYy1QeTRkSTFNakF5ZmQzYW92QjZWZXViQlIwS3I3dlh2RjZ3OU0zY0JvVTMwN2E4bnJiNzFhWWVoZGNUWnJ4dW12Rm0xaFI3aWJPNVJoSlNZaUE5Q2hpYXVBSzU5R0dtdmRrMjVVM0xYSVczTTFlLTJ0SHhadnFHdDNPMnZPNmFBalJ6eDVzRmM5N00zZkZxUXdQWXZKOVpSdEpTa21EelVMUW9RUFJ3T1hPcHc0eTBmRE43eXB2cEU4REdnQ1dCWmlpOG1kY0JjOXBGYlNOUktXR293eXdWZ0twaGh2aHc2Y0VNTVVNeUJPU19KZGpOLXVkaUpDNGxDdmVtR1pKcEFvd0EiLCJpZCI6ImZjX3BqbmJhT2plSmE2bDBQRVBpWlRwd0FzXzEifQ%3D%3D"
+        },
+        {
+            "question": "2025년 추석 황금연휴는 언제인가요?",
+            "type": "ai_overview",
+            "text_blocks": [
+                {
+                    "type": "paragraph",
+                    "snippet": "2025년 추석 황금 연휴는 10월 3일 개천절부터 시작하여 10월 9일 한글날까지 이어지는 최대 7일의 연휴입니다. 10월 3일(금) 개천절과 10월 5일(일)부터 7일(월)까지 추석 연휴, 그리고 10월 8일(수)이 대체 공휴일이며 10월 9일(목)이 한글날입니다. 만약 10월 10일(금)에 연차를 사용한다면, 주말까지 포함해 최대 10일의 황금연휴를 즐길 수 있습니다.",
+                    "snippet_highlighted_words": [
+                        "10월 3일 개천절부터 시작하여 10월 9일 한글날까지 이어지는 최대 7일의 연휴"
+                    ],
+                    "reference_indexes": [
+                        0,
+                        1,
+                        2,
+                        3,
+                        4
+                    ]
+                },
+                {
+                    "type": "paragraph",
+                    "snippet": "2025년 추석 황금 연휴 상세 일정",
+                    "reference_indexes": [
+                        0,
+                        1,
+                        2,
+                        4
+                    ]
+                },
+                {
+                    "type": "list",
+                    "list": [
+                        {
+                            "snippet": "10월 3일 (금): 개천절"
+                        },
+                        {
+                            "snippet": "10월 4일 (토): 주말"
+                        },
+                        {
+                            "snippet": "10월 5일 (일): 추석 연휴"
+                        },
+                        {
+                            "snippet": "10월 6일 (월): 추석"
+                        },
+                        {
+                            "snippet": "10월 7일 (화): 추석 연휴"
+                        },
+                        {
+                            "snippet": "10월 8일 (수): 대체공휴일"
+                        },
+                        {
+                            "snippet": "10월 9일 (목): 한글날"
+                        },
+                        {
+                            "snippet": "(선택) 10월 10일 (금): 연차 사용 시"
+                        }
+                    ]
+                }
+            ],
+            "references": [
+                {
+                    "title": "2025년 추석연휴 일정과 연휴 준비 가이드",
+                    "link": "https://sendbee.co.kr/archive/2025%EB%85%84-%EC%B6%94%EC%84%9D%EC%97%B0%ED%9C%B4-%EB%B0%8F-%EC%A4%80%EB%B9%84-%EA%B0%80%EC%9D%B4%EB%93%9C/#:~:text=%EA%B0%9C%EC%B2%9C%EC%A0%88(10%EC%9B%94%203%EC%9D%BC%20%EA%B8%88%EC%9A%94%EC%9D%BC)%EB%B6%80%ED%84%B0%20%EC%8B%9C%EC%9E%91%ED%95%B4%20%EC%A3%BC%EB%A7%90(10%EC%9B%94%204~5%EC%9D%BC)%2C%20%EC%B6%94%EC%84%9D(6%EC%9D%BC)%2C,%EC%B6%94%EA%B0%80%ED%95%9C%EB%8B%A4%EB%A9%B4%2C%20%EC%B5%9C%EB%8C%80%2010%EC%9D%BC%20%ED%99%A9%EA%B8%88%EC%97%B0%ED%9C%B4%EA%B9%8C%EC%A7%80%20%EC%9D%B4%EC%96%B4%EC%A7%88%20%EC%88%98%20%EC%9E%88%EC%8A%B5%EB%8B%88%EB%8B%A4.",
+                    "snippet": "2025. 8. 25. — 개천절(10월 3일 금요일)부터 시작해 주말(10월 4~5일), 추석(6일), 대체공휴...",
+                    "source": "센드비",
+                    "index": 0
+                },
+                {
+                    "title": "최대 9일 어쩌면 10일, 2025년 황금연휴는…",
+                    "link": "https://www.naeponews.co.kr/news/articleView.html?idxno=40192#:~:text=%EC%B6%94%EC%84%9D%20%EC%97%B0%ED%9C%B4%20%EC%B2%AB%EB%82%A0%EC%9D%B8%205%EC%9D%BC%EC%9D%B4%20%EC%9D%BC%EC%9A%94%EC%9D%BC%EC%9D%B4%EB%9D%BC%208%EC%9D%BC%20%EC%88%98%EC%9A%94%EC%9D%BC%EC%9D%B4,%EC%9D%BC%EC%9A%94%EC%9D%BC%EA%B9%8C%EC%A7%80%20%EC%B5%9C%EB%8C%80%20%EC%97%B4%ED%9D%98%EA%B0%84%EC%9D%98%20%EA%B8%B4%20%ED%9C%B4%EA%B0%80%EB%A5%BC%20%EB%88%84%EB%A6%AC%EA%B2%8C%20%EB%90%9C%EB%8B%A4.",
+                    "snippet": "2025. 1. 6. — 추석 연휴 첫날인 5일이 일요일이라 8일 수요일이 대체 휴일이 되고, 9일은 한글날로 쉰...",
+                    "source": "내포뉴스",
+                    "index": 1
+                },
+                {
+                    "title": "2025년 황금연휴 1분 요약| 박기자가 알려준다",
+                    "link": "https://www.youtube.com/watch?v=xNDT6ArwqYw",
+                    "snippet": "2025. 1. 2. — 바 정책도 궁금한데. 직장이라면 2025년이 빨간 날도 중요하 아 우리한테. 있어서는 그...",
+                    "source": "YouTube · 경남신문",
+                    "index": 2
+                },
+                {
+                    "title": "내년 추석연휴 '1주일' 쉰다…2025년 총 119일 쉰다",
+                    "link": "https://www.newstree.kr/newsView/ntr202406200007#:~:text=2025%EB%85%84%20%EC%B6%94%EC%84%9D%EC%97%B0%ED%9C%B4%EB%8A%94%203%EC%9D%BC%20%EA%B0%9C%EC%B2%9C%EC%A0%88%EB%B6%80%ED%84%B0%209%EC%9D%BC%20%ED%95%9C%EA%B8%80%EB%82%A0%EA%B9%8C%EC%A7%80%20%EC%A3%BD,%EB%8B%AC%EB%A0%A5%20%EC%A0%9C%EC%9E%91%EC%9D%98%20%EA%B8%B0%EC%A4%80%EC%9D%B4%20%EB%90%98%EB%8A%94%20%EC%9E%90%EB%A3%8C%EB%A1%9C%20%EC%B2%9C%EB%AC%B8%EB%B2%95%EC%97%90%20%EB%94%B0%EB%9D%BC",
+                    "snippet": "2024. 6. 20. — 2025년 추석연휴는 3일 개천절부터 9일 한글날까지 죽 이어지면서 '7일의 황금연휴'",
+                    "source": "뉴스;트리",
+                    "index": 3
+                },
+                {
+                    "title": "2025년 10월 황금연휴, 직장인들을 연휴 선물 준비까지! - 센드비",
+                    "link": "https://sendbee.co.kr/archive/2025%EB%85%84-10%EC%9B%94-%EC%97%B0%ED%9C%B4-%EC%9D%B4%EB%A0%87%EA%B2%8C-%ED%95%98%EB%A9%B4-%ED%99%A9%EA%B8%88%EC%97%B0%ED%9C%B4-%EC%93%B8-%EC%88%98-%EC%9E%88%EB%8B%A4/",
+                    "snippet": "2025. 8. 11.",
+                    "source": "센드비",
+                    "index": 4
+                }
+            ],
+            "next_page_token": "eyJvbnMiOiIxMDA0MSIsImZjIjoiRXFFQkNtSkJUR3QwWDNaSU9VeGlhbVl4T0d0UWFHZHBkamhQUVZkc1QxSlhhMjF2VkRFemQzcDRkekoyWW5kbVZXOU1NV3hZU2xWbFpsbzJZVmgxWnpGclIybHNhVWxMVURJemIyODJaVlJVV0RKTWRIcHVPVEozVDNWemNYbFZZbEpQYW1Oalp4SVhjR3B1WW1GUGFtVktZVFpzTUZCRlVHbGFWSEIzUVhNYUlrRkdUVUZIUjNFME9VazRSRmxvVjJVM2JGUnVjSGRQWTFRNGRteHpka1k0YW1jIiwiZmN2IjoiMyIsImVpIjoicGpuYmFPamVKYTZsMFBFUGlaVHB3QXMiLCJxYyI6IkNnOHlNREkxSU91RmhDRHN0cFRzaEowUUNYM1dhZ29fb2dFQ2EyOCIsInF1ZXN0aW9uIjoiMjAyNeuFhCDstpTshJ0g7Zmp6riI7Jew7Zy064qUIOyWuOygnOyduOqwgOyalD8iLCJsayI6Ikdoa3lNREkxSU95MmxPeUVuU0R0bWFucXVJZ2c3SmV3N1p5MCIsImJzIjoiYy1QeTRkSTFNakF5ZmQzYW92QjZWZXViQlIwS3I3dlh2RjZ3OU0zY0JvVTMwN2E4bnJiNzFhWWVoZGNUWnJ4dW12Rm0xaFI3aWJPNVJoSlNZaUE5Q2hpYXVBSzU5R0dtdmRrMjVVM0xYSVczTTFlLTJ0SHhadnFHdDNPMnZPNmFBalJ6eDVzRmM5N00zZkZxUXdQWXZKOVpSdEpTa21EelVMUW9RUFJ3T1hPcHc0eTBmRE43eXB2cEU4REdnQ1dCWmlpOG1kY0JjOXBGYlNOUktXR293eXdWZ0twaGh2aHc2Y0VNTVVNeUJPU19KZGpOLXVkaUpDNGxDdmVtR1pKcEFvd0EiLCJpZCI6ImZjX3BqbmJhT2plSmE2bDBQRVBpWlRwd0FzXzEifQ==",
+            "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=google_related_questions&google_domain=google.com&next_page_token=eyJvbnMiOiIxMDA0MSIsImZjIjoiRXFFQkNtSkJUR3QwWDNaSU9VeGlhbVl4T0d0UWFHZHBkamhQUVZkc1QxSlhhMjF2VkRFemQzcDRkekoyWW5kbVZXOU1NV3hZU2xWbFpsbzJZVmgxWnpGclIybHNhVWxMVURJemIyODJaVlJVV0RKTWRIcHVPVEozVDNWemNYbFZZbEpQYW1Oalp4SVhjR3B1WW1GUGFtVktZVFpzTUZCRlVHbGFWSEIzUVhNYUlrRkdUVUZIUjNFME9VazRSRmxvVjJVM2JGUnVjSGRQWTFRNGRteHpka1k0YW1jIiwiZmN2IjoiMyIsImVpIjoicGpuYmFPamVKYTZsMFBFUGlaVHB3QXMiLCJxYyI6IkNnOHlNREkxSU91RmhDRHN0cFRzaEowUUNYM1dhZ29fb2dFQ2EyOCIsInF1ZXN0aW9uIjoiMjAyNeuFhCDstpTshJ0g7Zmp6riI7Jew7Zy064qUIOyWuOygnOyduOqwgOyalD8iLCJsayI6Ikdoa3lNREkxSU95MmxPeUVuU0R0bWFucXVJZ2c3SmV3N1p5MCIsImJzIjoiYy1QeTRkSTFNakF5ZmQzYW92QjZWZXViQlIwS3I3dlh2RjZ3OU0zY0JvVTMwN2E4bnJiNzFhWWVoZGNUWnJ4dW12Rm0xaFI3aWJPNVJoSlNZaUE5Q2hpYXVBSzU5R0dtdmRrMjVVM0xYSVczTTFlLTJ0SHhadnFHdDNPMnZPNmFBalJ6eDVzRmM5N00zZkZxUXdQWXZKOVpSdEpTa21EelVMUW9RUFJ3T1hPcHc0eTBmRE43eXB2cEU4REdnQ1dCWmlpOG1kY0JjOXBGYlNOUktXR293eXdWZ0twaGh2aHc2Y0VNTVVNeUJPU19KZGpOLXVkaUpDNGxDdmVtR1pKcEFvd0EiLCJpZCI6ImZjX3BqbmJhT2plSmE2bDBQRVBpWlRwd0FzXzEifQ%3D%3D"
+        },
+        {
+            "question": "2025년 9월에는 연휴가 있나요?",
+            "type": "ai_overview",
+            "text_blocks": [
+                {
+                    "type": "paragraph",
+                    "snippet": "2025년 9월은 뚜렷한 공휴일이나 연휴가 없으나, 10월 초 추석 연휴가 시작됩니다. 2025년 10월 3일 개천절, 10월 5일~7일 추석 연휴, 10월 8일 추석 대체공휴일, 10월 9일 한글날까지 이어지는 9일간의 긴 연휴가 예정되어 있습니다. 9월에 긴 연휴를 계획하려면 10월 초 연휴 기간을 염두에 두어야 합니다.",
+                    "snippet_highlighted_words": [
+                        "뚜렷한 공휴일이나 연휴가 없으나, 10월 초 추석 연휴가 시작"
+                    ],
+                    "reference_indexes": [
+                        1,
+                        6,
+                        8,
+                        11
+                    ]
+                },
+                {
+                    "type": "paragraph",
+                    "snippet": "2025년 9월은 공휴일이 없습니다.",
+                    "reference_indexes": [
+                        4,
+                        8,
+                        9
+                    ]
+                },
+                {
+                    "type": "paragraph",
+                    "snippet": "10월에 긴 연휴가 있습니다.",
+                    "reference_indexes": [
+                        1,
+                        6,
+                        8
+                    ]
+                },
+                {
+                    "type": "list",
+                    "list": [
+                        {
+                            "snippet": "개천절: 10월 3일 (금)"
+                        },
+                        {
+                            "snippet": "추석 연휴: 10월 5일 (일) ~ 7일 (화)"
+                        },
+                        {
+                            "snippet": "추석 대체공휴일: 10월 8일 (수)"
+                        },
+                        {
+                            "snippet": "한글날: 10월 9일 (목)"
+                        }
+                    ]
+                },
+                {
+                    "type": "paragraph",
+                    "snippet": "이 기간에 10월 3일(금)과 10월 9일(목)을 포함하여 연차를 사용하면 10월 3일부터 10월 10일까지 총 8일의 연휴를 만들 수 있습니다.",
+                    "reference_indexes": [
+                        0,
+                        1,
+                        2,
+                        8,
+                        11
+                    ]
+                },
+                {
+                    "type": "heading",
+                    "snippet": "주요 공휴일 및 연휴 캘린더 요약:",
+                    "reference_indexes": [
+                        1,
+                        3,
+                        5,
+                        6,
+                        7,
+                        8,
+                        10
+                    ]
+                },
+                {
+                    "type": "list",
+                    "list": [
+                        {
+                            "snippet": "1월 28일(화) ~ 30일(목): 설날 연휴"
+                        },
+                        {
+                            "snippet": "3월 3일(월): 삼일절 대체공휴일"
+                        },
+                        {
+                            "snippet": "5월 5일(월): 어린이날"
+                        },
+                        {
+                            "snippet": "5월 6일(화): 부처님 오신 날 대체공휴일"
+                        },
+                        {
+                            "snippet": "10월 3일(금): 개천절"
+                        },
+                        {
+                            "snippet": "10월 5일(일) ~ 7일(화): 추석 연휴"
+                        },
+                        {
+                            "snippet": "10월 8일(수): 추석 대체공휴일"
+                        },
+                        {
+                            "snippet": "10월 9일(목): 한글날"
+                        }
+                    ]
+                }
+            ],
+            "references": [
+                {
+                    "title": "을사년, 2025년 공휴일 및 연차 쓰기 좋은 날 총 정리 - 센드비",
+                    "link": "https://sendbee.co.kr/archive/2025%EB%85%84-%EA%B3%B5%ED%9C%B4%EC%9D%BC-%EB%B0%8F-%EC%97%B0%EC%B0%A8-%EC%93%B0%EA%B8%B0-%EC%A2%8B%EC%9D%80-%EB%82%A0-%EC%B4%9D%EC%A0%95%EB%A6%AC/#:~:text=%EC%84%A4%EB%82%A0%20%EC%97%B0%ED%9C%B4%201%EC%9B%94%2028%EC%9D%BC%EB%B6%80%ED%84%B0%2030%EC%9D%BC%EA%B9%8C%EC%A7%80%20%EC%9E%85%EB%8B%88%EB%8B%A4.%20%EC%9D%B4%EB%95%8C,%EC%82%AC%EC%9A%A9%ED%95%98%EB%A9%B4%20%EC%B4%9D%209%EC%9D%BC%EA%B0%84%EC%9D%98%20%EC%97%B0%ED%9C%B4%EB%A5%BC%20%EB%A7%8C%EB%93%A4%20%EC%88%98%20%EC%9E%88%EC%8A%B5%EB%8B%88%EB%8B%A4",
+                    "snippet": "2024. 12. 27. — 설날 연휴 1월 28일부터 30일까지 입니다. 이때 1월 27일(월)과 1월 31일(",
+                    "source": "센드비",
+                    "index": 0
+                },
+                {
+                    "title": "2025년 법정 공휴일 및 연차 쓰기 좋은 날 알아보기 : 네이버 블로그",
+                    "link": "https://blog.naver.com/nyjloving/223703844169?fromRss=true&trackingCode=rss",
+                    "snippet": "2024. 12. 24. — 추석(연휴). 10월 5(일)~7일(화). 대체휴일 : 10월 8일(수). 한글날.",
+                    "source": "NAVER",
+                    "index": 1
+                },
+                {
+                    "title": "2025 공휴일 달력 :: 8월 연차 쓰기 좋은 날 & 연휴 한눈에 보기",
+                    "link": "https://www.kkday.com/ko/blog/23609/asia-korea-calendar#:~:text=%ED%9C%B4%EC%9D%BC%EC%9D%80%2010%EC%9B%94%203%EC%9D%BC%EB%B6%80%ED%84%B0%209%EC%9D%BC%EA%B9%8C%EC%A7%80%20%EC%9D%B4%EC%96%B4%EC%A7%80%EA%B3%A0%2C%2010%EC%9D%BC%20%EA%B8%88%EC%9A%94%EC%9D%BC%EC%97%90%20%EC%97%B0%EC%B0%A8%EB%A5%BC%20%EB%82%B4%EB%A9%B4%20%EC%97%B0%EB%8B%AC%EC%95%84%2010%EC%9D%BC%EC%9D%84%20%EC%89%B4%20%EC%88%98%20%EC%9E%88%EB%8B%A4.",
+                    "snippet": "2025. 9. 12. — 휴일은 10월 3일부터 9일까지 이어지고, 10일 금요일에 연차를 내면 연달아 10일을...",
+                    "source": "KKday",
+                    "index": 2
+                },
+                {
+                    "title": "2025 공휴일 달력 :: 10월 연차 쓰기 좋은 날 & 연휴 한눈에 보기 - KKday",
+                    "link": "https://www.kkday.com/ko/blog/23609/asia-korea-calendar",
+                    "snippet": "2025. 9. 12.",
+                    "source": "KKday",
+                    "index": 3
+                },
+                {
+                    "title": "2025 공휴일 달력 :: 8월 연차 쓰기 좋은 날 & 연휴 한눈에 보기",
+                    "link": "https://www.kkday.com/ko/blog/23609/asia-korea-calendar#:~:text=%EC%98%AC%ED%95%B4%209%EC%9B%94%EC%97%94%20%ED%9C%B4%EC%9D%BC%EC%9D%B4%20%EC%97%86%EB%8B%A4.",
+                    "snippet": "2025. 9. 12. — 올해 9월엔 휴일이 없다.",
+                    "source": "KKday",
+                    "index": 4
+                },
+                {
+                    "title": "2025년 공휴일 및 대체공휴일 총정리! 긴 연휴 계획과 연차 활용 방법 - Shiftee",
+                    "link": "https://shiftee.io/ko/blog/article/2025-public-holidays-and-alternative-holidays-guide#:~:text=2025%EB%85%84%20%EB%8C%80%EC%B2%B4%EA%B3%B5%ED%9C%B4%EC%9D%BC%EC%9D%80,%EB%8C%80%EC%B2%B4%EA%B3%B5%ED%9C%B4%EC%9D%BC%EC%9D%B4%20%EC%A7%80%EC%A0%95%EB%90%98%EC%97%88%EC%8A%B5%EB%8B%88%EB%8B%A4.",
+                    "snippet": "2024. 12. 3. — 2025년 대체공휴일은 삼일절(3월 1일, 토), 어린이날 및 부처님 오신 날(5월 5...",
+                    "source": "Shiftee",
+                    "index": 5
+                },
+                {
+                    "title": "2025년엔 언제 쉬지 2025년 을사년 공휴일&대체공휴일 정리해드림 ...",
+                    "link": "https://www.facebook.com/ddm4you/posts/2025%EB%85%84%EC%97%94-%EC%96%B8%EC%A0%9C-%EC%89%AC%EC%A7%80-2025%EB%85%84-%EC%9D%84%EC%82%AC%EB%85%84-%EA%B3%B5%ED%9C%B4%EC%9D%BC%EB%8C%80%EC%B2%B4%EA%B3%B5%ED%9C%B4%EC%9D%BC-%EC%A0%95%EB%A6%AC%ED%95%B4%EB%93%9C%EB%A6%BC%EB%8B%A4%EA%B0%80%EC%98%A4%EB%8A%94-2025%EB%85%84%EC%9D%80-%ED%91%B8%EB%A5%B8-%EB%B1%80%EC%9D%98-%ED%95%B4-%EC%9C%A1%EC%8B%AD%EA%B0%84%EC%A7%80%EC%9D%98-42%EB%B2%88%EC%A7%B8%EB%A1%9C-%EC%B2%AD%EC%83%89%EC%9D%98-%EC%9D%84%E4%B9%99%EA%B3%BC-%EB%B1%80%EC%9D%84-/1008815241288875/#:~:text=%EC%9D%BC%EC%9D%B4%EB%9D%BC%EB%8A%94%20%EC%82%AC%EC%8B%A4!-,%EA%B7%B8%EB%9F%BC%202025%EB%85%84%20%EA%B3%B5%ED%9C%B4%EC%9D%BC%20%EC%9D%BC%EC%A0%95%EC%9D%84%20%EB%8B%AC%EB%A0%A5%EA%B3%BC%20%ED%95%A8%EA%BB%98%20%EC%95%8C%EB%A0%A4,5%20~%2010/7%20%EC%B6%94%EC%84%9D%2C",
+                    "snippet": "2024. 12. 23. — 그럼 2025년 공휴일 일정을 달력과 함께 알려드릴게요❗ ✅ 1/1 신정 ✅ 1/28...",
+                    "source": "Facebook · 동대문구청",
+                    "index": 6
+                },
+                {
+                    "title": "[2025 공휴일] 10월 7일이 대체공휴일이냐고? 하루 연차쓰면 열흘 연휴 ...",
+                    "link": "https://kr.trip.com/blog/korea-holiday/",
+                    "snippet": "2025. 9. 14.",
+                    "source": "Trip.com",
+                    "index": 7
+                },
+                {
+                    "title": "푸른 뱀띠의 해 2025년에 꼭 알아야 할 정보, 무엇이 있을까요? 2025년의 ...",
+                    "link": "https://www.instagram.com/reel/DEl_wJ5PJSK/",
+                    "snippet": "2025. 1. 8. — 푸른 뱀띠의 해 2025년에 꼭 알아야 할 정보, 무엇이 있을까요? 🐍 🌟 2025년의 ...",
+                    "source": "Instagram · withyou3542",
+                    "index": 8
+                },
+                {
+                    "title": "매년 찾아본다! 2025년 연차달력 - 비즈폼",
+                    "link": "https://m.bizforms.co.kr/smartblock/view.asp?sm_idx=386#:~:text=2025%EB%85%84%20%EC%97%B0%EC%B0%A8%EB%8B%AC%EB%A0%A5%EC%9D%84,%EB%A5%BC%20%EC%B5%9C%EB%8C%80%ED%95%9C%20%ED%99%9C%EC%9A%A9%ED%95%A0%20%EC%88%98%20%EC%9E%88%EC%8A%B5%EB%8B%88%EB%8B%A4.",
+                    "snippet": "2025년 연차달력을 확인해 보세요! 2025년에는 119일의 휴일 중 68일의 공휴일이 있을 예정이며, 3...",
+                    "source": "NAVER",
+                    "index": 9
+                },
+                {
+                    "title": "2025년 3월 3일 삼일절 대체공휴일 가이드: 휴일근로수당 계산법과 FAQ ...",
+                    "link": "https://shiftee.io/ko/blog/article/2025-march-1st-independence-movement-day#:~:text=3%EC%9B%94%201%EC%9D%BC%20%EC%82%BC%EC%9D%BC%EC%A0%88,%EB%8C%80%EC%B2%B4%EA%B3%B5%ED%9C%B4%EC%9D%BC%EB%A1%9C%20%EC%A7%80%EC%A0%95%EB%90%98%EC%97%88%EC%8A%B5%EB%8B%88%EB%8B%A4.",
+                    "snippet": "2025. 2. 28. — 3월 1일 삼일절은 관공서의 공휴일에 관한 규정 제2조에 따라 공휴일로, 유급휴일이 적...",
+                    "source": "Shiftee",
+                    "index": 10
+                },
+                {
+                    "title": "역대급 추석 황금연휴가 온다! 기대 크지만 체감까지는 아직…",
+                    "link": "https://www.traveltimes.co.kr/news/articleView.html?idxno=409878#:~:text=10%EC%9B%943%EC%9D%BC%20%EA%B8%88%EC%9A%94%EC%9D%BC%20%EA%B0%9C%EC%B2%9C%EC%A0%88%EC%9D%84%20%EC%8B%9C%EC%9E%91%EC%9C%BC%EB%A1%9C%2010%EC%9B%946%EC%9D%BC(%EC%9B%94)%20%EC%B6%94%EC%84%9D%20%EB%8B%B9%EC%9D%BC%2C,%ED%95%98%EB%A3%A8%20%EC%97%B0%EC%B0%A8%EB%A5%BC%20%EC%82%AC%EC%9A%A9%ED%95%98%EB%A9%B4%2010%EC%9D%BC%20%EA%B0%84%EC%9D%98%20%ED%9C%B4%EC%9D%BC%EC%9D%B4%20%EC%99%84%EC%84%B1%EB%90%9C%EB%8B%A4.",
+                    "snippet": "2024. 10. 28. — 10월3일 금요일 개천절을 시작으로 10월6일(월) 추석 당일, 10월8일(수) 대체...",
+                    "source": "여행신문",
+                    "index": 11
+                }
+            ],
+            "next_page_token": "eyJvbnMiOiIxMDA0MSIsImZjIjoiRXFFQkNtSkJUR3QwWDNaSU9VeGlhbVl4T0d0UWFHZHBkamhQUVZkc1QxSlhhMjF2VkRFemQzcDRkekoyWW5kbVZXOU1NV3hZU2xWbFpsbzJZVmgxWnpGclIybHNhVWxMVURJemIyODJaVlJVV0RKTWRIcHVPVEozVDNWemNYbFZZbEpQYW1Oalp4SVhjR3B1WW1GUGFtVktZVFpzTUZCRlVHbGFWSEIzUVhNYUlrRkdUVUZIUjNFME9VazRSRmxvVjJVM2JGUnVjSGRQWTFRNGRteHpka1k0YW1jIiwiZmN2IjoiMyIsImVpIjoicGpuYmFPamVKYTZsMFBFUGlaVHB3QXMiLCJxYyI6IkNnOHlNREkxSU91RmhDRHN0cFRzaEowUUNYM1dhZ29fb2dFQ2EyOCIsInF1ZXN0aW9uIjoiMjAyNeuFhCA57JuU7JeQ64qUIOyXsO2ctOqwgCDsnojrgpjsmpQ/IiwibGsiOiJHaE15TlNEcmhZUWdPU0RzbTVRZzdKZXc3WnkwIiwiYnMiOiJjLVB5NGRJMU1qQXlmZDNhb3ZCNlZldWJCUjBLcjd2WHZGNnc5TTNjQm9VMzA3YThucmI3MWFZZWhkY1Racnh1bXZGbTFoUjdpYk81UmhKU1lpQTlDaGlhdUFLNTlHR212ZGsyNVUzTFhJVzNNMWUtMnRIeFp2cUd0M08ydk82YUFqUnp4NXNGYzk3TTNmRnFRd1BZdko5WlJ0SlNrbUR6VUxRb1FQUndPWE9wdzR5MGZETjd5cHZwRThER2dDV0JaaWk4bWRjQmM5cEZiU05SS1dHb3d5d1ZnS3BoaHZodzZjRU1NVU15Qk9TX0pkak4tdWRpSkM0bEN2ZW1HWkpwQW93QSIsImlkIjoiZmNfcGpuYmFPamVKYTZsMFBFUGlaVHB3QXNfMSJ9",
+            "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=google_related_questions&google_domain=google.com&next_page_token=eyJvbnMiOiIxMDA0MSIsImZjIjoiRXFFQkNtSkJUR3QwWDNaSU9VeGlhbVl4T0d0UWFHZHBkamhQUVZkc1QxSlhhMjF2VkRFemQzcDRkekoyWW5kbVZXOU1NV3hZU2xWbFpsbzJZVmgxWnpGclIybHNhVWxMVURJemIyODJaVlJVV0RKTWRIcHVPVEozVDNWemNYbFZZbEpQYW1Oalp4SVhjR3B1WW1GUGFtVktZVFpzTUZCRlVHbGFWSEIzUVhNYUlrRkdUVUZIUjNFME9VazRSRmxvVjJVM2JGUnVjSGRQWTFRNGRteHpka1k0YW1jIiwiZmN2IjoiMyIsImVpIjoicGpuYmFPamVKYTZsMFBFUGlaVHB3QXMiLCJxYyI6IkNnOHlNREkxSU91RmhDRHN0cFRzaEowUUNYM1dhZ29fb2dFQ2EyOCIsInF1ZXN0aW9uIjoiMjAyNeuFhCA57JuU7JeQ64qUIOyXsO2ctOqwgCDsnojrgpjsmpQ%2FIiwibGsiOiJHaE15TlNEcmhZUWdPU0RzbTVRZzdKZXc3WnkwIiwiYnMiOiJjLVB5NGRJMU1qQXlmZDNhb3ZCNlZldWJCUjBLcjd2WHZGNnc5TTNjQm9VMzA3YThucmI3MWFZZWhkY1Racnh1bXZGbTFoUjdpYk81UmhKU1lpQTlDaGlhdUFLNTlHR212ZGsyNVUzTFhJVzNNMWUtMnRIeFp2cUd0M08ydk82YUFqUnp4NXNGYzk3TTNmRnFRd1BZdko5WlJ0SlNrbUR6VUxRb1FQUndPWE9wdzR5MGZETjd5cHZwRThER2dDV0JaaWk4bWRjQmM5cEZiU05SS1dHb3d5d1ZnS3BoaHZodzZjRU1NVU15Qk9TX0pkak4tdWRpSkM0bEN2ZW1HWkpwQW93QSIsImlkIjoiZmNfcGpuYmFPamVKYTZsMFBFUGlaVHB3QXNfMSJ9"
+        },
+        {
+            "question": "2025년 6월에는 어떤 연휴가 있나요?",
+            "type": "ai_overview",
+            "text_blocks": [
+                {
+                    "type": "paragraph",
+                    "snippet": "2025년 6월 공휴일은 **6월 6일 현충일(금요일)**입니다. 현충일이 금요일이기 때문에 주말을 포함해 3일간의 연휴를 가질 수 있습니다.",
+                    "snippet_highlighted_words": [
+                        "6월 6일 현충일(금요일)"
+                    ],
+                    "reference_indexes": [
+                        0,
+                        1
+                    ]
+                },
+                {
+                    "type": "list",
+                    "list": [
+                        {
+                            "snippet": "6월 6일 (금) - 현충일:",
+                            "snippet_links": [
+                                {
+                                    "text": "현충일",
+                                    "link": "https://www.google.com/search?sca_esv=426a8004247428d8&gl=kr&hl=ko&q=%ED%98%84%EC%B6%A9%EC%9D%BC&sa=X&ved=2ahUKEwjoybrjsf-PAxWuEjQIHQlKGrgQxccNegQIbBAB"
+                                }
+                            ],
+                            "list": [
+                                {
+                                    "snippet": "공휴일이 금요일이어서 토, 일요일과 함께 3일 연휴가 됩니다."
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ],
+            "references": [
+                {
+                    "title": "2025 공휴일 달력 및 연차달력 (+여행지추천) : 네이버 블로그",
+                    "link": "https://blog.naver.com/tour_toctoc/223721782004#:~:text=2025%EB%85%84%206%EC%9B%94%20%EA%B3%B5%ED%9C%B4%EC%9D%BC%EC%9D%80%206%EC%9D%BC%20%ED%98%84%EC%B6%A9%EC%9D%BC%20%EB%8B%A8%20%ED%95%98%EB%A3%A8%EC%9E%85%EB%8B%88%EB%8B%A4.%20%ED%98%84%EC%B6%A9%EC%9D%BC%EC%9D%B4%20%EA%B8%88%EC%9A%94%EC%9D%BC%EC%9D%B4%EA%B8%B0%EC%97%90%20%EC%A3%BC%EB%A7%90%EC%9D%84%20%ED%8F%AC%ED%95%A8%ED%95%B4%203%EC%9D%BC%EC%9D%98%20%EC%97%B0%ED%9C%B4%EA%B0%80%20%EC%99%84%EC%84%B1%EB%90%A9%EB%8B%88%EB%8B%A4.",
+                    "snippet": "2025. 1. 11. — 2025년 6월 공휴일은 6일 현충일 단 하루입니다. 현충일이 금요일이기에 주말을 포함...",
+                    "source": "NAVER",
+                    "index": 0
+                },
+                {
+                    "title": "을사년, 2025년 공휴일 및 연차 쓰기 좋은 날 총 정리 - 센드비",
+                    "link": "https://sendbee.co.kr/archive/2025%EB%85%84-%EA%B3%B5%ED%9C%B4%EC%9D%BC-%EB%B0%8F-%EC%97%B0%EC%B0%A8-%EC%93%B0%EA%B8%B0-%EC%A2%8B%EC%9D%80-%EB%82%A0-%EC%B4%9D%EC%A0%95%EB%A6%AC/",
+                    "snippet": "2024. 12. 27.",
+                    "source": "센드비",
+                    "index": 1
+                }
+            ],
+            "next_page_token": "eyJvbnMiOiIxMDA0MSIsImZjIjoiRXFFQkNtSkJUR3QwWDNaSU9VeGlhbVl4T0d0UWFHZHBkamhQUVZkc1QxSlhhMjF2VkRFemQzcDRkekoyWW5kbVZXOU1NV3hZU2xWbFpsbzJZVmgxWnpGclIybHNhVWxMVURJemIyODJaVlJVV0RKTWRIcHVPVEozVDNWemNYbFZZbEpQYW1Oalp4SVhjR3B1WW1GUGFtVktZVFpzTUZCRlVHbGFWSEIzUVhNYUlrRkdUVUZIUjNFME9VazRSRmxvVjJVM2JGUnVjSGRQWTFRNGRteHpka1k0YW1jIiwiZmN2IjoiMyIsImVpIjoicGpuYmFPamVKYTZsMFBFUGlaVHB3QXMiLCJxYyI6IkNnOHlNREkxSU91RmhDRHN0cFRzaEowUUNYM1dhZ29fb2dFQ2EyOCIsInF1ZXN0aW9uIjoiMjAyNeuFhCA27JuU7JeQ64qUIOyWtOuWpCDsl7DtnLTqsIAg7J6I64KY7JqUPyIsImxrIjoiR2hVeU1ESTFJT3VGaENBMklPeWJsQ0RzbDdEdG5MUSIsImJzIjoiYy1QeTRkSTFNakF5ZmQzYW92QjZWZXViQlIwS3I3dlh2RjZ3OU0zY0JvVTMwN2E4bnJiNzFhWWVoZGNUWnJ4dW12Rm0xaFI3aWJPNVJoSlNZaUE5Q2hpYXVBSzU5R0dtdmRrMjVVM0xYSVczTTFlLTJ0SHhadnFHdDNPMnZPNmFBalJ6eDVzRmM5N00zZkZxUXdQWXZKOVpSdEpTa21EelVMUW9RUFJ3T1hPcHc0eTBmRE43eXB2cEU4REdnQ1dCWmlpOG1kY0JjOXBGYlNOUktXR293eXdWZ0twaGh2aHc2Y0VNTVVNeUJPU19KZGpOLXVkaUpDNGxDdmVtR1pKcEFvd0EiLCJpZCI6ImZjX3BqbmJhT2plSmE2bDBQRVBpWlRwd0FzXzEifQ==",
+            "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=google_related_questions&google_domain=google.com&next_page_token=eyJvbnMiOiIxMDA0MSIsImZjIjoiRXFFQkNtSkJUR3QwWDNaSU9VeGlhbVl4T0d0UWFHZHBkamhQUVZkc1QxSlhhMjF2VkRFemQzcDRkekoyWW5kbVZXOU1NV3hZU2xWbFpsbzJZVmgxWnpGclIybHNhVWxMVURJemIyODJaVlJVV0RKTWRIcHVPVEozVDNWemNYbFZZbEpQYW1Oalp4SVhjR3B1WW1GUGFtVktZVFpzTUZCRlVHbGFWSEIzUVhNYUlrRkdUVUZIUjNFME9VazRSRmxvVjJVM2JGUnVjSGRQWTFRNGRteHpka1k0YW1jIiwiZmN2IjoiMyIsImVpIjoicGpuYmFPamVKYTZsMFBFUGlaVHB3QXMiLCJxYyI6IkNnOHlNREkxSU91RmhDRHN0cFRzaEowUUNYM1dhZ29fb2dFQ2EyOCIsInF1ZXN0aW9uIjoiMjAyNeuFhCA27JuU7JeQ64qUIOyWtOuWpCDsl7DtnLTqsIAg7J6I64KY7JqUPyIsImxrIjoiR2hVeU1ESTFJT3VGaENBMklPeWJsQ0RzbDdEdG5MUSIsImJzIjoiYy1QeTRkSTFNakF5ZmQzYW92QjZWZXViQlIwS3I3dlh2RjZ3OU0zY0JvVTMwN2E4bnJiNzFhWWVoZGNUWnJ4dW12Rm0xaFI3aWJPNVJoSlNZaUE5Q2hpYXVBSzU5R0dtdmRrMjVVM0xYSVczTTFlLTJ0SHhadnFHdDNPMnZPNmFBalJ6eDVzRmM5N00zZkZxUXdQWXZKOVpSdEpTa21EelVMUW9RUFJ3T1hPcHc0eTBmRE43eXB2cEU4REdnQ1dCWmlpOG1kY0JjOXBGYlNOUktXR293eXdWZ0twaGh2aHc2Y0VNTVVNeUJPU19KZGpOLXVkaUpDNGxDdmVtR1pKcEFvd0EiLCJpZCI6ImZjX3BqbmJhT2plSmE2bDBQRVBpWlRwd0FzXzEifQ%3D%3D"
+        }
+    ],
+    "answer_box": {
+        "type": "organic_result",
+        "title": "2025년 추석연휴 일정과 연휴 준비 가이드",
+        "link": "https://www.google.com/search?sca_esv=426a8004247428d8&gl=kr&hl=ko&q=%EC%B6%94%EC%84%9D&stick=H4sIAAAAAAAAAONgFuLUz9U3MC5KMixSQjAfMZpwC7z8cU9YSnvSmpPXGFW5uIIz8std80oySyqFxLnYoCxeKW4uhC6eRaxsb7ZNedMyFwDuwbrqWAAAAA&sa=X&ved=2ahUKEwjoybrjsf-PAxWuEjQIHQlKGrgQ_coHKAF6BAguEAM",
+        "displayed_link": "https://sendbee.co.kr › archive › 2025년-추석연휴-및-준...",
+        "date": "2025. 8. 25.",
+        "snippet": "2025년 추석 날짜는 10월 6일(월요일)입니다. 음력 8월 15일에 해당하며, 늦가을 날씨 속에서 맞이하게 됩니다.",
+        "snippet_highlighted_words": [
+            "10월 6일(월요일)"
+        ],
+        "answer": "2025년 10월 6일 월요일",
+        "favicon": "https://serpapi.com/searches/68db39a5919dfa266a3db7c4/images/2b3bfe30f2dfa5128636ce8f60abf63071ff9bbbfad2afc7.png",
+        "source": "센드비",
+        "thumbnail": "https://serpapi.com/searches/68db39a5919dfa266a3db7c4/images/2b3bfe30f2dfa512eabefdcf1e9216016a9c70e36f079c61.jpeg"
+    },
+    "organic_results": [
+        {
+            "position": 1,
+            "title": "2025년 법정 공휴일 및 연차 쓰기 좋은 날 알아보기",
+            "link": "https://blog.naver.com/nyjloving/223703844169?fromRss=true&trackingCode=rss",
+            "redirect_link": "https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=https://blog.naver.com/nyjloving/223703844169%3FfromRss%3Dtrue%26trackingCode%3Drss&ved=2ahUKEwjoybrjsf-PAxWuEjQIHQlKGrgQFnoECBcQAQ",
+            "displayed_link": "https://blog.naver.com › nyjloving",
+            "date": "2024. 12. 24.",
+            "snippet": "10월에는 추석 연휴와 개천절, 한글날이 이어져 긴 연휴를 계획할 수 있어요. 10월 3일(금)은 개천절을 시작으로, 5일(일)부터 7일(화)까지는 추석연휴 ...",
+            "snippet_highlighted_words": [
+                "10월에는 추석 연휴와 개천절, 한글날이 이어져 긴 연휴를 계획"
+            ],
+            "source": "NAVER"
+        },
+        {
+            "position": 2,
+            "title": "2025년 긴 연휴의 추석, 언제 쉴까요?",
+            "link": "https://partner.yogiyo.co.kr/content/view/2025_%EC%B6%94%EC%84%9D_%ED%9C%B4%EB%AC%B4",
+            "redirect_link": "https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=https://partner.yogiyo.co.kr/content/view/2025_%25EC%25B6%2594%25EC%2584%259D_%25ED%259C%25B4%25EB%25AC%25B4&ved=2ahUKEwjoybrjsf-PAxWuEjQIHQlKGrgQFnoECDsQAQ",
+            "displayed_link": "https://partner.yogiyo.co.kr › view › 2025_추석_휴무",
+            "favicon": "https://serpapi.com/searches/68db39a5919dfa266a3db7c4/images/d8e37203321281d424063b1b4050383c3d11a3aee9d22a97c03888d4ae17ed91.png",
+            "snippet": "​2025년 추석 연휴는 10월 5일(일)부터 7일(화)까지입니다. 여기에 3일 개천절, 8일 대체 휴일, 9일 한글날까지 이어져, 10일(금)에도 휴가를 사용한다면 최장 10일간 ...",
+            "snippet_highlighted_words": [
+                "10월 5일(일)부터 7일(화)까지"
+            ],
+            "source": "요기요 사장님포털"
+        },
+        {
+            "position": 3,
+            "title": "내년 추석연휴 7일...금요일 하루 휴가 쓰면 10일",
+            "link": "https://www.hani.co.kr/arti/society/society_general/1145633.html",
+            "redirect_link": "https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=https://www.hani.co.kr/arti/society/society_general/1145633.html&ved=2ahUKEwjoybrjsf-PAxWuEjQIHQlKGrgQFnoECD8QAQ",
+            "displayed_link": "https://www.hani.co.kr › arti › society › society_general",
+            "favicon": "https://serpapi.com/searches/68db39a5919dfa266a3db7c4/images/d8e37203321281d424063b1b4050383c686bd42a062cb9da38cab47c320d6562.png",
+            "date": "2024. 6. 20.",
+            "snippet": "2025년 추석 연휴는 10월3일(금) 개천절부터 9일(목) 한글날까지 7일간 이어진다. 특히 연휴 다음날인 10월10일이 금요일이어서, 하루 휴가를 활용 ...",
+            "snippet_highlighted_words": [
+                "10월3일(금) 개천절부터 9일(목) 한글날까지 7일간 이어진다"
+            ],
+            "source": "한겨레"
+        },
+        {
+            "position": 4,
+            "title": "을사년, 2025년 공휴일 및 연차 쓰기 좋은 날 총 정리",
+            "link": "https://sendbee.co.kr/archive/2025%EB%85%84-%EA%B3%B5%ED%9C%B4%EC%9D%BC-%EB%B0%8F-%EC%97%B0%EC%B0%A8-%EC%93%B0%EA%B8%B0-%EC%A2%8B%EC%9D%80-%EB%82%A0-%EC%B4%9D%EC%A0%95%EB%A6%AC/",
+            "redirect_link": "https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=https://sendbee.co.kr/archive/2025%25EB%2585%2584-%25EA%25B3%25B5%25ED%259C%25B4%25EC%259D%25BC-%25EB%25B0%258F-%25EC%2597%25B0%25EC%25B0%25A8-%25EC%2593%25B0%25EA%25B8%25B0-%25EC%25A2%258B%25EC%259D%2580-%25EB%2582%25A0-%25EC%25B4%259D%25EC%25A0%2595%25EB%25A6%25AC/&ved=2ahUKEwjoybrjsf-PAxWuEjQIHQlKGrgQFnoECEAQAQ",
+            "displayed_link": "https://sendbee.co.kr › archive › 2025년-공휴일-및-연차...",
+            "favicon": "https://serpapi.com/searches/68db39a5919dfa266a3db7c4/images/d8e37203321281d424063b1b4050383c66c0d7f25e6d0ec5dd0ce2937db35b34.png",
+            "date": "2024. 12. 27.",
+            "snippet": "10월 3일 (금)을 시작으로 추석 연휴가 이어집니다. 추석에 일요일이 포함되어 8일이 대체 휴일로 지정되었습니다. 여기에 개천절까지 더해져 기본적으로 ...",
+            "snippet_highlighted_words": [
+                "10월 3일 (금)을 시작으로 추석 연휴가 이어집니다"
+            ],
+            "source": "센드비"
+        },
+        {
+            "position": 5,
+            "title": "2025년 추석 연휴 및 임시공휴일 지정 전망",
+            "link": "https://seo.goover.ai/report/202508/go-public-report-ko-ed50c00e-c306-4787-8a87-ac641bf729cc-0-0.html",
+            "redirect_link": "https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=https://seo.goover.ai/report/202508/go-public-report-ko-ed50c00e-c306-4787-8a87-ac641bf729cc-0-0.html&ved=2ahUKEwjoybrjsf-PAxWuEjQIHQlKGrgQFnoECD0QAQ",
+            "displayed_link": "https://seo.goover.ai › report › 202508",
+            "favicon": "https://serpapi.com/searches/68db39a5919dfa266a3db7c4/images/d8e37203321281d424063b1b4050383c313f9715f6492137af20dde4de96e77f.png",
+            "date": "2025. 8. 18.",
+            "snippet": "2025년 추석 연휴는 10월 5일 일요일부터 7일 화요일까지 이루어집니다. 이 후에는 8일 수요일에 대체공휴일이 지정되어 있어, 연속적인 휴식을 취할 수 ...",
+            "snippet_highlighted_words": [
+                "10월 5일 일요일부터 7일 화요일까지"
+            ],
+            "source": "Goover"
+        },
+        {
+            "position": 6,
+            "title": "[2025년 추석 황금연휴] 출발확정 상품 모음전 / 동유럽 & 발칸",
+            "link": "https://prdt.ybtour.co.kr/product/localList.m?menu=PKG&dspSid=AAAV000",
+            "redirect_link": "https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=https://prdt.ybtour.co.kr/product/localList.m%3Fmenu%3DPKG%26dspSid%3DAAAV000&ved=2ahUKEwjoybrjsf-PAxWuEjQIHQlKGrgQFnoECDwQAQ",
+            "displayed_link": "https://prdt.ybtour.co.kr › product › localList",
+            "favicon": "https://serpapi.com/searches/68db39a5919dfa266a3db7c4/images/d8e37203321281d424063b1b4050383c2f5ab383d9292e6ce45a6681b00b7ff4.png",
+            "snippet": "연차 하루만 쓰면 최대 10일까지 서유럽을 즐길 수 있는 기회! 출발확정: 10.02. 출발기간: 2025.10.02 ~ 2025.10.06. 출발요일: 일 ...",
+            "source": "노랑풍선 [여행을 가볍게]"
+        },
+        {
+            "position": 7,
+            "title": "2025년 10월 추석 해외여행 추천 BEST6 (패키지 vs 자유 ...",
+            "link": "https://weolbu.com/community/3244891/2025%EB%85%84-10%EC%9B%94-%EC%B6%94%EC%84%9D-%ED%95%B4%EC%99%B8%EC%97%AC%ED%96%89-%EC%B6%94%EC%B2%9C-BEST6-%ED%8C%A8%ED%82%A4%EC%A7%80-vs-%EC%9E%90%EC%9C%A0%EC%97%AC%ED%96%89-%EB%B9%84%EA%B5%90?srsltid=AfmBOooOQ7pScNfgtYXZ_4VBpzf2nxHN04li2a_zRUM2IKdGUaIyh5m1",
+            "redirect_link": "https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=https://weolbu.com/community/3244891/2025%25EB%2585%2584-10%25EC%259B%2594-%25EC%25B6%2594%25EC%2584%259D-%25ED%2595%25B4%25EC%2599%25B8%25EC%2597%25AC%25ED%2596%2589-%25EC%25B6%2594%25EC%25B2%259C-BEST6-%25ED%258C%25A8%25ED%2582%25A4%25EC%25A7%2580-vs-%25EC%259E%2590%25EC%259C%25A0%25EC%2597%25AC%25ED%2596%2589-%25EB%25B9%2584%25EA%25B5%2590%3Fsrsltid%3DAfmBOooOQ7pScNfgtYXZ_4VBpzf2nxHN04li2a_zRUM2IKdGUaIyh5m1&ved=2ahUKEwjoybrjsf-PAxWuEjQIHQlKGrgQFnoECD4QAQ",
+            "displayed_link": "https://weolbu.com › community › 2025년-10월-추석-...",
+            "favicon": "https://serpapi.com/searches/68db39a5919dfa266a3db7c4/images/d8e37203321281d424063b1b4050383ce50896bdd4d1e9ccda24fd95bdec98bd.png",
+            "date": "2025. 7. 23.",
+            "snippet": "2025년 추석은 10월 3일 개천절부터 시작해 10월 9일 한글날까지 이어지는 황금연휴입니다. 단 하루만.",
+            "snippet_highlighted_words": [
+                "2025년 추석"
+            ],
+            "source": "월급쟁이부자들"
+        }
+    ],
+    "top_stories": [
+        {
+            "title": "수원도시공사, 2025년 추석 연휴 기간 종합대책 수립",
+            "link": "https://www.m-i.kr/news/articleView.html?idxno=1288055",
+            "source": "매일일보",
+            "source_logo": "https://serpapi.com/searches/68db39a5919dfa266a3db7c4/images/07a5aa958b0ed2fe2e2e59f1fd521e2f91806e688fea6eb754dd1ec32f119548.png",
+            "date": "3시간 전",
+            "thumbnail": "https://serpapi.com/searches/68db39a5919dfa266a3db7c4/images/07a5aa958b0ed2feb5b45da61e2af8cc903be8ec45b1c9e4.png"
+        },
+        {
+            "title": "의창구, 2025년 추석 연휴 종합대책 최종 점검 보고회",
+            "link": "https://www.newsfreezone.co.kr/news/articleView.html?idxno=650033",
+            "source": "뉴스프리존",
+            "source_logo": "https://serpapi.com/searches/68db39a5919dfa266a3db7c4/images/07a5aa958b0ed2fe557d4c31b946b0d9df5c5d8f99cdf3f297bf98399fd597c3.png",
+            "date": "3시간 전",
+            "thumbnail": "https://serpapi.com/searches/68db39a5919dfa266a3db7c4/images/07a5aa958b0ed2fe20bb60b2578fdacd0c0d99d3ab640991.jpeg"
+        },
+        {
+            "title": "광진구의회, 2025년 추석맞이 장보기 행사 진행",
+            "link": "https://www.seoulcity.co.kr/news/articleView.html?idxno=504107",
+            "source": "서울시티",
+            "source_logo": "https://serpapi.com/searches/68db39a5919dfa266a3db7c4/images/07a5aa958b0ed2fe0af9b9fd8eff750cc4db32a8ff4f2ffa6a25f2cba3c0976e.png",
+            "date": "11분 전",
+            "thumbnail": "https://serpapi.com/searches/68db39a5919dfa266a3db7c4/images/07a5aa958b0ed2fe99e35cfc84542fa3889c8fdda6d35759.jpeg"
+        },
+        {
+            "title": "횡성군, 2025년 추석맞이 횡성전통시장 구매고객 사은행사",
+            "link": "http://www.shinailbo.co.kr/news/articleView.html?idxno=2125041",
+            "source": "신아일보",
+            "source_logo": "https://serpapi.com/searches/68db39a5919dfa266a3db7c4/images/07a5aa958b0ed2fe9aac02464b0cc4bdf3e434e560f284d3892fe27aaeff84ad.png",
+            "date": "36분 전",
+            "thumbnail": "https://serpapi.com/searches/68db39a5919dfa266a3db7c4/images/07a5aa958b0ed2fe9ea91580307fff5116c347a2e8d6f5e7.jpeg"
+        }
+    ],
+    "top_stories_link": "https://www.google.com/search?sca_esv=426a8004247428d8&gl=kr&hl=ko&q=2025%EB%85%84+%EC%B6%94%EC%84%9D&tbm=nws&source=univ&tbo=u&sa=X&ved=2ahUKEwjoybrjsf-PAxWuEjQIHQlKGrgQt8YBKAF6BAhZEAM",
+    "top_stories_serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=google&gl=kr&google_domain=google.com&hl=ko&q=2025%EB%85%84+%EC%B6%94%EC%84%9D&tbm=nws",
+    "related_searches": [
+        {
+            "block_position": 1,
+            "query": "2025년 추석 달력",
+            "link": "https://www.google.com/search?sca_esv=426a8004247428d8&gl=kr&hl=ko&q=2025%EB%85%84+%EC%B6%94%EC%84%9D+%EB%8B%AC%EB%A0%A5&sa=X&ved=2ahUKEwjoybrjsf-PAxWuEjQIHQlKGrgQ1QJ6BAg4EAE",
+            "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=google&gl=kr&google_domain=google.com&hl=ko&q=2025%EB%85%84+%EC%B6%94%EC%84%9D+%EB%8B%AC%EB%A0%A5"
+        },
+        {
+            "block_position": 1,
+            "query": "2025년 추석 날짜",
+            "link": "https://www.google.com/search?sca_esv=426a8004247428d8&gl=kr&hl=ko&q=2025%EB%85%84+%EC%B6%94%EC%84%9D+%EB%82%A0%EC%A7%9C&sa=X&ved=2ahUKEwjoybrjsf-PAxWuEjQIHQlKGrgQ1QJ6BAhTEAE",
+            "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=google&gl=kr&google_domain=google.com&hl=ko&q=2025%EB%85%84+%EC%B6%94%EC%84%9D+%EB%82%A0%EC%A7%9C"
+        },
+        {
+            "block_position": 1,
+            "query": "2025년 추석 공휴일",
+            "link": "https://www.google.com/search?sca_esv=426a8004247428d8&gl=kr&hl=ko&q=2025%EB%85%84+%EC%B6%94%EC%84%9D+%EA%B3%B5%ED%9C%B4%EC%9D%BC&sa=X&ved=2ahUKEwjoybrjsf-PAxWuEjQIHQlKGrgQ1QJ6BAhMEAE",
+            "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=google&gl=kr&google_domain=google.com&hl=ko&q=2025%EB%85%84+%EC%B6%94%EC%84%9D+%EA%B3%B5%ED%9C%B4%EC%9D%BC"
+        },
+        {
+            "block_position": 1,
+            "query": "2025년 연휴 달력",
+            "link": "https://www.google.com/search?sca_esv=426a8004247428d8&gl=kr&hl=ko&q=2025%EB%85%84+%EC%97%B0%ED%9C%B4+%EB%8B%AC%EB%A0%A5&sa=X&ved=2ahUKEwjoybrjsf-PAxWuEjQIHQlKGrgQ1QJ6BAhEEAE",
+            "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=google&gl=kr&google_domain=google.com&hl=ko&q=2025%EB%85%84+%EC%97%B0%ED%9C%B4+%EB%8B%AC%EB%A0%A5"
+        },
+        {
+            "block_position": 1,
+            "query": "추석 연휴 기간",
+            "link": "https://www.google.com/search?sca_esv=426a8004247428d8&gl=kr&hl=ko&q=%EC%B6%94%EC%84%9D+%EC%97%B0%ED%9C%B4+%EA%B8%B0%EA%B0%84&sa=X&ved=2ahUKEwjoybrjsf-PAxWuEjQIHQlKGrgQ1QJ6BAhDEAE",
+            "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=google&gl=kr&google_domain=google.com&hl=ko&q=%EC%B6%94%EC%84%9D+%EC%97%B0%ED%9C%B4+%EA%B8%B0%EA%B0%84"
+        },
+        {
+            "block_position": 1,
+            "query": "2025년 추석 당일",
+            "link": "https://www.google.com/search?sca_esv=426a8004247428d8&gl=kr&hl=ko&q=2025%EB%85%84+%EC%B6%94%EC%84%9D+%EB%8B%B9%EC%9D%BC&sa=X&ved=2ahUKEwjoybrjsf-PAxWuEjQIHQlKGrgQ1QJ6BAhBEAE",
+            "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=google&gl=kr&google_domain=google.com&hl=ko&q=2025%EB%85%84+%EC%B6%94%EC%84%9D+%EB%8B%B9%EC%9D%BC"
+        },
+        {
+            "block_position": 1,
+            "query": "추석 연휴 달력",
+            "link": "https://www.google.com/search?sca_esv=426a8004247428d8&gl=kr&hl=ko&q=%EC%B6%94%EC%84%9D+%EC%97%B0%ED%9C%B4+%EB%8B%AC%EB%A0%A5&sa=X&ved=2ahUKEwjoybrjsf-PAxWuEjQIHQlKGrgQ1QJ6BAg6EAE",
+            "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=google&gl=kr&google_domain=google.com&hl=ko&q=%EC%B6%94%EC%84%9D+%EC%97%B0%ED%9C%B4+%EB%8B%AC%EB%A0%A5"
+        },
+        {
+            "block_position": 1,
+            "query": "2025년 추석 항공권",
+            "link": "https://www.google.com/search?sca_esv=426a8004247428d8&gl=kr&hl=ko&q=2025%EB%85%84+%EC%B6%94%EC%84%9D+%ED%95%AD%EA%B3%B5%EA%B6%8C&sa=X&ved=2ahUKEwjoybrjsf-PAxWuEjQIHQlKGrgQ1QJ6BAg5EAE",
+            "serpapi_link": "https://serpapi.com/search.json?device=desktop&engine=google&gl=kr&google_domain=google.com&hl=ko&q=2025%EB%85%84+%EC%B6%94%EC%84%9D+%ED%95%AD%EA%B3%B5%EA%B6%8C"
+        }
+    ],
+    "pagination": {
+        "current": 1,
+        "next": "https://www.google.com/search?q=2025%EB%85%84+%EC%B6%94%EC%84%9D&sca_esv=426a8004247428d8&gl=kr&hl=ko&ei=pjnbaOjeJa6l0PEPiZTpwAs&start=10&sa=N&sstk=Af77f_dFlfpE1dIu9hSEdQZgZt_gXWKvpxgscVl_nwBD6OfJrroivc0jyIDgbSPytXRmHdnlilqof-28Ir9ctCPI4qs3AlQBJkSwSw&ved=2ahUKEwjoybrjsf-PAxWuEjQIHQlKGrgQ8NMDegQICBAW",
+        "other_pages": {
+            "2": "https://www.google.com/search?q=2025%EB%85%84+%EC%B6%94%EC%84%9D&sca_esv=426a8004247428d8&gl=kr&hl=ko&ei=pjnbaOjeJa6l0PEPiZTpwAs&start=10&sa=N&sstk=Af77f_dFlfpE1dIu9hSEdQZgZt_gXWKvpxgscVl_nwBD6OfJrroivc0jyIDgbSPytXRmHdnlilqof-28Ir9ctCPI4qs3AlQBJkSwSw&ved=2ahUKEwjoybrjsf-PAxWuEjQIHQlKGrgQ8tMDegQICBAE",
+            "3": "https://www.google.com/search?q=2025%EB%85%84+%EC%B6%94%EC%84%9D&sca_esv=426a8004247428d8&gl=kr&hl=ko&ei=pjnbaOjeJa6l0PEPiZTpwAs&start=20&sa=N&sstk=Af77f_dFlfpE1dIu9hSEdQZgZt_gXWKvpxgscVl_nwBD6OfJrroivc0jyIDgbSPytXRmHdnlilqof-28Ir9ctCPI4qs3AlQBJkSwSw&ved=2ahUKEwjoybrjsf-PAxWuEjQIHQlKGrgQ8tMDegQICBAG",
+            "4": "https://www.google.com/search?q=2025%EB%85%84+%EC%B6%94%EC%84%9D&sca_esv=426a8004247428d8&gl=kr&hl=ko&ei=pjnbaOjeJa6l0PEPiZTpwAs&start=30&sa=N&sstk=Af77f_dFlfpE1dIu9hSEdQZgZt_gXWKvpxgscVl_nwBD6OfJrroivc0jyIDgbSPytXRmHdnlilqof-28Ir9ctCPI4qs3AlQBJkSwSw&ved=2ahUKEwjoybrjsf-PAxWuEjQIHQlKGrgQ8tMDegQICBAI",
+            "5": "https://www.google.com/search?q=2025%EB%85%84+%EC%B6%94%EC%84%9D&sca_esv=426a8004247428d8&gl=kr&hl=ko&ei=pjnbaOjeJa6l0PEPiZTpwAs&start=40&sa=N&sstk=Af77f_dFlfpE1dIu9hSEdQZgZt_gXWKvpxgscVl_nwBD6OfJrroivc0jyIDgbSPytXRmHdnlilqof-28Ir9ctCPI4qs3AlQBJkSwSw&ved=2ahUKEwjoybrjsf-PAxWuEjQIHQlKGrgQ8tMDegQICBAK",
+            "6": "https://www.google.com/search?q=2025%EB%85%84+%EC%B6%94%EC%84%9D&sca_esv=426a8004247428d8&gl=kr&hl=ko&ei=pjnbaOjeJa6l0PEPiZTpwAs&start=50&sa=N&sstk=Af77f_dFlfpE1dIu9hSEdQZgZt_gXWKvpxgscVl_nwBD6OfJrroivc0jyIDgbSPytXRmHdnlilqof-28Ir9ctCPI4qs3AlQBJkSwSw&ved=2ahUKEwjoybrjsf-PAxWuEjQIHQlKGrgQ8tMDegQICBAM",
+            "7": "https://www.google.com/search?q=2025%EB%85%84+%EC%B6%94%EC%84%9D&sca_esv=426a8004247428d8&gl=kr&hl=ko&ei=pjnbaOjeJa6l0PEPiZTpwAs&start=60&sa=N&sstk=Af77f_dFlfpE1dIu9hSEdQZgZt_gXWKvpxgscVl_nwBD6OfJrroivc0jyIDgbSPytXRmHdnlilqof-28Ir9ctCPI4qs3AlQBJkSwSw&ved=2ahUKEwjoybrjsf-PAxWuEjQIHQlKGrgQ8tMDegQICBAO",
+            "8": "https://www.google.com/search?q=2025%EB%85%84+%EC%B6%94%EC%84%9D&sca_esv=426a8004247428d8&gl=kr&hl=ko&ei=pjnbaOjeJa6l0PEPiZTpwAs&start=70&sa=N&sstk=Af77f_dFlfpE1dIu9hSEdQZgZt_gXWKvpxgscVl_nwBD6OfJrroivc0jyIDgbSPytXRmHdnlilqof-28Ir9ctCPI4qs3AlQBJkSwSw&ved=2ahUKEwjoybrjsf-PAxWuEjQIHQlKGrgQ8tMDegQICBAQ",
+            "9": "https://www.google.com/search?q=2025%EB%85%84+%EC%B6%94%EC%84%9D&sca_esv=426a8004247428d8&gl=kr&hl=ko&ei=pjnbaOjeJa6l0PEPiZTpwAs&start=80&sa=N&sstk=Af77f_dFlfpE1dIu9hSEdQZgZt_gXWKvpxgscVl_nwBD6OfJrroivc0jyIDgbSPytXRmHdnlilqof-28Ir9ctCPI4qs3AlQBJkSwSw&ved=2ahUKEwjoybrjsf-PAxWuEjQIHQlKGrgQ8tMDegQICBAS",
+            "10": "https://www.google.com/search?q=2025%EB%85%84+%EC%B6%94%EC%84%9D&sca_esv=426a8004247428d8&gl=kr&hl=ko&ei=pjnbaOjeJa6l0PEPiZTpwAs&start=90&sa=N&sstk=Af77f_dFlfpE1dIu9hSEdQZgZt_gXWKvpxgscVl_nwBD6OfJrroivc0jyIDgbSPytXRmHdnlilqof-28Ir9ctCPI4qs3AlQBJkSwSw&ved=2ahUKEwjoybrjsf-PAxWuEjQIHQlKGrgQ8tMDegQICBAU"
+        }
+    },
+    "serpapi_pagination": {
+        "current": 1,
+        "next_link": "https://serpapi.com/search.json?device=desktop&engine=google&gl=kr&google_domain=google.com&hl=ko&q=2025%EB%85%84+%EC%B6%94%EC%84%9D&start=10",
+        "next": "https://serpapi.com/search.json?device=desktop&engine=google&gl=kr&google_domain=google.com&hl=ko&q=2025%EB%85%84+%EC%B6%94%EC%84%9D&start=10",
+        "other_pages": {
+            "2": "https://serpapi.com/search.json?device=desktop&engine=google&gl=kr&google_domain=google.com&hl=ko&q=2025%EB%85%84+%EC%B6%94%EC%84%9D&start=10",
+            "3": "https://serpapi.com/search.json?device=desktop&engine=google&gl=kr&google_domain=google.com&hl=ko&q=2025%EB%85%84+%EC%B6%94%EC%84%9D&start=20",
+            "4": "https://serpapi.com/search.json?device=desktop&engine=google&gl=kr&google_domain=google.com&hl=ko&q=2025%EB%85%84+%EC%B6%94%EC%84%9D&start=30",
+            "5": "https://serpapi.com/search.json?device=desktop&engine=google&gl=kr&google_domain=google.com&hl=ko&q=2025%EB%85%84+%EC%B6%94%EC%84%9D&start=40",
+            "6": "https://serpapi.com/search.json?device=desktop&engine=google&gl=kr&google_domain=google.com&hl=ko&q=2025%EB%85%84+%EC%B6%94%EC%84%9D&start=50",
+            "7": "https://serpapi.com/search.json?device=desktop&engine=google&gl=kr&google_domain=google.com&hl=ko&q=2025%EB%85%84+%EC%B6%94%EC%84%9D&start=60",
+            "8": "https://serpapi.com/search.json?device=desktop&engine=google&gl=kr&google_domain=google.com&hl=ko&q=2025%EB%85%84+%EC%B6%94%EC%84%9D&start=70",
+            "9": "https://serpapi.com/search.json?device=desktop&engine=google&gl=kr&google_domain=google.com&hl=ko&q=2025%EB%85%84+%EC%B6%94%EC%84%9D&start=80",
+            "10": "https://serpapi.com/search.json?device=desktop&engine=google&gl=kr&google_domain=google.com&hl=ko&q=2025%EB%85%84+%EC%B6%94%EC%84%9D&start=90"
+        }
+    }
+}

@@ -2,49 +2,96 @@
 # FastAPI & ASGI Server
 # -----------------------------
 fastapi==0.110.0              # FastAPI web framework
-uvicorn[standard]==0.34.3     # ASGI server (includes auto-reload, logging, uvloop, etc.)
+uvicorn[standard]==0.34.3     # ASGI server (auto-reload, logging, uvloop, etc.)
 
 # -----------------------------
 # Configuration management & time handling
 # -----------------------------
-python-decouple==3.8          # Easy loading of environment variables (.env)
-pytz==2025.2                  # Timezone support (related to datetime)
+python-decouple==3.8          # Load environment variables from .env
+pytz==2025.2                  # Timezone support for datetime
 
 # -----------------------------
 # Data validation
 # -----------------------------
-pydantic==2.11.5              # Data modeling/validation library (based on v2)
-pydantic_settings==2.10.1     # Dedicated package for BaseSettings configuration management
+pydantic==1.10.12             # Data modeling/validation library
 
 # -----------------------------
 # File upload
 # -----------------------------
-python-multipart==0.0.20      # Parses multipart/form-data requests in FastAPI
+python-multipart==0.0.20      # Parses multipart/form-data for FastAPI file uploads
 
 # -----------------------------
 # MySQL (async) ORM related
 # -----------------------------
-SQLAlchemy==2.0.41            # SQL ORM (latest version with async support)
-aiomysql==0.2.0               # Async driver for MySQL
-alembic==1.13.1               # DB migration tool for SQLAlchemy
+SQLAlchemy==2.0.35            # SQL ORM
+aiomysql==0.2.0               # Async MySQL driver
+alembic==1.13.1               # DB migrations
 
 # -----------------------------
 # MongoDB (async ODM) related
 # -----------------------------
-motor==3.7.1                  # Async driver for MongoDB
-beanie==1.29.0                # ODM based on Pydantic + Motor (MongoDB document modeling)
+motor==3.7.1                  # Async MongoDB driver
+beanie==1.27.0                # ODM based on Pydantic + Motor
+
+# -----------------------------
+# Numerical & Scientific Computing
+# -----------------------------
+numpy==1.26.4                 # Numpy (used with LangChain/Qdrant)
+scipy==1.11.2                 # Scientific computing (needed for embeddings / ML)
+pandas==2.1.1                 # Data manipulation (optional, common in ML/LLM pipelines)
+scikit-learn==1.3.2           # Classic ML library (required for datasets)
+
+# -----------------------------
+# HuggingFace & Local LLM/Embedding
+# -----------------------------
+transformers==4.43.0          # HuggingFace Transformers library
+torch==2.2.0                  # PyTorch (transformers and embeddings)
+datasets==2.14.6              # HuggingFace datasets library
+sentence-transformers==5.1.0  # Local embedding model (no OpenAI API needed)
+huggingface-hub==0.35.0       # Required by sentence-transformers
 
 # -----------------------------
 # Qdrant Vector DB Client
 # -----------------------------
-qdrant-client==1.9.2          # Python client for interacting with Qdrant vector DB (supports CRUD, search, etc.)
+qdrant-client==1.11.1         # Qdrant vector DB client
+
+# -----------------------------
+# LangChain & Ecosystem
+# -----------------------------
+langchain==0.2.17             # Core LangChain framework (chains, agents, LLM integrations)
+langchain-core==0.2.43        # Core abstractions and utilities for LangChain
+langchain-community==0.2.19   # Community-contributed integrations for LangChain
+langchain-openai==0.1.25      # LangChain integration for OpenAI and Groq LLMs
+langchain-qdrant==0.1.1       # LangChain integration for Qdrant vector database
+langchain-groq==0.1.10        # LangChain integration for Groq LLM models
+
+# -----------------------------
+# Google Custom Search API Wrapper
+# -----------------------------
+google-api-python-client==2.97.0 # Google API client for Custom Search integration
+
+# -----------------------------
+# SerpAPI Wrapper for web search
+# -----------------------------
+google-search-results==2.4.2  # Official SerpAPI Python package
+
+# -----------------------------
+# Dataset handling
+# -----------------------------
+datasets==2.14.6              # Hugging Face datasets library for loading, preprocessing, and sharing datasets
+pyarrow==10.0.1               # Apache Arrow for fast columnar data processing (used internally by datasets)
 
 # -----------------------------
 # HTTP Client
 # -----------------------------
-httpx                         # HTTP client with async/sync support (used for calling external APIs, testing, etc.)
+httpx==0.25.1                 # Async/sync HTTP client (API calls, testing)
 
 # -----------------------------
 # Groq API Client
 # -----------------------------
-groq==0.31.1                 # Official Groq Python client for accessing Groq Cloud / OpenAI-compatible endpoints
+groq==0.31.1                  # Official Groq Python client (Groq Cloud / OpenAI-compatible endpoints)
+
+# -----------------------------
+# JWT Token Handling
+# -----------------------------
+python-jose[cryptography]     # JWT creation and verification using cryptography algorithms
