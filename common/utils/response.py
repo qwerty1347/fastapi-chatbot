@@ -1,5 +1,4 @@
 from http import HTTPStatus
-
 from fastapi.responses import JSONResponse
 
 from common.constants.http_code import HttpCodeConstants

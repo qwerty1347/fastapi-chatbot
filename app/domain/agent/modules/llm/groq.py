@@ -13,5 +13,5 @@ class Groq:
         )
 
 
-    def run_llm(self, prompt: str) -> str:
-        return self.llm.predict(prompt)
+    def run(self, prompt: str) -> str:
+        return self.llm.invoke(prompt)
