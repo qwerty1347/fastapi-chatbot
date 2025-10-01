@@ -30,7 +30,7 @@ services:
       - local_network
 
   qdrant:
-    image: qdrant/qdrant:v1.2.0
+    image: qdrant/qdrant:v1.15.4
     container_name: fastapi_chatbot-qdrant
     ports:
       - "6333:6333"
