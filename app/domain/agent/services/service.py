@@ -15,13 +15,28 @@ class AgentService:
         self.llm = Groq()
         self.search = Serp()
         self.observations = []
+        self.tools = self.set_agent_tools()
+
+
+    def set_agent_tools(self):
+        return [
+            Tool.from_function(
+                name="WEB_SEARCH",
+                func=self.search_web,
+                description="최신 정보 등 정확한 정보가 필요할 경우 사용"
+            ),
+            Tool.from_function(
+                name="QDRANT_SEARCH",
+                func=self.qdrant_search,
+                description="회사 정보, 회사 내부 문서 등 정보가 필요할 경우 사용"
+            )
+        ]
 
 
     async def handle_agent(self, user_input: str) -> dict:
         self.observations = []
-        tools = self.set_agent_tools()
 
-        await self.set_agent(tools).ainvoke({"input": user_input})
+        await self.set_agent(self.tools).ainvoke({"input": user_input})
         agent_output = await asyncio.to_thread(
             self.llm.run,
             set_output_prompt(user_input, self.observations)
@@ -31,21 +46,6 @@ class AgentService:
         return {
             "agent_output": getattr(agent_output, 'content', '')
         }
-
-
-    def set_agent_tools(self):
-        return [
-        Tool.from_function(
-            name="WEB_SEARCH",
-            func=self.search_web,
-            description="최신 정보 등 정확한 정보가 필요할 경우 사용"
-        ),
-        Tool.from_function(
-            name="QDRANT_SEARCH",
-            func=self.qdrant_search,
-            description="회사 정보, 회사 내부 문서 등 정보가 필요할 경우 사용"
-        )
-    ]
 
 
     def set_agent(self, tools):
@@ -66,7 +66,6 @@ class AgentService:
 
     def search_web(self, query: str) -> str:
         results = self.search.run(query)
-
         obs = " ".join(results)
         self.observations.append(obs)
         return obs
