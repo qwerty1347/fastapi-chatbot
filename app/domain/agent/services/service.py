@@ -8,6 +8,7 @@ from langchain.agents import Tool
 from app.domain.agent.modules.llm.groq import Groq
 from app.domain.agent.modules.search.serp import Serp
 from app.domain.agent.services.vectordb_service import VectorDBService
+from common.constants.agent.tools import ToolConstants
 from common.utils.prompt import set_output_prompt
 
 
@@ -23,14 +24,14 @@ class AgentService:
     def set_agent_tools(self):
         return [
             Tool.from_function(
-                name="WEB_SEARCH",
+                name=ToolConstants.WEB_SEARCH,
                 func=self.search_web,
-                description="최신 정보 등 정확한 정보가 필요할 경우 사용"
+                description=ToolConstants.descriptions[ToolConstants.WEB_SEARCH]["description"]
             ),
             Tool.from_function(
-                name="QDRANT_SEARCH",
+                name=ToolConstants.DB_SEARCH,
                 func=self.qdrant_search,
-                description="도매꾹 공지, 도매꾹 정책, 도매꾹 api 등 도매꾹 문서화 정보가 필요할 경우 사용"
+                description=ToolConstants.descriptions[ToolConstants.DB_SEARCH]["description"]
             )
         ]
 
