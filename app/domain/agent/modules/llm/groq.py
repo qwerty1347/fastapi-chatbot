@@ -1,7 +1,7 @@
 from langchain_groq import ChatGroq
 
 from config.settings import settings
-from common.constants.llm_model import LlmModelConstants
+from common.constants.agent.llm_model import LlmModelConstants
 
 
 class Groq:

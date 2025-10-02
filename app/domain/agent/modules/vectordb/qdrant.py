@@ -1,25 +1,27 @@
-from qdrant_client import AsyncQdrantClient
 from sentence_transformers import SentenceTransformer
+from qdrant_client import AsyncQdrantClient
 
-from common.constants.embedding_model import EmbeddingModelConstants
 from config.settings import settings
+from common.constants.agent.embedding_model import EmbeddingModelConstants
 
 
 class Qdrant:
     def __init__(self):
-        self.qdrant = AsyncQdrantClient(url=settings.QDRANT_HOST)
+        # self.qdrant = AsyncQdrantClient(url=settings.QDRANT_HOST)
         self.embedding_model = SentenceTransformer(EmbeddingModelConstants.MODELS['HuggingFace']['name'])
 
 
     async def upsert_points(self, points: list):
-        scroll_resp  = await self.qdrant.upsert(
+        qdrant = AsyncQdrantClient(url=settings.QDRANT_HOST)
+        await qdrant.upsert(
             collection_name="domeggook",
             points=points,
         )
 
 
     async def search_points(self, query_vector: list, limit: int):
-        return await self.qdrant.search(
+        qdrant = AsyncQdrantClient(url=settings.QDRANT_HOST)
+        return await qdrant.search(
             collection_name="domeggook",
             query_vector=query_vector,
             limit=limit
