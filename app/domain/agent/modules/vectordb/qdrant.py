@@ -16,3 +16,11 @@ class Qdrant:
             collection_name="domeggook",
             points=points,
         )
+
+
+    async def search_points(self, query_vector: list, limit: int):
+        return await self.qdrant.search(
+            collection_name="domeggook",
+            query_vector=query_vector,
+            limit=limit
+        )

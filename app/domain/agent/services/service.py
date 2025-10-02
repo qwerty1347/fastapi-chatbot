@@ -7,6 +7,7 @@ from langchain.agents import Tool
 
 from app.domain.agent.modules.llm.groq import Groq
 from app.domain.agent.modules.search.serp import Serp
+from app.domain.agent.services.vectordb_service import VectorDBService
 from common.utils.prompt import set_output_prompt
 
 
@@ -14,6 +15,7 @@ class AgentService:
     def __init__(self):
         self.llm = Groq()
         self.search = Serp()
+        self.vector_db_service = VectorDBService()
         self.observations = []
         self.tools = self.set_agent_tools()
 
@@ -28,7 +30,7 @@ class AgentService:
             Tool.from_function(
                 name="QDRANT_SEARCH",
                 func=self.qdrant_search,
-                description="회사 정보, 회사 내부 문서 등 정보가 필요할 경우 사용"
+                description="도매꾹 공지, 도매꾹 정책, 도매꾹 api 등 도매꾹 문서화 정보가 필요할 경우 사용"
             )
         ]
 
@@ -72,6 +74,8 @@ class AgentService:
 
 
     def qdrant_search(self, query: str) -> str:
-        obs = f"Qdrant 검색 결과: {query} 관련 데이터."
+        results =  asyncio.run(self.vector_db_service.search_points(query))
+        answers = self.vector_db_service.merge_points_by_paragraph(results)
+        obs = " ".join([item['text'] for item in answers])
         self.observations.append(obs)
         return obs
