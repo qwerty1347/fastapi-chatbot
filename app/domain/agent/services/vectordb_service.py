@@ -16,24 +16,40 @@ class VectorDBService:
         points = []
         data = get_vectordb_data()
 
-        for index, (key, value) in enumerate(data.items()):
-            for idx, row in enumerate(value):
-                for sub_idx, sub_row in enumerate(row):
-                    points.append(
-                        PointStruct(
-                            id=str(uuid.uuid4()),
-                            vector=self.qdrant.embedding_model.encode(sub_row).tolist(),
-                            payload={
-                                "document_id": f"{key}{idx}{sub_idx}",
-                                "category": key,
-                                "paragraph": idx,
-                                "text": sub_row
-                            }
+        for category, documents in data.items():  # category = "notice", "api" 등
+            for doc_idx, doc in enumerate(documents):
+                for key, value in doc.items():  # key = "제목", "본문", "변경_내용" 등
+                    if isinstance(value, list):
+                        for sec_idx, item in enumerate(value):
+                            points.append(
+                                PointStruct(
+                                    id=str(uuid.uuid4()),
+                                    vector=self.qdrant.embedding_model.encode(item).tolist(),
+                                    payload={
+                                        "document_id": f"{category}_{doc_idx}",
+                                        "category": category,
+                                        "section": key,
+                                        "paragraph": sec_idx,
+                                        "text": item
+                                    }
+                                )
+                            )
+                    else:
+                        points.append(
+                            PointStruct(
+                                id=str(uuid.uuid4()),
+                                vector=self.qdrant.embedding_model.encode(value).tolist(),
+                                payload={
+                                    "document_id": f"{category}_{doc_idx}",
+                                    "category": category,
+                                    "section": key,
+                                    "paragraph": 0,
+                                    "text": value
+                                }
+                            )
                         )
-                    )
 
         await self.qdrant.upsert_points(points)
-
 
     async def search_points(self, query: str, limit: int = 10):
         return await self.qdrant.search_points(self.qdrant.embedding_model.encode(query).tolist(), limit)

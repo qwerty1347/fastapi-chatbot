@@ -7,7 +7,6 @@ from common.constants.agent.embedding_model import EmbeddingModelConstants
 
 class Qdrant:
     def __init__(self):
-        # self.qdrant = AsyncQdrantClient(url=settings.QDRANT_HOST)
         self.embedding_model = SentenceTransformer(EmbeddingModelConstants.MODELS['HuggingFace']['name'])
 
 
