@@ -27,6 +27,7 @@ class VectorDBService:
                                     vector=self.qdrant.embedding_model.encode(item).tolist(),
                                     payload={
                                         "document_id": f"{category}_{doc_idx}",
+                                        "doc_idx": doc_idx,
                                         "category": category,
                                         "section": key,
                                         "paragraph": sec_idx,
@@ -41,6 +42,7 @@ class VectorDBService:
                                 vector=self.qdrant.embedding_model.encode(value).tolist(),
                                 payload={
                                     "document_id": f"{category}_{doc_idx}",
+                                    "doc_idx": doc_idx,
                                     "category": category,
                                     "section": key,
                                     "paragraph": 0,
@@ -56,29 +58,46 @@ class VectorDBService:
 
 
     def merge_points_by_paragraph(self, results: list):
+        if not results:
+            return []
+
+        # 최고 점수 포인트 기준 category
+        best_point = max(results, key=lambda p: p.score)
+        best_point_category = best_point.payload.get("category")
+
         grouped = defaultdict(list)
         scores = {}
 
         for point in results:
+            if point.payload.get("category") != best_point_category:
+                continue  # 다른 category는 무시
+
             doc_id = point.payload.get("document_id")
             paragraph = point.payload.get("paragraph")
             key = (doc_id, paragraph)
+
             grouped[key].append(point.payload.get("text"))
 
-            # 문단의 최고 점수를 저장
+            # 문단 최고 점수
             if key not in scores or point.score > scores[key]:
                 scores[key] = point.score
 
-        answers = []
-
-        for (doc_id, paragraph), texts in grouped.items():
-            answers.append({
+        # 결과 리스트 생성
+        answers = [
+            {
                 "document_id": doc_id,
                 "paragraph": paragraph,
-                "text": " ".join(texts),  # 같은 문단의 텍스트 합치기
+                "text": " ".join(texts),
                 "score": scores[(doc_id, paragraph)]
-            })
+            }
+            for (doc_id, paragraph), texts in grouped.items()
+        ]
 
         answers.sort(key=lambda x: x["score"], reverse=True)
+
+
+        print("=====================")
+        print(answers)
+        print("=====================")
 
         return answers
