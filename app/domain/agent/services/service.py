@@ -71,8 +71,10 @@ class AgentService:
         results = self.search.run(query)
         parsed_results = self.serp_service.parse_serp(results)
         self.observations = "\n".join(parsed_results)
+        return self.observations
 
 
     def qdrant_search(self, query: str) -> str:
         results =  asyncio.run(self.vector_db_service.handle_points(query))
         self.observations = "\n".join([p.payload['doc'] for p in results])
+        return self.observations
