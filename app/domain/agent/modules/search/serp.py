@@ -1,3 +1,5 @@
+import json
+
 from langchain_community.utilities import SerpAPIWrapper
 
 from app.domain.agent.services.serp_service import SerpService
@@ -18,7 +20,11 @@ class Serp:
 
 
     def run(self, query: str):
-        # results = self.serp.results(query)
-        results = self.serp_service.load_sample_response()
+        # return self.serp.results(query)
+        return self.load_sample_response()
 
-        return self.serp_service.parse_serp(results)
+
+    def load_sample_response(self):
+        file_path = settings.STORAGE_PATH + "/serp/response.json"
+        with open(file_path, "r", encoding="utf-8") as f:
+            return json.load(f)

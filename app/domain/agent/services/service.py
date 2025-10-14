@@ -7,6 +7,7 @@ from langchain.agents import Tool
 
 from app.domain.agent.modules.llm.groq import Groq
 from app.domain.agent.modules.search.serp import Serp
+from app.domain.agent.services.serp_service import SerpService
 from app.domain.agent.services.vectordb_service import VectorDBService
 from common.constants.agent.tools import ToolConstants
 from common.utils.prompt import set_output_prompt
@@ -17,7 +18,8 @@ class AgentService:
         self.llm = Groq()
         self.search = Serp()
         self.vector_db_service = VectorDBService()
-        self.observations = []
+        self.serp_service = SerpService()
+        self.observations = ""
         self.tools = self.set_agent_tools()
 
 
@@ -37,8 +39,6 @@ class AgentService:
 
 
     async def handle_agent(self, user_input: str) -> dict:
-        self.observations = []
-
         await self.set_agent(self.tools).ainvoke({"input": user_input})
         agent_output = await asyncio.to_thread(
             self.llm.run,
@@ -69,14 +69,10 @@ class AgentService:
 
     def search_web(self, query: str) -> str:
         results = self.search.run(query)
-        obs = " ".join(results)
-        self.observations.append(obs)
-        return obs
+        parsed_results = self.serp_service.parse_serp(results)
+        self.observations = "\n".join(parsed_results)
 
 
     def qdrant_search(self, query: str) -> str:
-        results =  asyncio.run(self.vector_db_service.search_points(query))
-        answers = self.vector_db_service.merge_points_by_paragraph(results)
-        obs = " ".join([item['text'] for item in answers])
-        self.observations.append(obs)
-        return obs
+        results =  asyncio.run(self.vector_db_service.handle_points(query))
+        self.observations = "\n".join([p.payload['doc'] for p in results])
