@@ -2,6 +2,8 @@ from pydantic import BaseSettings
 
 class Settings(BaseSettings):
     ALLOWED_ORIGINS: str | None
+    QDRANT_HOST: str
+
     GROQ_API_KEY: str
     SERP_API_KEY: str
     STORAGE_PATH: str

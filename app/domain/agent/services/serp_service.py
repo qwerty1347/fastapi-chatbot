@@ -1,17 +1,9 @@
-import json
-
 from config.settings import settings
 
 
 class SerpService:
     def __init__(self):
         pass
-
-
-    def load_sample_response(self):
-        file_path = settings.STORAGE_PATH + "/serp/response.json"
-        with open(file_path, "r", encoding="utf-8") as f:
-            return json.load(f)
 
 
     def parse_serp(self, results: dict):
