@@ -1,5 +1,7 @@
+from qdrant_client.http.models.models import ScoredPoint
 from sentence_transformers import SentenceTransformer
 from qdrant_client import AsyncQdrantClient
+from qdrant_client.http.models import Filter, FieldCondition, MatchValue, SearchRequest
 
 from config.settings import settings
 from common.constants.agent.embedding_model import EmbeddingModelConstants
@@ -18,10 +20,29 @@ class Qdrant:
         )
 
 
-    async def search_points(self, query_vector: list, limit: int):
+    async def search_points(self, query_vector: list, limit: int, category: str = None, doc_idx: int = None) -> list[ScoredPoint]:
         qdrant = AsyncQdrantClient(url=settings.QDRANT_HOST)
+        filters = []
+
+        if category is not None:
+            filters.append(
+                FieldCondition(
+                    key="category",
+                    match=MatchValue(value=category)
+                )
+            )
+
+        if doc_idx is not None:
+            filters.append(
+                FieldCondition(
+                    key="doc_idx",
+                    match=MatchValue(value=int(doc_idx))
+                )
+            )
+
         return await qdrant.search(
             collection_name="domeggook",
             query_vector=query_vector,
-            limit=limit
+            limit=limit,
+            query_filter=Filter(must=filters) if filters else None
         )
