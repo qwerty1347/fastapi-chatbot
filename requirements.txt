@@ -53,7 +53,7 @@ huggingface-hub==0.35.0       # Required by sentence-transformers
 # -----------------------------
 # Qdrant Vector DB Client
 # -----------------------------
-qdrant-client==1.11.1         # Qdrant vector DB client
+qdrant-client==1.15.1         # Qdrant vector DB client
 
 # -----------------------------
 # LangChain & Ecosystem
