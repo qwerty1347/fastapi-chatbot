@@ -1,6 +1,6 @@
-def set_output_prompt(user_input: str, observations: list) -> str:
+def set_output_prompt(user_input: str, observations: str) -> str:
     return f"""
-        당신은 전문적인 상담사입니다. 상담에 맞는 단어가 포함된 답변으로만 출력하세요.
+        질문에 알맞게 적절한 답변으로만 간략하게 출력하세요.
 
         규칙:
         1. 질문과 정보들을 분석
@@ -9,5 +9,6 @@ def set_output_prompt(user_input: str, observations: list) -> str:
 
         질문: {user_input}
 
-        정보: {''.join(observations)}
+        정보: {observations}
+
         """
