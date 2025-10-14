@@ -1,5 +1,6 @@
 import asyncio
 
+from fastapi.responses import JSONResponse
 from langchain import hub
 from langchain.agents import AgentExecutor
 from langchain.agents import create_react_agent
@@ -11,6 +12,7 @@ from app.domain.agent.services.serp_service import SerpService
 from app.domain.agent.services.vectordb_service import VectorDBService
 from common.constants.agent.tools import ToolConstants
 from common.utils.prompt import set_output_prompt
+from common.utils.response import success_response
 
 
 class AgentService:
@@ -38,7 +40,7 @@ class AgentService:
         ]
 
 
-    async def handle_agent(self, user_input: str) -> dict:
+    async def handle_agent(self, user_input: str) -> JSONResponse:
         await self.set_agent(self.tools).ainvoke({"input": user_input})
         agent_output = await asyncio.to_thread(
             self.llm.run,
@@ -46,9 +48,7 @@ class AgentService:
         )
         print("Agent Output: ", agent_output)
 
-        return {
-            "agent_output": getattr(agent_output, 'content', '')
-        }
+        return success_response(getattr(agent_output, 'content', ''))
 
 
     def set_agent(self, tools):
