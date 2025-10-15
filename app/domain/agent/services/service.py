@@ -11,7 +11,7 @@ from app.domain.agent.modules.search.serp import Serp
 from app.domain.agent.services.serp_service import SerpService
 from app.domain.agent.services.vectordb_service import VectorDBService
 from common.constants.agent.tools import ToolConstants
-from common.utils.prompt import set_output_prompt
+from common.utils.prompt import is_chitchat_prompt, set_chitchat_prompt, set_output_prompt
 from common.utils.response import success_response
 
 
@@ -41,14 +41,34 @@ class AgentService:
 
 
     async def handle_agent(self, user_input: str) -> JSONResponse:
-        await self.set_agent(self.tools).ainvoke({"input": user_input})
-        agent_output = await asyncio.to_thread(
+        llm_output = await asyncio.to_thread(
             self.llm.run,
-            set_output_prompt(user_input, self.observations)
+            is_chitchat_prompt(user_input)
         )
+
+        if self.is_chitchat(llm_output):
+            agent_output = await asyncio.to_thread(
+                self.llm.run,
+                set_chitchat_prompt(user_input)
+            )
+
+        else:
+            await self.set_agent(self.tools).ainvoke({"input": user_input})
+
+
+            agent_output = await asyncio.to_thread(
+                self.llm.run,
+                set_output_prompt(user_input, self.observations)
+            )
+
         print("Agent Output: ", agent_output)
 
         return success_response(getattr(agent_output, 'content', ''))
+
+
+    def is_chitchat(self, llm_output: str) -> bool:
+        result = getattr(llm_output, "content", str(llm_output)).strip().lower()
+        return "yes" in result
 
 
     def set_agent(self, tools):
