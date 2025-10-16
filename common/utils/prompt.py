@@ -17,7 +17,7 @@ def set_output_prompt(user_input: str, observations: str) -> str:
 
 def is_chitchat_prompt(user_input: str) -> str:
     return f"""
-        아래 질문이 단순 인사, 감정 표현, 잡담 등 일상 대화인지 판별할 것
+        아래 질문이 단순 인사, 고마움, 슬픔 등 인간의 감정을 표현, 잡담 등 일상적인 대화인지 판별할 것
         해당하면 yes, 아니면 no 로 출력
 
         질문: {user_input}
@@ -27,7 +27,7 @@ def is_chitchat_prompt(user_input: str) -> str:
 
 def set_chitchat_prompt(user_input: str) -> str:
     return f"""
-        아래 질문에 맞는 적절한 답변으로 출력할 것
+        아래 질문에 맞는 적절하게 출력하고 문장의 끝에는 상황에 맞는 적절한 이모지 또는 이모티콘을 넣어줘
 
         질문: {user_input}
     """
