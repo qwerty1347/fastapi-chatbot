@@ -1,6 +1,6 @@
 def set_output_prompt(user_input: str, observations: str) -> str:
     return f"""
-        아래 질문에 알맞게 적절한 답변으로만 아래 규칙에 맞게 간략하게 출력할 것
+        아래 질문에 알맞게 적절한 답변으로만 아래 규칙에 맞게 4문단 이내로 출력할 것
 
         규칙:
         질문과 정보들을 분석하고 정확한 정보를 간단한 문장으로 요약
