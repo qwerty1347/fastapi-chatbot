@@ -25,7 +25,13 @@ class AgentService:
         self.tools = self.set_agent_tools()
 
 
-    def set_agent_tools(self):
+    def set_agent_tools(self) -> list[Tool]:
+        """
+        에이전트 챗봇이 사용할 도구 (tool) 를 설정하는 함수입니다.
+
+        Returns:
+            list[Tool]: 에이전트의 리스트
+        """
         return [
             Tool.from_function(
                 name=ToolConstants.WEB_SEARCH,
@@ -41,6 +47,15 @@ class AgentService:
 
 
     async def handle_agent(self, user_input: str) -> JSONResponse:
+        """
+        사용자가 입력한 텍스트를 에이전트 챗봇이 도구를 사용하고 챗봇 답변을 생성하고 결과를 리턴하는 함수입니다.
+
+        Args:
+            user_input (str): 사용자 입력 텍스트
+
+        Returns:
+            JSONResponse: 챗봇 답변이 포함된 리턴 결과
+        """
         llm_output = await asyncio.to_thread(
             self.llm.run,
             is_chitchat_prompt(user_input)
@@ -67,11 +82,29 @@ class AgentService:
 
 
     def is_chitchat(self, llm_output: str) -> bool:
+        """
+        LLM 이 판단한 일상 대화 여부의 리턴 결과를 통해 True / False 를 지정하는 함수입니다.
+
+        Args:
+            llm_output (str): LLM 이 판단한 일상 대화 여부
+
+        Returns:
+            bool: LLM 리턴 결과 내 yes 포함된 경우 True, 그 외 False
+        """
         result = getattr(llm_output, "content", str(llm_output)).strip().lower()
         return "yes" in result
 
 
-    def set_agent(self, tools):
+    def set_agent(self, tools) -> AgentExecutor:
+        """
+        LLM 과 Tool 목록을 사용하여 Agent Executor를 생성하는 함수입니다.
+
+        Args:
+            tools (list[Tool]): 에이전트 챗봇에서 사용할 도구 목록
+
+        Returns:
+            AgentExecutor: 생성된 Agent Executor 인스턴스
+        """
         agent = create_react_agent(
             llm=self.llm.llm,
             tools=tools,
@@ -88,6 +121,15 @@ class AgentService:
 
 
     def search_web(self, query: str) -> str:
+        """
+        Serp API를 사용하여 입력 텍스트에 대한 웹 검색 결과를 가져오고 파싱하여 리턴하는 함수입니다.
+
+        Args:
+            query (str): 검색할 텍스트 쿼리
+
+        Returns:
+            str: 웹 검색 결과를 하나의 문자열로 합쳐 반환
+        """
         results = self.search.run(query)
         parsed_results = self.serp_service.parse_serp(results)
         self.observations = "\n".join(parsed_results)
@@ -95,6 +137,15 @@ class AgentService:
 
 
     def qdrant_search(self, query: str) -> str:
+        """
+        Qdrant Client를 사용하여 입력 텍스트의 벡터와 유사한 문서를 검색하는 함수입니다.
+
+        Args:
+            query (str): 검색할 텍스트 쿼리
+
+        Returns:
+            str: 검색된 결과를 하나의 문자열로 합쳐 반환
+        """
         results =  asyncio.run(self.vector_db_service.handle_points(query))
         self.observations = "\n".join([p.payload['doc'] for p in results])
         return self.observations
