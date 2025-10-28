@@ -14,4 +14,13 @@ class Groq:
 
 
     def run(self, prompt: str) -> str:
+        """
+        Groq LLM을 사용하여 입력 텍스트에 대한 응답을 생성하는 함수입니다.
+
+        Args:
+            prompt (str): 입력 텍스트
+
+        Returns:
+            str: 생성된 응답
+        """
         return self.llm.invoke(prompt)
