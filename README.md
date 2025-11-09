@@ -1,64 +1,36 @@
-# FastAPI Chatbot
+# 🤖 FastAPI Agent Chatbot
 
-FastAPI 기반의 챗봇 애플리케이션입니다. 이 프로젝트는 대화형 AI 에이전트 챗봇으로서 Googel 검색 기능과 벡터 데이터베이스를 활용한 DB 검색 기능을 스스로 결정하고 사용하는 내리는 능동적인 챗봇 기능을 제공합니다.
+LangChain 기반의 **RAG(Re-trieval Augmented Generation)** 구조를 활용한 대화형 AI 챗봇입니다.
+내부 데이터(VectorDB) 검색과 Google 웹 검색을 스스로 판단해 사용하는 **능동형 AI 에이전트**를 구현했습니다.
+백엔드는 **FastAPI**, 프론트엔드는 **Streamlit**으로 구성되어 있으며,
+비동기 처리와 RAG 아키텍처를 통해 정확하고 빠른 응답을 제공합니다.
 
 
 ## 🚀 주요 기능
 
-- **챗봇**: 사용자와 자연스러운 대화가 가능한 AI 에이전트
-- **VectorDB 검색**: Qdrant를 활용한 효율적인 벡터 검색 기능
-- **Google 검색**: SERP(Search Engine Results Page)를 통한 웹 검색 기능
-- **RESTful API**: FastAPI 기반의 확장 가능한 API 구조
-- **비동기 처리**: Async/await를 활용한 비동기 처리로 높은 성능 유지
+- 💬 **자연어 질의 응답** : Llama3 기반 LLM을 활용해 사용자의 질문을 분석하고 정확한 답변을 제공합니다.
+- 🧠 **RAG 기반 유사도 검색** : VectorDB(Qdrant)에 임베딩된 문서를 검색하여 관련 정보를 제공합니다.
+- 🌐 **웹 검색 (Google)** : 내부 문서에 없는 정보는 SERP(Search Engine Results Page)를 통해 최신 정보를 검색합니다.
+- ⚡ **비동기 API 구조** : FastAPI의 비동기 처리로 높은 성능을 유지합니다.
+- 🧩 **LangChain Agent 구성** : VectorDB, Google Search 등의 도구를 결합해 자율적인 에이전트 동작을 수행합니다.
 
 
 ## 🛠️ 기술 스택
 
-![기술 스택](storage/screenshots/tech-stack.png)
+### 🖥 Backend & Frontend
+- **Python**
+- **FastAPI**
+- **Streamlit**
+- **VectorDB (Qdrant)** : 문서 임베딩 기반 유사도 검색 (Cosine Similarity)**
 
-- **백엔드**: FastAPI 0.110.0 (Python 3.11)
-- **VectorDB**: Qdrant 1.15.1
-- **AI/ML**:
-  - Transformers 4.43.0 (Hugging Face)
-  - Sentence Transformers 5.1.0 (임베딩 모델)
-  - PyTorch 2.2.0
-  - LangChain 0.2.17
-- **데이터베이스**:
-  - SQLAlchemy 2.0.35 (ORM)
-  - Alembic 1.13.1 (마이그레이션)
-  - Motor 3.7.1 (MongoDB)
-- **검색 & API**:
-  - Google API Client 2.97.0
-  - SerpAPI 2.4.2 (웹 검색)
-  - HTTPX 0.25.1 (비동기 HTTP 클라이언트)
-- **유틸리티**:
-  - Pydantic 1.10.12 (데이터 검증)
-  - Pandas 2.1.1 (데이터 처리)
-  - NumPy 1.26.4
-  - python-decouple 3.8 (환경 변수 관리)
+### 🤖 LLM / RAG
+- **LangChain**
+- **Llama3**
+- **Sentence Transformers**
+- **Google**
 
-
-## 📌 주요 버전 정보
-
-### 핵심 의존성
-- **Python**: 3.11
-- **FastAPI**: 0.110.0
-- **PyTorch**: 2.2.0
-- **Transformers**: 4.43.0
-- **Qdrant Client**: 1.15.1
-- **LangChain**: 0.2.17
-
-### 데이터베이스
-- **SQLAlchemy**: 2.0.35
-- **Alembic**: 1.13.1
-- **Motor**: 3.7.1
-- **Beanie**: 1.27.0
-
-### 검색 & API
-- **Google API Client**: 2.97.0
-- **SerpAPI**: 2.4.2
-- **HTTPX**: 0.25.1
-- **Groq Client**: 0.31.1
+### ⚙️ DevOps
+- **Docker**
 
 
 ## 📸 실행 화면
