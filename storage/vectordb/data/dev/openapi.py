@@ -3,7 +3,7 @@ openapis = [
         "getItemList, 상품리스트, 상품 목록 조회",
         "종류: Open API",
         "요청 URL: https://domeggook.com/ssl/api/",
-        "요청 방식: GET"
+        "요청 방식: GET",
         "API명: 상품리스트",
         "버전: 1.0, 4.0, 4.1",
         "모드: getItemList",
