@@ -65,5 +65,6 @@ class Qdrant:
             collection_name="domeggook",
             query_vector=query_vector,
             limit=limit,
-            query_filter=Filter(must=filters) if filters else None
+            query_filter=Filter(must=filters) if filters else None,
+            score_threshold=0.45
         )

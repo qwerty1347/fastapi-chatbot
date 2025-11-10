@@ -1,5 +1,7 @@
+import re
 import uuid
 
+from langchain_text_splitters import RecursiveCharacterTextSplitter
 from qdrant_client.conversions.common_types import ScoredPoint
 from qdrant_client.http.models import PointStruct
 
@@ -22,8 +24,8 @@ class VectorDBService:
                 "document_id": "category_문서인덱스",
                 "category": category,
                 "doc_idx": 문서 인덱스,
-                "paragraph": 단락 인덱스,
-                "doc": 실제 문서 내용
+                "paragraph": 청크된 단락 인덱스,
+                "doc": 실제 문서 내용 중 청크된 내용
             }
 
         Returns:
@@ -31,28 +33,26 @@ class VectorDBService:
         """
         points = []
         data = get_vectordb_data()
+        splitter = RecursiveCharacterTextSplitter(chunk_size=100, chunk_overlap=10, separators=["\n"])
 
         for category, documents in data.items():
             for doc_idx, doc in enumerate(documents):
+                doc = re.sub(r'[ \t]+', ' ', doc)   # 한 줄 내 여러 개의 공백이나 탭이 연속된 경우 → 하나의 공백으로 치환
+                doc = re.sub(r'\s{2,}', '\n', doc).strip()  # 공백문자(스페이스, 탭, 줄바꿈 등)가 2개 이상 연속된 부분을 줄바꿈(\n)으로 치환
 
-                if isinstance(doc, (tuple, list)):
-                    items = doc
-                else:
-                    items = [doc]
+                chunks = splitter.split_text(doc.strip())
 
-                for sec_idx, item in enumerate(items):
-                    vector = self.qdrant.embedding_model.encode(item).tolist()
-
+                for chunk_idx, chunk in enumerate(chunks):
                     points.append(
                         PointStruct(
                             id=str(uuid.uuid4()),
-                            vector=vector,
+                            vector=self.qdrant.embedding_model.encode(chunk).tolist(),
                             payload={
                                 "document_id": f"{category}_{doc_idx}",
                                 "category": category,
                                 "doc_idx": doc_idx,
-                                "paragraph": sec_idx,
-                                "doc": item
+                                "paragraph": chunk_idx,
+                                "doc": chunk
                             }
                         )
                     )
@@ -74,7 +74,7 @@ class VectorDBService:
         return sorted(results, key=lambda p: p.payload['paragraph'])
 
 
-    async def search_points(self, query: str, limit: int = 10) -> list[ScoredPoint]:
+    async def search_points(self, query: str, limit: int = 15) -> list[ScoredPoint]:
         """
         입력 텍스트를 임베딩으로 변환하여 Qdrant 에서 유사한 포인트를 검색하는 함수입니다.
         검색 결과 중 최고 점수 포인트(top_score_point)를 기준으로 category와 doc_idx를 활용해 범위를 좁힌 후 추가 검색을 수행합니다.
@@ -86,12 +86,13 @@ class VectorDBService:
         Returns:
             list[ScoredPoint]: 검색된 포인트(ScoredPoint) 객체들의 리스트
         """
-        results: list[ScoredPoint] = await self.qdrant.search_points(self.qdrant.embedding_model.encode(query).tolist(), limit)
+        embedded_query = self.qdrant.embedding_model.encode(query).tolist()
+        results: list[ScoredPoint] = await self.qdrant.search_points(embedded_query, limit)
         top_score_point: ScoredPoint = max(results, key=lambda p: p.score)
 
         return await self.qdrant.search_points(
-            self.qdrant.embedding_model.encode(query).tolist(),
-            limit,
+            embedded_query,
+            3,
             category=top_score_point.payload.get("category"),
             doc_idx=top_score_point.payload.get("doc_idx"),
         )
