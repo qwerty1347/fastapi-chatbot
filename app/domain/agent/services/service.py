@@ -69,8 +69,6 @@ class AgentService:
 
         else:
             await self.set_agent(self.tools).ainvoke({"input": user_input})
-
-
             agent_output = await asyncio.to_thread(
                 self.llm.run,
                 set_output_prompt(user_input, self.observations)
@@ -146,6 +144,10 @@ class AgentService:
         Returns:
             str: 검색된 결과를 하나의 문자열로 합쳐 반환
         """
-        results =  asyncio.run(self.vector_db_service.handle_points(query))
-        self.observations = "\n".join([p.payload['doc'] for p in results])
-        return self.observations
+        results =  asyncio.run(self.vector_db_service.search_points(query))
+
+
+        # !
+        return {"results": "test"}
+        # self.observations = "\n".join([p.payload['doc'] for p in results])
+        # return self.observations
