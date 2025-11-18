@@ -4,6 +4,7 @@ import uuid
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from qdrant_client.conversions.common_types import ScoredPoint
 from qdrant_client.http.models import Filter, FieldCondition, MatchText, MatchValue, PointStruct
+from qdrant_client.http.models.models import ScoredPoint
 
 from app.domain.agent.modules.vectordb.qdrant import Qdrant
 from storage.vectordb.data.base import get_vectordb_data
@@ -43,7 +44,7 @@ class VectorDBService:
                 chunks = splitter.split_text(page_content)
 
                 for chunk_idx, chunk in enumerate(chunks):
-                    # print(f"--- Chunk {chunk_idx} ---")
+                    # print(f"--- chunk {chunk_idx} ---")
                     # print(chunk)
                     # print()
 
@@ -65,7 +66,7 @@ class VectorDBService:
         await self.qdrant.upsert_points(points)
 
 
-    async def search_points(self, query: str) -> list[ScoredPoint]:
+    async def search_points(self, query: str):
         """
         입력 텍스트를 임베딩 후 유사한 포인트를 검색하는 함수입니다.
         검색 결과 중 최고 점수 포인트(top_score_point)를 기준으로 category와 doc_idx를 활용해 범위를 좁힌 후 추가 검색을 수행합니다.
@@ -75,57 +76,59 @@ class VectorDBService:
             limit (int): 반환할 최대 검색 결과 개수
 
         Returns:
-            list[ScoredPoint]: 검색된 포인트(ScoredPoint) 객체들의 리스트
+            list[ScoredPoint] | str: 검색된 포인트(ScoredPoint) 객체들의 리스트 또는 문자열
         """
         embedded_query = self.qdrant.embedding_model.encode(query).tolist()
-        # results: list[ScoredPoint] = await self.qdrant.search_points(embedded_query, 10)
-        results = await self.test(query, embedded_query)
+        result = await self.handle_search_points(query, embedded_query)
+        # print(f"--- result ---")
+        # print(f"result: {result}")
+        # print()
 
-        print("search_point", results)
-
-
-
-        return results
+        return result
 
 
-
-        """ top_score_point: ScoredPoint = max(results, key=lambda p: p.score)
-
-
-
-        results = await self.qdrant.search_points(
-            embedded_query,
-            3,
-            category=top_score_point.payload.get("category"),
-            doc_idx=top_score_point.payload.get("doc_idx"),
-        )
-
-        return sorted(results, key=lambda p: p.payload['paragraph']) """
-
-
-    async def test(self, query: str, embedded_query):
+    async def handle_search_points(self, query: str, embedded_query):
         points = await self.qdrant.search_points(embedded_query, 10)
 
+        if not points:
+            return "답변을 생성하지 못하였습니다. 다시 시도해 주세요."
+
+        points = self.search_keyword_point(query, points)
+        top_score_points = max(points, key=lambda p: p.score)
+        # print(f"--- top_score_points ---")
+        # print(f"top_score_points: {top_score_point}")
+        # print()
+        top_score_result = await self.search_top_score_point(embedded_query, top_score_points)
+
+        return "\n".join([p.payload['doc'] for p in top_score_result])
+
+
+    def search_keyword_point(self, query, points):
+        keyword_points = []
+
         for point in points:
-            keywords = point.payload.get("metadata")['keyword']
+            if any(keyword in query for keyword in point.payload.get('metadata')['keyword']):
+                keyword_points.append(point)
 
-            normalized_query = query.replace(" ", "")
+        if keyword_points:
+            points = keyword_points
 
-            print(normalized_query)
-
-            if any(keyword in normalized_query for keyword in keywords):
-                print(1, keywords)
-                print()
-
-            print(2, keywords)
+        return points
 
 
+    async def search_top_score_point(self, embedded_query, top_score_point, limit: int = 5):
+        filters = Filter(
+            must=[
+                FieldCondition(
+                    key="category",
+                    match=MatchValue(value=top_score_point.payload.get("category"))
+                ),
+                FieldCondition(
+                    key="doc_idx",
+                    match=MatchValue(value=top_score_point.payload.get("doc_idx"))
+                )
+            ]
+        )
+        top_score_result = await self.qdrant.search_points(query_vector=embedded_query, limit=limit, filters=filters)
 
-
-
-
-
-        top_score_point: ScoredPoint = max(points, key=lambda p: p.score)
-
-
-        return top_score_point
+        return sorted(top_score_result, key=lambda p: p.payload['paragraph'])

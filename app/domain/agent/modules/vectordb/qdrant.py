@@ -23,13 +23,14 @@ class Qdrant:
             None
         """
         qdrant = AsyncQdrantClient(url=settings.QDRANT_HOST)
+
         await qdrant.upsert(
             collection_name="domeggook",
             points=points,
         )
 
 
-    async def search_points(self, query_vector: list, limit: int) -> list[ScoredPoint]:
+    async def search_points(self, query_vector: list, limit: int, filters = None) -> list[ScoredPoint]:
     # async def search_points(self, query_vector: list, limit: int, category: str = None, doc_idx: int = None) -> list[ScoredPoint]:
         """
         Qdrant Client를 사용하여 입력 벡터에 대한 유사한 포인트를 검색하는 함수입니다.
@@ -48,33 +49,6 @@ class Qdrant:
         return await qdrant.search(
             collection_name="domeggook",
             query_vector=query_vector,
-            limit=limit
-        )
-
-
-
-        """ filters = []
-
-        if category is not None:
-            filters.append(
-                FieldCondition(
-                    key="category",
-                    match=MatchValue(value=category)
-                )
-            )
-
-        if doc_idx is not None:
-            filters.append(
-                FieldCondition(
-                    key="doc_idx",
-                    match=MatchValue(value=int(doc_idx))
-                )
-            )
-
-        return await qdrant.search(
-            collection_name="domeggook",
-            query_vector=query_vector,
             limit=limit,
-            query_filter=Filter(must=filters) if filters else None,
-            score_threshold=0.45
-        ) """
+            query_filter=filters if filters else None
+        )
