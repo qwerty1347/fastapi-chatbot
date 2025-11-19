@@ -2,9 +2,7 @@ import re
 import uuid
 
 from langchain_text_splitters import RecursiveCharacterTextSplitter
-from qdrant_client.conversions.common_types import ScoredPoint
-from qdrant_client.http.models import Filter, FieldCondition, MatchText, MatchValue, PointStruct
-from qdrant_client.http.models.models import ScoredPoint
+from qdrant_client.http.models import Filter, FieldCondition, MatchValue, PointStruct
 
 from app.domain.agent.modules.vectordb.qdrant import Qdrant
 from storage.vectordb.data.base import get_vectordb_data

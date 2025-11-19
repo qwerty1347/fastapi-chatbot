@@ -31,10 +31,8 @@ def is_chitchat_prompt(user_input: str) -> str:
 def set_chitchat_prompt(user_input: str) -> str:
     return f"""
         질문에 가장 적절한 답변을 자연스러운 한국어 대화로 출력하고 절대 영어를 사용하지 말 것
-        적절한 이모지를 넣어 출력할 것
-
-        예시:
-        안녕하세요! 😊 오늘 기분은 어떠세요?
+        답변에 가장 적절한 이모지를 넣어 자연스러운 대화로 출력할 것
+        절대 추가 설명을 추가하지 말 것
 
         질문: {user_input}
         """

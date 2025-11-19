@@ -1,7 +1,6 @@
 from qdrant_client.http.models.models import ScoredPoint
 from sentence_transformers import SentenceTransformer
 from qdrant_client import AsyncQdrantClient
-from qdrant_client.http.models import Filter, FieldCondition, MatchValue
 
 from config.settings import settings
 from common.constants.agent.embedding_model import EmbeddingModelConstants
