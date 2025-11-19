@@ -6,6 +6,7 @@ from langchain.agents import AgentExecutor
 from langchain.agents import create_react_agent
 from langchain.agents import Tool
 
+
 from app.domain.agent.modules.llm.groq import Groq
 from app.domain.agent.modules.search.serp import Serp
 from app.domain.agent.services.serp_service import SerpService
@@ -69,14 +70,13 @@ class AgentService:
 
         else:
             await self.set_agent(self.tools).ainvoke({"input": user_input})
-
-
             agent_output = await asyncio.to_thread(
                 self.llm.run,
                 set_output_prompt(user_input, self.observations)
             )
 
-        print("Agent Output: ", agent_output)
+        print(f"Agent Output: {agent_output}")
+        print()
 
         return success_response(getattr(agent_output, 'content', ''))
 
@@ -91,8 +91,13 @@ class AgentService:
         Returns:
             bool: LLM 리턴 결과 내 yes 포함된 경우 True, 그 외 False
         """
-        result = getattr(llm_output, "content", str(llm_output)).strip().lower()
-        return "yes" in result
+        chitchat_result = getattr(llm_output, "content", str(llm_output)).strip().lower()
+
+        # print(f"--- chitchat ---")
+        # print(f"chitchat: {chitchat_result}")
+        # print()
+
+        return "yes" in chitchat_result
 
 
     def set_agent(self, tools) -> AgentExecutor:
@@ -130,9 +135,10 @@ class AgentService:
         Returns:
             str: 웹 검색 결과를 하나의 문자열로 합쳐 반환
         """
-        results = self.search.run(query)
-        parsed_results = self.serp_service.parse_serp(results)
-        self.observations = "\n".join(parsed_results)
+        web_result = self.search.run(query)
+        parsed_result = self.serp_service.parse_serp(web_result)
+        self.observations = "\n".join(parsed_result)
+
         return self.observations
 
 
@@ -146,6 +152,7 @@ class AgentService:
         Returns:
             str: 검색된 결과를 하나의 문자열로 합쳐 반환
         """
-        results =  asyncio.run(self.vector_db_service.handle_points(query))
-        self.observations = "\n".join([p.payload['doc'] for p in results])
+        qdrant_result =  asyncio.run(self.vector_db_service.search_points(query))
+        self.observations = qdrant_result
+
         return self.observations

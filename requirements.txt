@@ -13,7 +13,7 @@ pytz==2025.2                  # Timezone support for datetime
 # -----------------------------
 # Data validation
 # -----------------------------
-pydantic==1.10.12             # Data modeling/validation library
+pydantic==2.12.4              # Data modeling/validation library
 
 # -----------------------------
 # File upload
@@ -58,12 +58,12 @@ qdrant-client==1.15.1         # Qdrant vector DB client
 # -----------------------------
 # LangChain & Ecosystem
 # -----------------------------
-langchain==0.2.17             # Core LangChain framework (chains, agents, LLM integrations)
-langchain-core==0.2.43        # Core abstractions and utilities for LangChain
-langchain-community==0.2.19   # Community-contributed integrations for LangChain
-langchain-openai==0.1.25      # LangChain integration for OpenAI and Groq LLMs
-langchain-qdrant==0.1.1       # LangChain integration for Qdrant vector database
-langchain-groq==0.1.10        # LangChain integration for Groq LLM models
+langchain==0.3.27             # Core LangChain framework (chains, agents, LLM integrations)
+langchain-core==0.3.79        # Core abstractions and utilities for LangChain
+langchain-community==0.3.31   # Community-contributed integrations for LangChain
+langchain-openai==0.3.35      # LangChain integration for OpenAI and Groq LLMs
+langchain-qdrant==0.2.1       # LangChain integration for Qdrant vector database
+langchain-groq==0.3.8         # LangChain integration for Groq LLM models
 
 # -----------------------------
 # Google Custom Search API Wrapper
@@ -79,7 +79,7 @@ google-search-results==2.4.2  # Official SerpAPI Python package
 # Dataset handling
 # -----------------------------
 datasets==2.14.6              # Hugging Face datasets library for loading, preprocessing, and sharing datasets
-pyarrow==10.0.1               # Apache Arrow for fast columnar data processing (used internally by datasets)
+pyarrow==14.0.2               # Apache Arrow for fast columnar data processing (used internally by datasets)
 
 # -----------------------------
 # HTTP Client

@@ -3,10 +3,10 @@ class ToolConstants:
     DB_SEARCH = "DB_SEARCH"
 
     descriptions = {
-        WEB_SEARCH: {
-            "description": "최신 정보 등 정확한 정보가 필요할 경우 사용",
-        },
         DB_SEARCH: {
-            "description": "도매꾹 공지, 도매꾹 정책, 도매꾹 api 등 도매꾹 관련 정보가 필요할 경우 사용",
+            "description": "도매꾹과 관련된 모든 정보 검색에 사용. 질문에 '도매꾹'이 포함되어 있다면 항상 DB_SEARCH 사용할 것",
+        },
+        WEB_SEARCH: {
+            "description": "도매꾹을 제외한 일반 정보 검색에 사용할 것",
         }
     }
