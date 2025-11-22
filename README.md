@@ -1,9 +1,10 @@
 # 🤖 FastAPI Agent Chatbot
 
-LangChain 기반의 **RAG(Re-trieval Augmented Generation)** 구조를 활용한 대화형 AI 챗봇입니다.
-내부 데이터(VectorDB) 검색과 Google 웹 검색을 스스로 판단해 사용하는 **능동형 AI 에이전트**를 구현했습니다.
+LangChain 기반의 **RAG(Retrieval Augmented Generation)** 구조를 활용한 대화형 AI 챗봇입니다.
+내부 데이터(VectorDB) 검색과 Google 웹 검색을 스스로 판단해 사용하는 **능동형 AI 에이전트**를 구현하였습니다.
 백엔드는 **FastAPI**, 프론트엔드는 **Streamlit**으로 구성되어 있으며,
 비동기 처리와 RAG 아키텍처를 통해 정확하고 빠른 응답을 제공합니다.
+또한 LangSmith를 통한 모니터링과 추적, 다양한 프롬프트 버전을 테스트하고 비교할 수 있도록 수현하였습니다.
 
 
 ## 🚀 주요 기능
@@ -29,8 +30,9 @@ LangChain 기반의 **RAG(Re-trieval Augmented Generation)** 구조를 활용한
 - **Sentence Transformers**
 - **Google**
 
-### ⚙️ DevOps
-- **Docker**
+### ⚙️ DevOps / LLMOps
+- **Docker** - 컨테이너화
+- **LangSmith** - 모니터링 및 추적
 
 
 ## 📸 실행 화면
@@ -45,24 +47,45 @@ LangChain 기반의 **RAG(Re-trieval Augmented Generation)** 구조를 활용한
 
 ```
 fastapi-chatbot/
-├── app/
-│   ├── api/                 # API 라우트 정의
-│   ├── domain/              # 도메인 로직
-│   │   └── agent/           # 챗봇 에이전트 관련 로직
-│   │       ├── modules/     # LLM, 검색, 벡터DB 모듈
-│   │       └── services/    # 비즈니스 로직 서비스
-│   └── ...
-├── common/                  # 공통 유틸리티
-│   ├── constants/           # 상수 정의
-│   ├── exceptions/          # 예외 처리
-│   └── utils/               # 유틸리티 함수
-├── config/                  # 설정 파일
-├── storage/                 # 파일 저장소
-│   ├── screenshots/         # 스크린샷
-│   ├── serp/                # 검색 결과 저장
-│   └── vectordb/            # 벡터DB 데이터
-├── .env.example             # 환경 변수 예시
-├── docker-compose.yml       # Docker 설정
-├── main.py                 # 애플리케이션 진입점
-└── requirements.txt        # Python 의존성
+├── app/                           # 애플리케이션 코드
+│   ├── api/                       # API 엔드포인트 정의
+│   │   ├── v1/                    # API 버전 1
+│   │   │   ├── agent/             # 에이전트 관련 API
+│   │   │   │   └── chatbot/       # 챗봇 관련 라우트
+│   │   │   └── vectordb/          # 벡터DB 관련 API
+│   │   └── router_collector.py    # 라우터 통합 관리
+│   │
+│   └── domain/                    # 도메인 로직
+│       └── agent/                 # 에이전트 도메인
+│           ├── modules/           # 모듈 구현
+│           │   ├── llm/           # LLM 관련 모듈 (Groq 등)
+│           │   ├── search/        # 검색 관련 모듈 (SerpAPI 등)
+│           │   └── vectordb/      # 벡터DB 관련 모듈 (Qdrant 등)
+│           └── services/          # 비즈니스 로직 서비스
+│
+├── common/                        # 공통 유틸리티
+│   ├── constants/                 # 상수 정의
+│   │   └── agent/                 # 에이전트 관련 상수 (모델, 임베딩, 도구 등)
+│   ├── exceptions/                # 예외 처리 핸들러
+│   └── utils/                     # 유틸리티 함수 (응답, 프롬프트, 라우터 등)
+│
+├── config/                        # 설정 파일
+│   └── settings.py               # 애플리케이션 설정
+│
+├── model/                        # 학습된 모델 또는 모델 관련 파일
+│
+├── storage/                      # 파일 저장소
+│   ├── logs/                     # 로그 파일
+│   ├── screenshots/              # 스크린샷
+│   ├── serp/                     # 검색 결과 저장
+│   ├── uploads/                  # 사용자 업로드 파일
+│   └── vectordb/                 # 임베딩 데이터
+│       └── data/
+│           ├── board/            # 게시판 데이터
+│           └── dev/              # 개발 데이터
+│
+├── .env.example                  # 환경 변수 예시
+├── docker-compose.yml            # Docker 설정
+├── main.py                      # 애플리케이션 진입점
+└── requirements.txt             # Python 의존성
 ```
