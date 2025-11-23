@@ -5,6 +5,11 @@ fastapi==0.110.0              # FastAPI web framework
 uvicorn[standard]==0.34.3     # ASGI server (auto-reload, logging, uvloop, etc.)
 
 # -----------------------------
+# Jupyter Notebook (for development / experiments)
+# -----------------------------
+notebook==7.5.0               # Jupyter Notebook server (for experiments, data inspection, embedding testing)
+
+# -----------------------------
 # Configuration management & time handling
 # -----------------------------
 python-decouple==3.8          # Load environment variables from .env

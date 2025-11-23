@@ -49,8 +49,10 @@ services:
     container_name: fastapi_chatbot
     volumes:
       - ./:/app
+      - ./notebooks:/app/notebooks
     ports:
       - "9098:8000"
+      - "8888:8888"
     networks:
       - local_network
     environment:

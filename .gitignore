@@ -5,6 +5,7 @@ __pycache__/
 /.docker/mysql/data
 /.docker/mongo/data
 /.docker/qdrant/data
-/.vscode
+/notebooks/.ipynb_checkpoints
 /storage/logs
 /storage/uploads
+/.vscode
