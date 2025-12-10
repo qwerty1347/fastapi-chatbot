@@ -1,18 +1,20 @@
 import asyncio
+from typing import Literal, LiteralString
 
 from fastapi.responses import JSONResponse
 from langchain import hub
 from langchain.agents import AgentExecutor
 from langchain.agents import create_react_agent
 from langchain.agents import Tool
+from langchain_core.prompts import ChatPromptTemplate
 
 
 from app.domain.agent.modules.llm.groq import Groq
 from app.domain.agent.modules.search.serp import Serp
 from app.domain.agent.services.serp_service import SerpService
 from app.domain.agent.services.vectordb_service import VectorDBService
+from common.constants.agent.prompt import PromptConstants
 from common.constants.agent.tools import ToolConstants
-from common.utils.prompt import is_chitchat_prompt, set_chitchat_prompt, set_output_prompt
 from common.utils.response import success_response
 
 
@@ -22,7 +24,7 @@ class AgentService:
         self.search = Serp()
         self.vector_db_service = VectorDBService()
         self.serp_service = SerpService()
-        self.observations = ""
+        self.context = ""
         self.tools = self.set_agent_tools()
 
 
@@ -55,24 +57,37 @@ class AgentService:
             user_input (str): 사용자 입력 텍스트
 
         Returns:
-            JSONResponse: 챗봇 답변이 포함된 리턴 결과
+            JSONResponse: llm 이 생성한 최종 답변이 포함된 리턴 결과
         """
-        llm_output = await asyncio.to_thread(
+        llm_chitchat_output = await asyncio.to_thread(
             self.llm.run,
-            is_chitchat_prompt(user_input)
+            ChatPromptTemplate.from_messages([
+                ("system", PromptConstants.PROMPTS['chitchat']['confirm']),
+                ("user", "{input}")
+            ]),
+            user_input
         )
 
-        if self.is_chitchat(llm_output):
+        if self.is_chitchat(llm_chitchat_output):
             agent_output = await asyncio.to_thread(
                 self.llm.run,
-                set_chitchat_prompt(user_input)
+                ChatPromptTemplate.from_messages([
+                    ("system", PromptConstants.PROMPTS['chitchat']['output']),
+                    ("user", "{input}")
+                ]),
+                user_input
             )
 
         else:
             await self.set_agent(self.tools).ainvoke({"input": user_input})
             agent_output = await asyncio.to_thread(
                 self.llm.run,
-                set_output_prompt(user_input, self.observations)
+                ChatPromptTemplate.from_messages([
+                    ("system", PromptConstants.PROMPTS['result']['output']),
+                    ("user", "질문: {input}"),
+                ]),
+                user_input,
+                self.context
             )
 
         print(f"Agent Output: {agent_output}")
@@ -93,9 +108,9 @@ class AgentService:
         """
         chitchat_result = getattr(llm_output, "content", str(llm_output)).strip().lower()
 
-        # print(f"--- chitchat ---")
-        # print(f"chitchat: {chitchat_result}")
-        # print()
+        print(f"--- chitchat ---")
+        print(f"chitchat: {chitchat_result}")
+        print()
 
         return "yes" in chitchat_result
 
@@ -137,9 +152,9 @@ class AgentService:
         """
         web_result = self.search.run(query)
         parsed_result = self.serp_service.parse_serp(web_result)
-        self.observations = "\n".join(parsed_result)
+        self.context = "\n".join(parsed_result)
 
-        return self.observations
+        return self.context
 
 
     def qdrant_search(self, query: str) -> str:
@@ -152,7 +167,7 @@ class AgentService:
         Returns:
             str: 검색된 결과를 하나의 문자열로 합쳐 반환
         """
-        qdrant_result =  asyncio.run(self.vector_db_service.search_points(query))
-        self.observations = qdrant_result
+        qdrant_result: LiteralString | Literal['답변을 생성하지 못하였습니다. 다시 시도해 주세요.'] = asyncio.run(self.vector_db_service.search_points(query))
+        self.context = qdrant_result
 
-        return self.observations
+        return self.context
