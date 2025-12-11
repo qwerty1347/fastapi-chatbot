@@ -3,13 +3,12 @@ from typing import Literal, LiteralString
 
 from fastapi.responses import JSONResponse
 from langchain import hub
-from langchain.agents import AgentExecutor
-from langchain.agents import create_react_agent
-from langchain.agents import Tool
+from langchain.agents import AgentExecutor, create_react_agent, Tool
 from langchain_core.prompts import ChatPromptTemplate
 
 
 from app.domain.agent.modules.llm.groq import Groq
+from app.domain.agent.modules.memory.short_term import ShortTermMemory
 from app.domain.agent.modules.search.serp import Serp
 from app.domain.agent.services.serp_service import SerpService
 from app.domain.agent.services.vectordb_service import VectorDBService
@@ -22,6 +21,7 @@ class AgentService:
     def __init__(self):
         self.llm = Groq()
         self.search = Serp()
+        self.short_term_memory = ShortTermMemory()
         self.vector_db_service = VectorDBService()
         self.serp_service = SerpService()
         self.context = ""
@@ -59,6 +59,8 @@ class AgentService:
         Returns:
             JSONResponse: llm 이 생성한 최종 답변이 포함된 리턴 결과
         """
+        self.short_term_memory.buffer.append({"role": "user", "content": user_input})
+
         llm_chitchat_output = await asyncio.to_thread(
             self.llm.run,
             ChatPromptTemplate.from_messages([
@@ -68,6 +70,8 @@ class AgentService:
             user_input
         )
 
+        short_term_history = self.short_term_memory.build_format_history()
+
         if self.is_chitchat(llm_chitchat_output):
             agent_output = await asyncio.to_thread(
                 self.llm.run,
@@ -75,7 +79,8 @@ class AgentService:
                     ("system", PromptConstants.PROMPTS['chitchat']['output']),
                     ("user", "{input}")
                 ]),
-                user_input
+                user_input=user_input,
+                history=short_term_history
             )
 
         else:
@@ -87,13 +92,17 @@ class AgentService:
                     ("user", "질문: {input}"),
                 ]),
                 user_input,
-                self.context
+                context=self.context,
+                history=short_term_history
             )
 
         print(f"Agent Output: {agent_output}")
         print()
 
-        return success_response(getattr(agent_output, 'content', ''))
+        agent_output = getattr(agent_output, 'content', '')
+        self.short_term_memory.buffer.append({"role": "assistant", "content": agent_output})
+
+        return success_response(agent_output)
 
 
     def is_chitchat(self, llm_output: str) -> bool:
@@ -108,9 +117,9 @@ class AgentService:
         """
         chitchat_result = getattr(llm_output, "content", str(llm_output)).strip().lower()
 
-        print(f"--- chitchat ---")
+        # print(f"--- chitchat ---")
         print(f"chitchat: {chitchat_result}")
-        print()
+        # print()
 
         return "yes" in chitchat_result
 

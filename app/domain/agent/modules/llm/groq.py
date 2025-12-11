@@ -14,7 +14,7 @@ class Groq:
         )
 
 
-    def run(self, prompt: ChatPromptTemplate, user_input: str, context: str|None = None) -> str:
+    def run(self, prompt: ChatPromptTemplate, user_input: str, context: str|None = None, history: str|None = None) -> str:
         """
         Groq LLM을 사용하여 입력 텍스트에 대한 응답을 생성하는 함수입니다.
 
@@ -30,6 +30,9 @@ class Groq:
 
         if context is not None:
             inputs['context'] = context
+
+        if history is not None:
+            inputs['history'] = history
 
         chain = prompt | self.llm
 
