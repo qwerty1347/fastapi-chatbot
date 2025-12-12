@@ -6,15 +6,20 @@ from common.constants.agent.llm_model import LlmModelConstants
 
 
 class Groq:
-    def __init__(self, model_name=LlmModelConstants.MODELS['llama']['3.1-8b-instant'], temperature=0.6):
+    def __init__(self):
         self.llm = ChatGroq(
-            model_name=model_name,
-            temperature=temperature,
+            model_name=LlmModelConstants.MODELS['llama']['3.1-8b-instant']['model'],
+            temperature=LlmModelConstants.MODELS['llama']['3.1-8b-instant']['temperature'],
+            api_key=settings.GROQ_API_KEY,
+        )
+        self.llama = ChatGroq(
+            model_name=LlmModelConstants.MODELS['llama']['3.1-8b-instant']['model'],
+            temperature=LlmModelConstants.MODELS['llama']['3.1-8b-instant']['temperature'],
             api_key=settings.GROQ_API_KEY,
         )
 
 
-    def run(self, prompt: ChatPromptTemplate, user_input: str, context: str|None = None, history: str|None = None) -> str:
+    def run(self, prompt: ChatPromptTemplate, user_input: str, context: str | None = None, history: str | None = None) -> str:
         """
         Groq LLM을 사용하여 입력 텍스트에 대한 응답을 생성하는 함수입니다.
 
