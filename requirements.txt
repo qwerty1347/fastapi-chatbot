@@ -63,12 +63,12 @@ qdrant-client==1.15.1         # Qdrant vector DB client
 # -----------------------------
 # LangChain & Ecosystem
 # -----------------------------
-langchain==0.3.27             # Core LangChain framework (chains, agents, LLM integrations)
-langchain-core==0.3.79        # Core abstractions and utilities for LangChain
-langchain-community==0.3.31   # Community-contributed integrations for LangChain
-langchain-openai==0.3.35      # LangChain integration for OpenAI and Groq LLMs
-langchain-qdrant==0.2.1       # LangChain integration for Qdrant vector database
-langchain-groq==0.3.8         # LangChain integration for Groq LLM models
+langchain==1.1.3              # Core LangChain framework (chains, agents, LLM integrations)
+langchain-core==1.1.3         # Core abstractions and utilities for LangChain
+langchain-community==0.4.1    # Community-contributed integrations for LangChain
+langchain-openai==1.1.2       # LangChain integration for OpenAI and Groq LLMs
+langchain-qdrant==1.1.0       # LangChain integration for Qdrant vector database
+langchain-groq==1.1.0         # LangChain integration for Groq LLM models
 
 # -----------------------------
 # Google Custom Search API Wrapper
