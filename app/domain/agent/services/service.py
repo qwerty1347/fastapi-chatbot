@@ -1,52 +1,24 @@
 import asyncio
-from typing import Literal, LiteralString
 
 from fastapi.responses import JSONResponse
 from langchain import hub
-from langchain.agents import AgentExecutor, create_react_agent, Tool
+from langchain.agents import AgentExecutor, create_react_agent
 from langchain_core.prompts import ChatPromptTemplate
-
 
 from app.domain.agent.modules.llm.groq import Groq
 from app.domain.agent.modules.memory.short_term import ShortTermMemory
-from app.domain.agent.modules.search.serp import Serp
-from app.domain.agent.services.serp_service import SerpService
-from app.domain.agent.services.vectordb_service import VectorDBService
+
+from app.domain.agent.modules.tool.db_search import DBSearch
+from app.domain.agent.modules.tool.tools import search_db, search_web
+from app.domain.agent.modules.tool.web_search import WebSearch
 from common.constants.agent.prompt import PromptConstants
-from common.constants.agent.tools import ToolConstants
 from common.utils.response import success_response
 
 
 class AgentService:
     def __init__(self):
         self.llm = Groq()
-        self.search = Serp()
         self.short_term_memory = ShortTermMemory()
-        self.vector_db_service = VectorDBService()
-        self.serp_service = SerpService()
-        self.context = ""
-        self.tools = self.set_agent_tools()
-
-
-    def set_agent_tools(self) -> list[Tool]:
-        """
-        에이전트 챗봇이 사용할 도구 (tool) 를 설정하는 함수입니다.
-
-        Returns:
-            list[Tool]: 에이전트의 리스트
-        """
-        return [
-            Tool.from_function(
-                name=ToolConstants.WEB_SEARCH,
-                func=self.search_web,
-                description=ToolConstants.descriptions[ToolConstants.WEB_SEARCH]["description"]
-            ),
-            Tool.from_function(
-                name=ToolConstants.DB_SEARCH,
-                func=self.qdrant_search,
-                description=ToolConstants.descriptions[ToolConstants.DB_SEARCH]["description"]
-            )
-        ]
 
 
     async def handle_agent(self, user_input: str) -> JSONResponse:
@@ -84,7 +56,13 @@ class AgentService:
             )
 
         else:
-            await self.set_agent(self.tools).ainvoke({"input": user_input})
+            tools = [search_web, search_db]
+            result = await self.set_agent(tools).ainvoke({"input": user_input})
+            tool_result = [
+                observation
+                for action, observation in result["intermediate_steps"]
+            ]
+
             agent_output = await asyncio.to_thread(
                 self.llm.run,
                 ChatPromptTemplate.from_messages([
@@ -92,11 +70,11 @@ class AgentService:
                     ("user", "질문: {input}"),
                 ]),
                 user_input,
-                context=self.context,
+                context=tool_result,
                 history=short_term_history
             )
 
-        print(f"Agent Output: {agent_output}")
+        print(f"Agent Final Answer: {agent_output}")
         print()
 
         agent_output = getattr(agent_output, 'content', '')
@@ -124,7 +102,7 @@ class AgentService:
         return "yes" in chitchat_result
 
 
-    def set_agent(self, tools) -> AgentExecutor:
+    def set_agent(self, tools: list, max_iterations: int = 1):
         """
         LLM 과 Tool 목록을 사용하여 Agent Executor를 생성하는 함수입니다.
 
@@ -134,49 +112,20 @@ class AgentService:
         Returns:
             AgentExecutor: 생성된 Agent Executor 인스턴스
         """
+        react_prompt = hub.pull("hwchase17/react")
         agent = create_react_agent(
-            llm=self.llm.llm,
+            llm=self.llm.llama,
             tools=tools,
-            prompt=hub.pull("hwchase17/react"),
+            prompt=react_prompt
         )
 
-        return AgentExecutor.from_agent_and_tools(
+        agent_executor = AgentExecutor.from_agent_and_tools(
             agent=agent,
             tools=tools,
             verbose=True,
-            max_iterations=1,
+            max_iterations=max_iterations,
             handle_parsing_errors=True,
+            return_intermediate_steps=True,
         )
 
-
-    def search_web(self, query: str) -> str:
-        """
-        Serp API를 사용하여 입력 텍스트에 대한 웹 검색 결과를 가져오고 파싱하여 리턴하는 함수입니다.
-
-        Args:
-            query (str): 검색할 텍스트 쿼리
-
-        Returns:
-            str: 웹 검색 결과를 하나의 문자열로 합쳐 반환
-        """
-        web_result = self.search.run(query)
-        parsed_result = self.serp_service.parse_serp(web_result)
-        self.context = "\n".join(parsed_result)
-
-        return self.context
-
-
-    def qdrant_search(self, query: str) -> str:
-        """
-        Qdrant Client를 사용하여 입력 텍스트의 벡터와 유사한 문서를 검색하는 함수입니다.
-
-        Args:
-            query (str): 검색할 텍스트 쿼리
-
-        Returns:
-            str: 검색된 결과를 하나의 문자열로 합쳐 반환
-        """
-        qdrant_result: LiteralString | Literal['답변을 생성하지 못하였습니다. 다시 시도해 주세요.'] = asyncio.run(self.vector_db_service.search_points(query))
-        self.context = qdrant_result
-
-        return self.context
+        return agent_executor
