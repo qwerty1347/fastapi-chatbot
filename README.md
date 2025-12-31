@@ -10,10 +10,11 @@ LangChain 기반의 **RAG(Retrieval Augmented Generation)** 구조를 활용한 
 ## 🚀 주요 기능
 
 - 💬 **자연어 질의 응답** : Llama3 기반 LLM을 활용해 사용자의 질문을 분석하고 정확한 답변을 제공합니다.
-- 🧠 **RAG 기반 유사도 검색** : VectorDB(Qdrant)에 임베딩된 문서를 검색하여 관련 정보를 제공합니다.
-- 🌐 **웹 검색 (Google)** : 내부 문서에 없는 정보는 SERP(Search Engine Results Page)를 통해 최신 정보를 검색합니다.
 - ⚡ **비동기 API 구조** : FastAPI의 비동기 처리로 높은 성능을 유지합니다.
 - 🧩 **LangChain Agent 구성** : VectorDB, Google Search 등의 도구를 결합해 자율적인 에이전트 동작을 수행합니다.
+- 🧠 **RAG 기반 유사도 검색** : VectorDB(Qdrant)에 임베딩된 문서를 검색하여 관련 정보를 제공합니다.
+- 🌐 **웹 검색 (Google)** : 내부 문서에 없는 정보는 SERP(Search Engine Results Page)를 통해 최신 정보를 검색합니다.
+- 🧠 **단기 메모리 기능**: 대화 컨텍스트를 유지하여 자연스러운 대화 흐름을 지원합니다.
 
 
 ## 🛠️ 기술 스택
@@ -22,7 +23,7 @@ LangChain 기반의 **RAG(Retrieval Augmented Generation)** 구조를 활용한 
 - **Python**
 - **FastAPI**
 - **Streamlit**
-- **VectorDB (Qdrant)** : 문서 임베딩 기반 유사도 검색 (Cosine Similarity)**
+- **VectorDB (Qdrant)**
 
 ### 🤖 LLM / RAG
 - **LangChain**
@@ -31,8 +32,8 @@ LangChain 기반의 **RAG(Retrieval Augmented Generation)** 구조를 활용한 
 - **Google**
 
 ### ⚙️ DevOps / LLMOps
-- **Docker** - 컨테이너화
-- **LangSmith** - 모니터링 및 추적
+- **Docker**
+- **LangSmith**
 
 
 ## 📸 실행 화면
