@@ -4,8 +4,8 @@ import uuid
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from qdrant_client.http.models import Filter, FieldCondition, MatchValue, PointStruct
 
-from app.domain.agent.modules.vectordb.qdrant import Qdrant
-from storage.vectordb.data.base import get_vectordb_data
+from app.modules.vectordb.qdrant import Qdrant
+from storage.vectordb.data.base import get_embedding_data
 
 
 class VectorDBService:
@@ -13,7 +13,7 @@ class VectorDBService:
         self.qdrant = Qdrant()
 
 
-    async def upsert_points(self):
+    async def create_points_from_data(self):
         """
         Qdrant 벡터 DB에 임베딩 생성(문서를 벡터화하여 포인트) 업서트 하는 함수입니다.
         고유 ID와 메타데이터(payload) 를 포함한 PointStruct 객체로 생성하고 DB에 저장합니다.
@@ -32,7 +32,7 @@ class VectorDBService:
             None
         """
         points = []
-        data = get_vectordb_data()
+        data = get_embedding_data()
         splitter = RecursiveCharacterTextSplitter(chunk_size=100, chunk_overlap=10, separators=["\n"])
 
         for category, documents in data.items():
@@ -86,22 +86,43 @@ class VectorDBService:
 
 
     async def handle_search_points(self, query: str, embedded_query):
+        """
+        임베딩된 입력 텍스트를 포인트 검색하여 결과내 가장 높은 점수의 키워드를 찾고,
+        해당 키워드를 사용하여 다시 포인트 검색을 수행하여 포인트 검색 결과를 다루는 함수입니다.
+
+        Args:
+            query (str): 검색 기준이 될 벡터
+            embedded_query (list): 임베딩된 벡터
+
+        Returns:
+            list[ScoredPoint] | str: 검색된 포인트(ScoredPoint) 객체들의 리스트 또는 문자열
+        """
         points = await self.qdrant.search_points(embedded_query, 10)
 
         if not points:
             return "답변을 생성하지 못하였습니다. 다시 시도해 주세요."
 
-        points = self.search_keyword_point(query, points)
+        points = self.search_keyword(query, points)
         top_score_points = max(points, key=lambda p: p.score)
         # print(f"--- top_score_points ---")
         # print(f"top_score_points: {top_score_point}")
         # print()
-        top_score_result = await self.search_top_score_point(embedded_query, top_score_points)
+        top_score_result = await self.search_top_score(embedded_query, top_score_points)
 
         return "\n".join([p.payload['doc'] for p in top_score_result])
 
 
-    def search_keyword_point(self, query, points):
+    def search_keyword(self, query, points):
+        """
+        입력 텍스트에 포함된 키워드를 확인하여 포인트 검색 결과에 포함된 키워드를 가진 포인트만 필터링하는 함수입니다.
+
+        Args:
+            query (str): 검색 기준이 될 벡터
+            points (list[ScoredPoint]): 포인트 검색 결과
+
+        Returns:
+            list[ScoredPoint]: 필터링된 포인트(ScoredPoint) 객체들의 리스트
+        """
         keyword_points = []
 
         for point in points:
@@ -114,7 +135,18 @@ class VectorDBService:
         return points
 
 
-    async def search_top_score_point(self, embedded_query, top_score_point, limit: int = 5):
+    async def search_top_score(self, embedded_query, top_score_point, limit: int = 5):
+        """
+        입력 텍스트에 포함된 키워드를 확인하여 포인트 검색 결과에 포함된 키워드를 가진 포인트만 필터링하는 함수입니다.
+
+        Args:
+            embedded_query (list[float]): 검색 기준이 될 벡터
+            top_score_point (ScoredPoint): 최고 점수 포인트
+            limit (int): 반환할 최대 검색 결과 개수, 기본값은 5
+
+        Returns:
+            list[ScoredPoint]: 필터링된 포인트(ScoredPoint) 객체들의 리스트
+        """
         filters = Filter(
             must=[
                 FieldCondition(

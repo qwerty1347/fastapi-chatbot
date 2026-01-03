@@ -1,6 +1,6 @@
 import asyncio
 
-from app.domain.agent.services.vectordb_service import VectorDBService
+from app.services.vectordb_service import VectorDBService
 
 
 class DBSearch:

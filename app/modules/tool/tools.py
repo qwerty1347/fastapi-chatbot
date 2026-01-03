@@ -1,7 +1,7 @@
 from langchain.tools import tool
 
-from app.domain.agent.modules.tool.db_search import DBSearch
-from app.domain.agent.modules.tool.web_search import WebSearch
+from app.modules.tool.db_search import DBSearch
+from app.modules.tool.web_search import WebSearch
 
 
 web_search = WebSearch()

@@ -1,6 +1,7 @@
 from fastapi import APIRouter
 
-from app.domain.agent.services.vectordb_service import VectorDBService
+from app.services.vectordb_service import VectorDBService
+from common.utils.response import success_response
 
 
 router = APIRouter(prefix="/vector", tags=["VectorDB"])
@@ -9,5 +10,5 @@ vectordb_service = VectorDBService()
 
 @router.get("/embeddings")
 async def index():
-    await vectordb_service.upsert_points()
-    return {"message": "Hello Vector"}
+    await vectordb_service.create_points_from_data()
+    return success_response()

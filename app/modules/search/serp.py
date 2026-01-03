@@ -2,7 +2,7 @@ import json
 
 from langchain_community.utilities import SerpAPIWrapper
 
-from app.domain.agent.services.serp_service import SerpService
+from app.services.serp_service import SerpService
 from config.settings import settings
 
 

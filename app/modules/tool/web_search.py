@@ -1,5 +1,5 @@
-from app.domain.agent.modules.search.serp import Serp
-from app.domain.agent.services.serp_service import SerpService
+from app.modules.search.serp import Serp
+from app.services.serp_service import SerpService
 
 
 class WebSearch:

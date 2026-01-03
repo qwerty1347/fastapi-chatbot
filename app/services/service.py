@@ -5,12 +5,9 @@ from langchain import hub
 from langchain.agents import AgentExecutor, create_react_agent
 from langchain_core.prompts import ChatPromptTemplate
 
-from app.domain.agent.modules.llm.groq import Groq
-from app.domain.agent.modules.memory.short_term import ShortTermMemory
-
-from app.domain.agent.modules.tool.db_search import DBSearch
-from app.domain.agent.modules.tool.tools import search_db, search_web
-from app.domain.agent.modules.tool.web_search import WebSearch
+from app.modules.llm.groq import Groq
+from app.modules.memory.short_term import ShortTermMemory
+from app.modules.tool.tools import search_db, search_web
 from common.constants.agent.prompt import PromptConstants
 from common.utils.response import success_response
 
