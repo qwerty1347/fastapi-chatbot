@@ -13,7 +13,7 @@ class VectorDBService:
         self.qdrant = Qdrant()
 
 
-    async def create_points_from_data(self):
+    async def create_points_from_documents(self):
         """
         Qdrant 벡터 DB에 임베딩 생성(문서를 벡터화하여 포인트) 업서트 하는 함수입니다.
         고유 ID와 메타데이터(payload) 를 포함한 PointStruct 객체로 생성하고 DB에 저장합니다.

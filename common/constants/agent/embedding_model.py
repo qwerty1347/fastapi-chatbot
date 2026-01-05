@@ -1,5 +1,5 @@
 class EmbeddingModelConstants:
-    MODELS ={
+    MODELS = {
         'HuggingFace': {
             'name': 'All-MiniLM-L6-v2',
             'size': 384,
