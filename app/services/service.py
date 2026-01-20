@@ -38,10 +38,11 @@ class AgentService:
             ]),
             user_input
         )
+        chitchat_output = getattr(llm_chitchat_output, "content", str(llm_chitchat_output))
 
         short_term_history = self.short_term_memory.build_format_history()
 
-        if self.is_chitchat(llm_chitchat_output):
+        if self.is_chitchat(chitchat_output):
             agent_output = await asyncio.to_thread(
                 self.llm.run,
                 ChatPromptTemplate.from_messages([
@@ -80,23 +81,17 @@ class AgentService:
         return success_response(agent_output)
 
 
-    def is_chitchat(self, llm_output: str) -> bool:
+    def is_chitchat(self, chitchat_output: str) -> bool:
         """
         LLM 이 판단한 일상 대화 여부의 리턴 결과를 통해 True / False 를 지정하는 함수입니다.
 
         Args:
-            llm_output (str): LLM 이 판단한 일상 대화 여부
+            chitchat_output (str): LLM 이 판단한 일상 대화 여부 (문자열 True / False)
 
         Returns:
-            bool: LLM 리턴 결과 내 yes 포함된 경우 True, 그 외 False
+            bool: True, 그 외 False
         """
-        chitchat_result = getattr(llm_output, "content", str(llm_output)).strip().lower()
-
-        # print(f"--- chitchat ---")
-        print(f"chitchat: {chitchat_result}")
-        # print()
-
-        return "yes" in chitchat_result
+        return True if chitchat_output == "True" else False
 
 
     def set_agent(self, tools: list, max_iterations: int = 1):
