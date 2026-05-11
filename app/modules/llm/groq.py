@@ -1,21 +1,16 @@
+from app.core.config import config
+from config.llm_model import LLMModel
+
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_groq import ChatGroq
-
-from config.settings import settings
-from common.constants.agent.llm_model import LlmModelConstants
 
 
 class Groq:
     def __init__(self):
         self.llm = ChatGroq(
-            model_name=LlmModelConstants.MODELS['llama']['3.1-8b-instant']['model'],
-            temperature=LlmModelConstants.MODELS['llama']['3.1-8b-instant']['temperature'],
-            api_key=settings.GROQ_API_KEY,
-        )
-        self.llama = ChatGroq(
-            model_name=LlmModelConstants.MODELS['llama']['3.1-8b-instant']['model'],
-            temperature=LlmModelConstants.MODELS['llama']['3.1-8b-instant']['temperature'],
-            api_key=settings.GROQ_API_KEY,
+            model_name=LLMModel.MODELS['llama']['3.1-8b-instant']['model'],
+            temperature=LLMModel.MODELS['llama']['3.1-8b-instant']['temperature'],
+            api_key=config.GROQ_API_KEY,
         )
 
 

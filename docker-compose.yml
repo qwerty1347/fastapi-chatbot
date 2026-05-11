@@ -50,14 +50,61 @@ services:
     volumes:
       - ./:/app
       - ./notebooks:/app/notebooks
+      - venv_data:/app/.venv
     ports:
       - "9098:8000"
       - "8888:8888"
     networks:
       - local_network
     environment:
+      SERVICE_TYPE: app
       DB_HOST: fastapi_chatbot-mysql
       MONGO_DB_HOST: fastapi_chatbot-mongodb
+      CELERY_BROKER_URL: redis://fastapi_chatbot-redis:6379/0
+
+  redis:
+    image: redis:latest
+    container_name: fastapi_chatbot-redis
+    ports:
+      - "6379:6379"
+    networks:
+      - local_network
+
+  celery:
+    build:
+      context: .
+      dockerfile: .docker/Dockerfile
+    container_name: fastapi_chatbot-celery
+    volumes:
+      - ./:/app
+      - venv_data:/app/.venv
+    networks:
+      - local_network
+    environment:
+      SERVICE_TYPE: worker
+      CELERY_BROKER_URL: redis://fastapi_chatbot-redis:6379/0
+      CELERY_RESULT_BACKEND: redis://fastapi_chatbot-redis:6379/1
+      QDRANT_HOST: fastapi_chatbot-qdrant
+
+  flower:
+    build:
+      context: .
+      dockerfile: .docker/Dockerfile
+    container_name: fastapi_chatbot-flower
+    volumes:
+      - ./:/app
+      - venv_data:/app/.venv
+    ports:
+      - "5555:5555"
+    networks:
+      - local_network
+    environment:
+      SERVICE_TYPE: flower
+      CELERY_BROKER_URL: redis://fastapi_chatbot-redis:6379/0
+      CELERY_RESULT_BACKEND: redis://fastapi_chatbot-redis:6379/1
+
+volumes:
+  venv_data:
 
 networks:
   local_network:

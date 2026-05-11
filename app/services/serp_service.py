@@ -47,7 +47,7 @@ class SerpService:
         return parsed
 
 
-    def parse_organic_results(arg, organic_results: list):
+    def parse_organic_results(self, organic_results: list):
         """
         Serp API의 organic_results 결과를 파싱하여 리스트 형태로 리턴하는 함수입니다.
 
