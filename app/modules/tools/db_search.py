@@ -21,7 +21,7 @@ class DBSearch:
         """
         vector = self.embedding_model.encode(query).tolist()
         points = self.qdrant.find_points(
-            collection_name="domeggook",
+            collection_name="board_notice",
             query_vector=vector,
             limit=5,
         )
