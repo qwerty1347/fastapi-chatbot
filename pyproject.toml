@@ -1,0 +1,54 @@
+[project]
+name = "fastapi-chatbot"
+version = "0.1.0"
+requires-python = ">=3.11"
+dependencies = [
+    # Web framework
+    "fastapi==0.135.3",                 # ASGI 웹 프레임워크
+    "uvicorn[standard]==0.44.0",        # ASGI 서버 (auto-reload, uvloop 등 포함)
+    "python-multipart",                 # multipart/form-data 파싱 (파일 업로드)
+
+    # Validation & settings
+    "pydantic==2.13.0",                 # 데이터 검증 / 직렬화
+    "pydantic-settings==2.13.1",        # 환경변수 기반 설정 관리
+
+    # Test
+    "pytest==9.0.3",                    # 테스트 프레임워크
+    "pytest-asyncio==1.3.0",            # pytest 비동기 지원
+
+    # Notebook (실험/탐색용)
+    "notebook==7.5.5",                  # Jupyter Notebook 서버 (notebooks/ 디렉터리 사용)
+
+    # Async task queue
+    "celery==5.6.3",                    # 비동기 작업 큐 (OCR 배치 처리)
+    "redis==7.4.0",                     # Celery 브로커 / 결과 백엔드
+    "flower==2.0.1",                    # Celery 모니터링 대시보드 (포트 5555)
+
+    # HTTP client
+    "httpx",                            # 비동기 HTTP 클라이언트 (외부 API 호출용)
+
+    # Database
+    "SQLAlchemy==2.0.49",               # MySQL ORM
+    "pymysql==1.1.2",                   # MySQL 동기 드라이버
+    "aiomysql==0.3.2",                  # MySQL 비동기 드라이버
+    "alembic==1.18.4",                  # DB 마이그레이션 도구
+
+    # Vector Database
+    "qdrant-client==1.17.1",            # Qdrant Python 클라이언트 (gRPC/HTTP)
+    "sentence-transformers==5.4.1",     # CLIP ViT-L/14 임베딩 모델 로드용
+
+    "huggingface-hub==0.35.0",
+
+    # LangChain
+    "langchain==0.3.27",
+    "langchain-core==0.3.79",
+    "langchain-community==0.3.31",
+    "langchain-text-splitters==0.3.11",
+    "langchain-groq==0.3.8",
+    "langsmith==0.3.45",                # langchain 의 transitive dep. 0.4+ 부터 hub.pull 시 dangerously_pull_public_prompt 게이트 추가 — 보수적으로 핀
+
+    "google-search-results==2.4.2",
+
+    # Dev utils
+    "python-dotenv",                    # .env 파일 로더
+]

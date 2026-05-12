@@ -1,22 +1,22 @@
+from app.core.config import config
+from config.llm_model import LLMModel
+
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_groq import ChatGroq
-
-from config.settings import settings
-from common.constants.agent.llm_model import LlmModelConstants
 
 
 class Groq:
     def __init__(self):
-        self.llm = ChatGroq(
-            model_name=LlmModelConstants.MODELS['llama']['3.1-8b-instant']['model'],
-            temperature=LlmModelConstants.MODELS['llama']['3.1-8b-instant']['temperature'],
-            api_key=settings.GROQ_API_KEY,
+        self._llm = ChatGroq(
+            model_name=LLMModel.MODELS['llama']['3.1-8b-instant']['model'],
+            temperature=LLMModel.MODELS['llama']['3.1-8b-instant']['temperature'],
+            api_key=config.GROQ_API_KEY,
         )
-        self.llama = ChatGroq(
-            model_name=LlmModelConstants.MODELS['llama']['3.1-8b-instant']['model'],
-            temperature=LlmModelConstants.MODELS['llama']['3.1-8b-instant']['temperature'],
-            api_key=settings.GROQ_API_KEY,
-        )
+
+
+    def get_chat_model(self) -> ChatGroq:
+        """LangChain Runnable 이 필요한 곳(예: create_react_agent)에서 사용."""
+        return self._llm
 
 
     def run(self, prompt: ChatPromptTemplate, user_input: str, context: str | None = None, history: str | None = None) -> str:
@@ -39,6 +39,6 @@ class Groq:
         if history is not None:
             inputs['history'] = history
 
-        chain = prompt | self.llm
+        chain = prompt | self._llm
 
         return chain.invoke(inputs)
