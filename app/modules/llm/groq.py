@@ -7,11 +7,16 @@ from langchain_groq import ChatGroq
 
 class Groq:
     def __init__(self):
-        self.llm = ChatGroq(
+        self._llm = ChatGroq(
             model_name=LLMModel.MODELS['llama']['3.1-8b-instant']['model'],
             temperature=LLMModel.MODELS['llama']['3.1-8b-instant']['temperature'],
             api_key=config.GROQ_API_KEY,
         )
+
+
+    def get_chat_model(self) -> ChatGroq:
+        """LangChain Runnable 이 필요한 곳(예: create_react_agent)에서 사용."""
+        return self._llm
 
 
     def run(self, prompt: ChatPromptTemplate, user_input: str, context: str | None = None, history: str | None = None) -> str:
@@ -34,6 +39,6 @@ class Groq:
         if history is not None:
             inputs['history'] = history
 
-        chain = prompt | self.llm
+        chain = prompt | self._llm
 
         return chain.invoke(inputs)

@@ -10,11 +10,35 @@ from app.modules.memory.short_term import ShortTermMemory
 from app.modules.prompt.chat import CHAT_PROMPTS
 
 
+# hub.pull 은 네트워크/디스크 I/O 가 있을 수 있으므로 모듈 로드 시 1회만 호출.
+REACT_PROMPT = hub.pull("hwchase17/react")
+
+
 class ChatAgentService:
-    def __init__(self, agent_tools: list[BaseTool], llm: Groq):
+    def __init__(self, agent_tools: list[BaseTool], llm: Groq, max_iterations: int = 1):
         self.agent_tools = agent_tools
         self.llm = llm
         self.short_term_memory = ShortTermMemory()
+        self.agent_executor = self._build_agent_executor(max_iterations)
+
+
+    def _build_agent_executor(self, max_iterations: int) -> AgentExecutor:
+        """
+        ReAct AgentExecutor 를 1회만 생성해 재사용하는 함수
+        """
+        agent = create_react_agent(
+            llm=self.llm.get_chat_model(),
+            tools=self.agent_tools,
+            prompt=REACT_PROMPT,
+        )
+        return AgentExecutor.from_agent_and_tools(
+            agent=agent,
+            tools=self.agent_tools,
+            verbose=True,
+            max_iterations=max_iterations,
+            handle_parsing_errors=True,
+            return_intermediate_steps=True,
+        )
 
 
     async def handle_agent(self, user_input: str):
@@ -54,8 +78,7 @@ class ChatAgentService:
             )
 
         else:
-            tools = self.agent_tools
-            result = await self.set_agent(tools).ainvoke({"input": user_input})
+            result = await self.agent_executor.ainvoke({"input": user_input})
             tool_result = [
                 observation
                 for action, observation in result["intermediate_steps"]
@@ -95,32 +118,3 @@ class ChatAgentService:
             bool: True, 그 외 False
         """
         return True if chitchat_output == "True" else False
-
-
-    def set_agent(self, tools: list, max_iterations: int = 1):
-        """
-        LLM 과 Tool 목록을 사용하여 Agent Executor를 생성하는 함수입니다.
-
-        Args:
-            tools (list[Tool]): 에이전트 챗봇에서 사용할 도구 목록
-
-        Returns:
-            AgentExecutor: 생성된 Agent Executor 인스턴스
-        """
-        react_prompt = hub.pull("hwchase17/react")
-        agent = create_react_agent(
-            llm=self.llm.llm,
-            tools=tools,
-            prompt=react_prompt
-        )
-
-        agent_executor = AgentExecutor.from_agent_and_tools(
-            agent=agent,
-            tools=tools,
-            verbose=True,
-            max_iterations=max_iterations,
-            handle_parsing_errors=True,
-            return_intermediate_steps=True,
-        )
-
-        return agent_executor
