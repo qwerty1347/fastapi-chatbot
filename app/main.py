@@ -4,6 +4,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from app.api import api_router
 from app.core.config import config
+from app.core.dependencies.common import get_embedding_model, get_groq, get_qdrant_client
 from app.core.exceptions.handler import add_exception_handlers
 from app.core.logging import setup_logging
 
@@ -11,7 +12,11 @@ from app.core.logging import setup_logging
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     setup_logging()
+    get_qdrant_client()
+    get_embedding_model()
+    get_groq()
     yield
+    get_qdrant_client().close()
 
 
 

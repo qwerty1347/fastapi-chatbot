@@ -1,3 +1,4 @@
+import logging
 import pkgutil
 import importlib
 
@@ -14,5 +15,5 @@ for module in pkgutil.iter_modules(__path__):
         api_router.include_router(router_module.router)
 
     except ModuleNotFoundError as e:
-        print(f"{__name__}.{module.name} import 실패 {e}")
+        logging.getLogger(__name__).error(f"{__name__}.{module.name} import 실패 {e}")
         continue
