@@ -2,70 +2,8 @@
 
 `fastapi-imageSearch` 의 디렉토리·DI 패턴을 기준으로 `fastapi-chatbot` 의 어색한 부분을 정리한 문서입니다. 우선순위가 높은 항목부터 나열합니다.
 
----
 
-## ✅ 진행 체크리스트
-
-> 작업하면서 `[ ]` → `[x]` 로 바꿔주세요. 한 항목 안에서도 일부만 끝났으면 `[~]` (in progress) 로 표시.
-
-### P0 — 동작/구조의 핵심
-- [x] **#1 Tool DI 화** — `ChatAgentService` 에서 `qdrant`/`embedding_model` 제거, `agent_tools` 주입
-  - [x] `core/dependencies/chat.py` 에 `get_db_search`, `get_web_search`, `get_chat_agent_tools` 추가
-  - [x] `modules/tools/tool.py` 에 `build_db_search`, `build_web_search` 팩토리
-  - [x] `@tool` 함수에 docstring 작성 (`ValueError` 회피)
-- [x] **#2 WebSearch 내부 `new` 제거** — `WebSearch(serp, serp_service)` 생성자 주입
-  - [ ] (선택) `Serp` 안의 `SerpAPIWrapper` 도 주입으로 분리
-- [ ] **#7 라우터 응답 버그 수정** — `handle_agent` 결과를 클라이언트로 반환
-  - [ ] `handle_agent` 가 `str`/DTO 반환 (현재 `return True`)
-  - [ ] router 가 `success_response(...)` 로 감싸 반환
-  - [ ] `GET` → `POST` + body 로 변경
-
-### P1 — 의도한 기능이 동작하게
-- [x] **#3 Lifespan 워밍업** — `get_qdrant_client/get_embedding_model/get_groq` preload + 종료 시 close
-  - [x] `get_qdrant_client().close()` 괄호 누락 버그 수정
-- [ ] **#4 ShortTermMemory 세션별 Store 화**
-  - [ ] `ShortTermMemoryStore` (`session_id -> deque`) 클래스 작성
-  - [ ] `get_memory_store()` `@lru_cache` 싱글톤 등록
-  - [ ] `ChatAgentService` 가 `memory_store` 주입받고 `session_id` 인자 사용
-  - [ ] Router 에서 `session_id` 받아 전달 (#8 ChatRequest 와 함께)
-  - [ ] (운영) Redis Store 로 승격
-- [ ] **#8 Schema 정의** — `app/schemas/chat/{request,response}.py`, `schemas/common.py`
-
-### P2 — 유지보수성/성능
-- [ ] **#5 ChatAgentService 분해** — `Classifier` / `ChitchatResponder` / `AgentRunner` 로 분리
-- [x] **#6 React Agent 캐싱** — `hub.pull` 1회, `AgentExecutor` 재사용, `Groq.get_chat_model()` getter
-  - [x] `REACT_PROMPT` 모듈 레벨 상수화
-  - [x] `Groq.get_chat_model()` 추가 + `self._llm` private 화 (#10 부분 해결)
-  - [x] `ChatAgentService.__init__` 에서 `agent_executor` 1회 생성 후 재사용
-  - [x] `set_agent` 메서드 제거
-
-### P3 — 정리
-- [ ] **#9 services 디렉토리 정리** — `services/serp_service.py` → `services/search/serp.py` 또는 `modules/search/` ✅ 이미 이동 완료
-- [x] services/search 로 이동 완료 (#9 일부)
-- [x] **#10 Groq leaky abstraction 제거** — `self.llm.llm` 접근 제거 (#6 작업 중 함께 해결)
-- [ ] **#11 Serp 샘플/실호출 플래그화** — `config.SERP_USE_SAMPLE`
-- [ ] **#12 Config dataclass 화** — `LLMModel.MODELS[...]` 깊은 dict 제거
-- [ ] **#13 Worker DI 일원화** — `core/dependencies/factory.py` 도입
-- [ ] **#14 잡다한 정리**
-  - [ ] (a) stray 파일 정리 (`storage/vectordb/data/dev_____/...`)
-  - [ ] (b) `print` → `logger`
-  - [ ] (d) `STORAGE_PATH` 중복 계산 제거
-  - [ ] (e) `is_chitchat` 비교 견고화
-  - [ ] (f) `agent_output` 타입 정규화
-  - [ ] (g) `requirements.txt` 제거 (`pyproject.toml` 단일화)
-  - [ ] (h) 단위 테스트 추가
-
-### 검증 (각 작업 후 확인)
-- [ ] 컨테이너 재시작 시 lifespan 워밍업 로그 정상
-- [ ] `/api/v1/chat/` 호출 시 실제 LLM 답변이 응답 body 에 들어감
-- [ ] 같은 `session_id` 로 두 번 요청 시 두 번째 요청에서 첫 번째 대화가 history 에 포함됨
-- [ ] 다른 `session_id` 두 개로 요청 시 history 가 섞이지 않음
-- [ ] `/docs` (Swagger) 에 `ChatRequest`/`ChatResponse` 스키마 노출
-- [ ] 워커가 `embed_notice_board` 태스크 정상 처리
-
----
-
-## 1. Tool 이 DI 로 주입되지 않는다 (가장 큰 이슈)
+## ✅ 1. Tool 이 DI 로 주입되지 않는다 (가장 큰 이슈)
 
 ### 현재 코드
 ```python
@@ -160,7 +98,7 @@ class ChatAgentService:
 
 ---
 
-## 2. `WebSearch` 내부 `new` 남발 (DI 깨짐)
+## ✅ 2. `WebSearch` 내부 `new` 남발 (DI 깨짐)
 
 ### 현재 코드
 ```python
@@ -179,25 +117,36 @@ class WebSearch:
 - `Serp` 가 이미 내부에 `SerpService` 를 들고 있는데 `WebSearch.search_serp` 가 **또** 만들어 쓴다 — 중복/혼란.
 - 외부에서 `Serp`/`SerpService` 를 mock 하거나 fake 로 교체할 수 없다.
 
-### 해결방안
-- `Serp` 와 `SerpService` 를 생성자 주입으로 받게 변경.
-- `Serp` 안의 `self.serp_service = SerpService()` 도 주입으로 받게 한다.
-- `core/dependencies/common.py` 에 `get_serp`, `get_serp_service` 추가하고 `@lru_cache` 로 싱글톤화.
+### 해결방안 (적용 완료)
+- `Serp` 와 `SerpService` 를 **하나의 `Serp` 클래스로 통합** (#9 와 함께 진행). 두 클래스가 사실상 "Serp 어댑터의 양면" 이라 분리할 가치가 약하고, 분리해두면 `WebSearch` 가 의존성 2개를 받아야 함.
+- `core/dependencies/chat.py` 에 `get_serp` 추가, `WebSearch(serp)` 로 단순화.
+- `app/services/search/` 폴더 삭제.
 
 ```python
+# app/modules/search/serp.py — 호출 + 파싱을 한 클래스에서
+class Serp:
+    def __init__(self):
+        self._api = SerpAPIWrapper(...)
+
+    def run(self, query: str) -> dict: ...
+    def parse(self, results: dict) -> list[str]: ...
+    def _load_sample_response(self) -> dict: ...
+    def _parse_knowledge_graph(self, kg: dict) -> list[str]: ...
+    def _parse_organic_results(self, organic: list) -> list[str]: ...
+
+# app/modules/tools/web_search.py — 의존성 1개로 축소
 class WebSearch:
-    def __init__(self, serp: Serp, serp_service: SerpService):
+    def __init__(self, serp: Serp):
         self.serp = serp
-        self.serp_service = serp_service
 
     def search_serp(self, query: str) -> str:
         response = self.serp.run(query)
-        return "\n".join(self.serp_service.parse_serp(response))
+        return "\n".join(self.serp.parse(response))
 ```
 
 ---
 
-## 3. Lifespan 에서 모델 워밍업이 없다
+## ✅ 3. Lifespan 에서 모델 워밍업이 없다
 
 ### 현재 코드
 ```python
@@ -395,7 +344,7 @@ class RedisShortTermMemoryStore:
 
 ---
 
-## 6. React Agent 가 요청마다 재생성 ✅
+## ✅ 6. React Agent 가 요청마다 재생성
 
 ### 현재 코드 (수정 전)
 ```python
@@ -510,32 +459,57 @@ imageSearch 는 `schemas/image_search/response.py` 에 응답 스키마가 있�
 
 ---
 
-## 9. `services/` 디렉토리 구조 불일치
+## ✅ 9. `services/` 디렉토리 구조 불일치 + `SerpService` 위치
 
 ```
-services/
-├── agent/chat.py         ← 폴더 네임스페이스
-├── point/notice_board.py ← 폴더 네임스페이스
+(과거) services/
+├── agent/chat.py
+├── point/notice_board.py
 └── serp_service.py       ← flat (어색)
 ```
 
-### 해결방안
-`serp_service.py` 를 다른 두 서비스와 톤을 맞춘다. 두 가지 선택지:
-- **a) `app/services/search/serp.py`** 로 이동 (services 계층에 두려면)
-- **b) `app/modules/search/serp_service.py`** 로 이동 — 사실 SerpService 는 외부 API 결과 파싱 유틸에 가깝고, `Serp` 와 짝을 이루므로 **이쪽이 더 자연스럽다**. imageSearch 에서 `services/` 는 "유스케이스" 계층인데 SerpService 는 유스케이스라기보다 어댑터에 가깝다.
+### 해결방안 (적용 완료)
+원래 두 옵션이 있었지만 **옵션 b 의 강화 버전**으로 결정:
+- ~~a) `app/services/search/serp.py` 로 이동~~ (중간에 잠시 적용했다가 되돌림)
+- **b) `app/modules/search/serp.py` 의 `Serp` 클래스에 통합** — `SerpService` 의 파싱 메서드를 모두 `Serp` 의 메서드로 흡수.
+
+이유:
+- `SerpService` 는 외부 의존성이 0개인 순수 파싱 유틸. `services/` (유스케이스 계층) 에 둘 가치가 약함.
+- `Serp.run()` 의 응답을 `SerpService.parse_serp()` 가 받는 형태라 두 클래스는 늘 함께 쓰임 — Serp API 어댑터의 양면.
+- 통합 결과 `WebSearch` 의 DI 가 `(serp, serp_service)` → `(serp)` 로 단순해짐.
+- `app/services/search/` 폴더 자체 삭제.
+
+```python
+# app/modules/search/serp.py — 통합 후
+class Serp:
+    def __init__(self):
+        self._api = SerpAPIWrapper(...)
+
+    # 호출
+    def run(self, query: str) -> dict: ...
+    def _load_sample_response(self) -> dict: ...
+
+    # 파싱
+    def parse(self, results: dict) -> list[str]: ...
+    def _parse_knowledge_graph(self, kg: dict) -> list[str]: ...
+    def _parse_organic_results(self, organic: list) -> list[str]: ...
+```
+
+> 만약 향후 Bing/Naver 같은 검색 어댑터가 추가되면 그때 `BaseSearchAdapter` 인터페이스를 도입해 다시 분리하면 됨 (premature abstraction 회피).
 
 ---
 
-## 10. `Groq` 래퍼의 leaky abstraction
+## ✅ 10. `Groq` 래퍼의 leaky abstraction
 
 ```python
-# 외부에서 내부 ChatGroq 인스턴스를 직접 꺼내 씀
+# 과거 — 외부에서 내부 ChatGroq 인스턴스를 직접 꺼내 씀
 agent = create_react_agent(llm=self.llm.llm, ...)
 ```
 
-### 해결방안
-- 명시적 getter 추가: `def get_chat_model(self) -> ChatGroq: return self._llm`
-- 또는 `Groq` 가 LangChain Runnable 인터페이스를 그대로 노출 (`__or__` 등 위임)
+### 해결방안 (적용 완료 — #6 작업 중 함께 해결)
+- `Groq` 의 `self.llm` → `self._llm` (private) 으로 변경.
+- `get_chat_model() -> ChatGroq` 명시적 getter 추가.
+- `ChatAgentService` 가 `self.llm.get_chat_model()` 을 사용 → 내부 객체 노출 제거.
 
 ---
 

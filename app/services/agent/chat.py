@@ -1,4 +1,5 @@
 import asyncio
+from typing import Any
 
 from langchain_core.prompts import ChatPromptTemplate
 from langchain import hub
@@ -41,7 +42,7 @@ class ChatAgentService:
         )
 
 
-    async def handle_agent(self, user_input: str):
+    async def run_chat_agent(self, user_input: str):
         """
         사용자가 입력한 텍스트를 에이전트 챗봇이 도구를 사용하고 챗봇 답변을 생성하고 결과를 리턴하는 함수입니다.
 
@@ -61,8 +62,7 @@ class ChatAgentService:
             ]),
             user_input
         )
-        chitchat_output = getattr(llm_chitchat_output, "content", str(llm_chitchat_output))
-
+        chitchat_output: Any | str = getattr(llm_chitchat_output, "content", str(llm_chitchat_output))
 
         short_term_history = self.short_term_memory.build_format_history()
 
@@ -101,10 +101,7 @@ class ChatAgentService:
         agent_output = getattr(agent_output, 'content', '')
         self.short_term_memory.buffer.append({"role": "assistant", "content": agent_output})
 
-        return True
-
-        # return success_response(agent_output)
-
+        return agent_output
 
 
     def is_chitchat(self, chitchat_output: str) -> bool:

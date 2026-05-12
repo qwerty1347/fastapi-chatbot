@@ -8,11 +8,6 @@ from app.modules.tools.db_search import DBSearch
 from app.modules.tools.tool import build_db_search, build_web_search
 from app.modules.tools.web_search import WebSearch
 from app.services.agent.chat import ChatAgentService
-from app.services.search.serp import SerpService
-
-
-def get_serp_service() -> SerpService:
-    return SerpService()
 
 
 def get_serp() -> Serp:
@@ -27,10 +22,9 @@ def get_db_search(
 
 
 def get_web_search(
-    serp=Depends(get_serp),
-    serp_service=Depends(get_serp_service),
+    serp: Serp = Depends(get_serp),
 ) -> WebSearch:
-    return WebSearch(serp, serp_service)
+    return WebSearch(serp)
 
 
 def get_chat_agent_tools(
