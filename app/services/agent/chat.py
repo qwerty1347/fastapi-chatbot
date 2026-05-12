@@ -3,19 +3,16 @@ import asyncio
 from langchain_core.prompts import ChatPromptTemplate
 from langchain import hub
 from langchain.agents import AgentExecutor, create_react_agent
-from sentence_transformers import SentenceTransformer
+from langchain_core.tools import BaseTool
 
-from app.infrastructure.vectordb.qdrant import Qdrant
 from app.modules.llm.groq import Groq
 from app.modules.memory.short_term import ShortTermMemory
 from app.modules.prompt.chat import CHAT_PROMPTS
-from app.modules.tools.tools import get_tools
 
 
 class ChatAgentService:
-    def __init__(self, qdrant: Qdrant, embedding_model: SentenceTransformer, llm: Groq):
-        self.qdrant = qdrant
-        self.embedding_model = embedding_model
+    def __init__(self, agent_tools: list[BaseTool], llm: Groq):
+        self.agent_tools = agent_tools
         self.llm = llm
         self.short_term_memory = ShortTermMemory()
 
@@ -57,7 +54,7 @@ class ChatAgentService:
             )
 
         else:
-            tools = get_tools(self.qdrant, self.embedding_model)
+            tools = self.agent_tools
             result = await self.set_agent(tools).ainvoke({"input": user_input})
             tool_result = [
                 observation

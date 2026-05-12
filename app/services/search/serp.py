@@ -3,7 +3,7 @@ class SerpService:
         pass
 
 
-    def parse_serp(self, results: dict):
+    def parse_serp(self, results: dict) -> list:
         """
         Serp API의 결과를 파싱하여 리스트 형태로 리턴하는 함수입니다.
 
@@ -29,7 +29,7 @@ class SerpService:
         return parsed
 
 
-    def parse_knowledge_graph(self, knowledge_graph: dict):
+    def parse_knowledge_graph(self, knowledge_graph: dict) -> list:
         """
         Serp API의 knowledge_graph 결과를 파싱하여 리스트 형태로 리턴하는 함수입니다.
 
@@ -47,7 +47,7 @@ class SerpService:
         return parsed
 
 
-    def parse_organic_results(self, organic_results: list):
+    def parse_organic_results(self, organic_results: list) -> list:
         """
         Serp API의 organic_results 결과를 파싱하여 리스트 형태로 리턴하는 함수입니다.
 

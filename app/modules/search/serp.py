@@ -3,12 +3,10 @@ import json
 from langchain_community.utilities import SerpAPIWrapper
 
 from app.core.config import config
-from app.services.serp_service import SerpService
 
 
 class Serp:
     def __init__(self):
-        self.serp_service = SerpService()
         self.serp = SerpAPIWrapper(
             serpapi_api_key=config.SERP_API_KEY,
             params={

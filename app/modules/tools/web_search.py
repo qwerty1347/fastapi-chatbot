@@ -1,10 +1,11 @@
 from app.modules.search.serp import Serp
-from app.services.serp_service import SerpService
+from app.services.search.serp import SerpService
 
 
 class WebSearch:
-    def __init__(self):
-        self.serp = Serp()
+    def __init__(self, serp: Serp, serp_service: SerpService):
+        self.serp = serp
+        self.serp_service = serp_service
 
 
     def search_serp(self, query: str) -> str:
@@ -17,8 +18,7 @@ class WebSearch:
         Returns:
             str: 웹 검색 결과를 하나의 문자열로 합쳐 반환
         """
-        serp_service = SerpService()
         response = self.serp.run(query)
-        parsed = serp_service.parse_serp(response)
+        parsed = self.serp_service.parse_serp(response)
 
         return "\n".join(parsed)
