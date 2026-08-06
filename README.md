@@ -25,6 +25,19 @@ LangChain ReAct 에이전트 기반 대화형 챗봇 API.
 
 ---
 
+## 핵심 특징
+
+| 영역 | 내용 |
+|---|---|
+| **대화 / 정보 요청 분기** | 1차 LLM 호출로 일상 대화 여부를 판정해, 일상 대화면 친근체 응답·정보 요청이면 ReAct 에이전트로 위임 |
+| **ReAct 에이전트** | `create_react_agent` + `AgentExecutor` 가 도구 description 만 보고 `use_db_tool` / `use_web_tool` 을 자율 선택 |
+| **벡터 검색** | Qdrant `board_notice` 컬렉션에서 코사인 유사도 상위 5개 청크를 LLM 컨텍스트로 반환 |
+| **웹 검색** | SerpAPI(`hl=ko`, `gl=kr`) 의 knowledge_graph + organic_results 상위 3개를 파싱해 컨텍스트로 반환 |
+| **단기 메모리** | `deque(maxlen=10)` 기반 발화/응답 히스토리를 매 LLM 호출의 컨텍스트로 주입 |
+| **백그라운드 임베딩** | Celery + Redis 로 공지 데이터 임베딩을 비동기 처리 (`embed_notice_board` 태스크) |
+
+---
+
 ## 디렉토리 구조
 
 ```text
@@ -142,7 +155,7 @@ Flower(http://localhost:5555)에서도 호출·모니터링할 수 있습니다.
 
 ---
 
-## 알려진 제한 사항
+## 개선해야할 점
 
 | 항목 | 내용 |
 |---|---|
